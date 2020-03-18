@@ -14,6 +14,7 @@ def permutation_search(arr: list):
     permutation_search_helper(arr, indexchosen, permutations, res)
     return res
 
+
 def permutation_search_helper(arr: list, indexchosen: list, permutations: list, result:list = None):
     """
 
