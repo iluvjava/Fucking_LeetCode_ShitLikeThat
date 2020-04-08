@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\Fucking_LeetCode_ShitLikeThat\CppSoln\2Sum\Debug\2Sum.exe
+C:\Users\victo\source\repos\Fucking_LeetCode_ShitLikeThat\CppSoln\2Sum\Debug\2Sum.pdb
