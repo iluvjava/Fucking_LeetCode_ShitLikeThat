@@ -1,8 +1,6 @@
 import java.lang.System;
 import java.lang.Math;
 import java.util.Arrays;
-import java.util.LinkedList;
-
 
 
 class Solution {
@@ -20,7 +18,7 @@ class Solution {
         System.out.println(solution(Test3));
         System.out.println(solution(Test4));
         // can't use the test cases anymore cause they are modified. 
-        
+        System.out.println(countInversion(new int[]{8, 7, 6, 5, 4, 3, 2, 1}));
     }
 
     /**
@@ -109,4 +107,9 @@ class Solution {
     }
 
     
+}
+
+class TestThatShit
+{
+
 }
