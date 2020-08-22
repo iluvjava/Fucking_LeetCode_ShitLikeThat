@@ -1,6 +1,9 @@
 import java.lang.System;
 import java.lang.Math;
+import java.util.Arrays;
 import java.util.LinkedList;
+
+
 
 class Solution {
 
@@ -11,10 +14,13 @@ class Solution {
         int[] Test3 = new int[]{5, 1, 2, 3, 7, 8, 6, 4};  // -1
         int[] Test4 = new int[]{1, 2, 5, 3, 7, 8, 6, 4};  // 7
 
+
         System.out.println(solution(Test1));
         System.out.println(solution(Test2));
         System.out.println(solution(Test3));
         System.out.println(solution(Test4));
+        // can't use the test cases anymore cause they are modified. 
+        
     }
 
     /**
@@ -33,53 +39,74 @@ class Solution {
                 MaxLeftInversion = Math.max(q[I] - (I + 1), MaxLeftInversion);
         }
         if (MaxLeftInversion > 2) return - 1; 
-
-        int TotalBribes = 0;
-        for (int I = 1; I < n; I++)
-        {
-            for (int J = 0; J < I; J++)
-            {
-                if (q[J] > q[I])TotalBribes++;
-            }
-        }
-        return TotalBribes;
+        
+        return countInversion(q);
     }
 
     
+    public static int countInversion(int[] arr)
+    {
+        int[] backup = Arrays.copyOf(arr, arr.length);
+        return countInversion(backup, 0, arr.length, new int[arr.length]);
+    }
     /**
-     * left inclusive, right exclusive.  
+     * left inclusive, right exclusive. 
+     * Mutable and array is modified.  
      * @return
      */
-    public static int countInversion(int[] arr,  int start, int end, int[] buckets)
+    private static int countInversion(int[] arr,  int start, int end, int[] buckets)
     {
-        if (end - start <= 1)
+        // basecase, length of sub array is <= 2; 
+        if (end - start <= 2)
         {
-            if (end - start == 1)
+            if (end - start == 2)
             {
-                if (arr[start] < arr[end])
+                if (arr[start] <= arr[end - 1])
                 {
-                    return -1;
+                    return 0;
                 }
-                return -1;
+                else
+                {
+                    int temp = arr[start]; 
+                    arr[start] = arr[end - 1];
+                    arr[end - 1] = temp;
+                    return 1;
+                }
+            }
+            return 0;
+        }
+        int Mid = (start + end)/2; // left: start <= I < mid; right: mid <= J < end 
+        int LeftInversions = countInversion(arr, start, Mid, buckets); 
+        int RightInverions = countInversion(arr, Mid, end, buckets);
+        int MergeInverions = 0;
+        {
+            int I = start, J = Mid, K = 0; // K: offset from: "start position"
+            while(I < Mid && J < end)
+            {
+                if(arr[I] <= arr[J])
+                {
+                    buckets[start + (K++)] = arr[I];
+                    I++;
+                }
+                else
+                {
+                    buckets[start + (K++)] = arr[J];
+                    MergeInverions += Mid - I;
+                    J++;
+                }
+            }
+            while(I < Mid || J < end)
+            {
+                if (I < Mid) buckets[K++] = arr[I++];
+                if (J < end) buckets[K++] = arr[J++];
             }
         }
-       
-            
-        int Mid = (start - end)/2;
-        int LeftInversions = countInversion(arr, start, Mid, buckets);
-        int RightInverions = countInversion(arr, Mid, end, buckets);
-        return -1;
-       
+        for (int I = start; I < end; I++)
+        {
+            arr[I] = buckets[I];
+        }
+        return LeftInversions + RightInverions + MergeInverions;
     }
 
-    /**
-     * Mutable, merge to the left array. 
-     * @return 
-     *  The number of inversion in the array. 
-     */
-    public static int countInversion_help(LinkedList<Integer> left, LinkedList<Integer> right)
-    {
-        return - 1;
-    }
     
 }

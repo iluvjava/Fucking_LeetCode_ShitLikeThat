@@ -11,6 +11,7 @@
 * Enhance Merge Sort as a way of counting inversions
   * The number of inversion is directly related to the number of adjacent swapps
   going from a sorted list to an unsorted list.  
+  * 
 ## Set, Map Related
 
 ### Anagram
