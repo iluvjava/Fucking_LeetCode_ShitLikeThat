@@ -1,5 +1,6 @@
 import java.lang.System;
 import java.lang.Math;
+import java.util.LinkedList;
 
 class Solution {
 
@@ -43,4 +44,42 @@ class Solution {
         }
         return TotalBribes;
     }
+
+    
+    /**
+     * left inclusive, right exclusive.  
+     * @return
+     */
+    public static int countInversion(int[] arr,  int start, int end, int[] buckets)
+    {
+        if (end - start <= 1)
+        {
+            if (end - start == 1)
+            {
+                if (arr[start] < arr[end])
+                {
+                    return -1;
+                }
+                return -1;
+            }
+        }
+       
+            
+        int Mid = (start - end)/2;
+        int LeftInversions = countInversion(arr, start, Mid, buckets);
+        int RightInverions = countInversion(arr, Mid, end, buckets);
+        return -1;
+       
+    }
+
+    /**
+     * Mutable, merge to the left array. 
+     * @return 
+     *  The number of inversion in the array. 
+     */
+    public static int countInversion_help(LinkedList<Integer> left, LinkedList<Integer> right)
+    {
+        return - 1;
+    }
+    
 }

@@ -72,3 +72,37 @@ in front of him, those people who are in front of him are called: Out of order e
 * How it makes sense that, the total number of OOEs are the minum number of inversions? 
   * Because among all possible permutations of ways people can bribe to get 
   in front of the queue, the solution is unique. 
+
+
+### The optimization
+* The process of counting the inversions has a quadratic complexity with bruteforce, but it can be improved with the 
+count inversion method using the merge sort algorithm. 
+* Use linked list to merge 2 lists. 
+
+#### Counting the Number of Inversions
+* Consider the following:  
+    * [a1, a3, a4, a2, a5] to be an re-arrangement of the original array. 
+    * The number of inversion all pairs of elements that are out of order, they are: (a3, a2), (a4, a2)
+* Counting all pairs of inversion in 2 sorted array is easy. 
+    * [a1, a3], [a2, a4, a5]
+    * [a1, a2, a3, a4, a5], comparison (left, right): <, >, <, one inversion detected. 
+    * another example:
+    * [a3, a4], [a1, a2], if joined, then [a3, a4, a1, a2], 4 inversions are involved.
+        * the sequence of comparison from left to right is: 
+        * `>, >`  
+            * first comparison: a1 < a2 < a3, so that is +2 inversions. 
+            * second comparison: a2 < a3 < a4, so that is + 2 inversions. 
+            * 4 inversions in total. 
+* Use this idea with merge sort, so we count the number of inversions during the merging process of the algorithm in 
+merge sort. 
+    * Take this for example.
+    * [1, 2, 5, 3, 7, 8, 6, 4]
+        * [1, 2, 5, 3], [7, 8, 6, 4]
+            * [1, 2], [5, 3], [7, 8], [6, 4]; The branching process for merge sort has now completed.
+            * [1, 2], [3, 5], [7, 8], [4, 6]; inversions: 4
+        * [1, 2, 3, 5], [4, 6, 7, 8]; inversions: 2
+    * [1, 2, 3, 4, 5, 6, 7, 8] inversions 1
+    
+
+* Inputs: 
+    * A list of elements and the indices for each elements in reference array. 
