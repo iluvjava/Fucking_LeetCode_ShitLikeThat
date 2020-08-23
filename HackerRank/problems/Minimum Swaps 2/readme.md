@@ -44,13 +44,13 @@ to represent this process.
 * Observe that, inductively for a cirle with a size of n, we will need n - 1 swapping operations to place the element
 in the correct order.
 
-* Circle within circles can exists in the array, and in that case, we will need to identify all the circles to count 
+* Circle within circles can exists in the array, and in that case, we will need to identify all the circles to count
 
 the number of swaps needed to order the elements in the array.
 
 ## The implementations
 
-* Super easy, just read the number from the array, and then jump to the index they should be in, count the number of 
-jumps, and then terminate when it when it goes back to where it started. 
+* Super easy, just read the number from the array, and then jump to the index they should be in, count the number of
+jumps, and then terminate when it when it goes back to where it started.
 
-* Record all the nodes in the circle, and dont visit then after they hace been detected. 
+* Record all the nodes in the circle, and dont visit then after they hace been detected.
