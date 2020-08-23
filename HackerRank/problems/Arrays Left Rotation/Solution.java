@@ -8,14 +8,45 @@ class Soluiton {
     
     public static void main(String[] args)
     {
-        rotLeft(new int[]{0, 1, 2, 3}, 2);
-        rotLeft(new int[]{0, 1, 2, 3}, 3);
-        rotLeft(new int[]{0, 1, 2, 3, 4}, 2);
-        rotLeft(new int[]{0, 1, 2, 3, 4}, 3);
-        rotLeft(new int[]{0, 1, 2, 3, 4}, 4);
-        rotLeft(new int[]{0, 1, 2, 3, 4, 5, 6, 7}, 3);
+        solution(new int[]{0, 1, 2, 3}, 2);
+        solution(new int[]{0, 1, 2, 3}, 3);
+        solution(new int[]{0, 1, 2, 3, 4}, 2);
+        solution(new int[]{0, 1, 2, 3, 4}, 3);
+        solution(new int[]{0, 1, 2, 3, 4}, 4);
+        solution(new int[]{0, 1, 2, 3, 4, 5, 6, 7}, 3);
     }
 
+    /**
+     * 
+     * @param a
+     * @param d
+     * @return
+     */
+    public static int[] solution(int[] a, int d)
+    {
+        int[] Aux = new int[a.length];
+        {
+            int I = 0;
+            for (int J = d; J < a.length; I++, J++)
+            {
+                Aux[I] = a[J];
+            }
+            int J = 0;
+            while (I < a.length)
+            {
+                Aux[I++] = a[J++];
+            }
+        }
+        System.out.println(Arrays.toString(Aux));
+        return Aux;
+    }
+
+    /**
+     * This is an failed attempt, forget about it. 
+     * @param a
+     * @param d
+     * @return
+     */
     static int[] rotLeft(int[] a, int d) 
     {
         boolean Left2Right = d <= a.length/2;

@@ -92,3 +92,7 @@ to left.
 ### The big brain solution: A Juggling Algorithm
 
 * [Link](https://www.geeksforgeeks.org/array-rotation/)
+
+### Small Brain solution
+
+* Just make an auxilary array and then copy the element over with an offet.
