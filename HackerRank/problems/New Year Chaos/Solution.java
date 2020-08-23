@@ -11,14 +11,11 @@ class Solution {
         int[] Test2 = new int[]{2, 5, 1, 3, 4};  // -1
         int[] Test3 = new int[]{5, 1, 2, 3, 7, 8, 6, 4};  // -1
         int[] Test4 = new int[]{1, 2, 5, 3, 7, 8, 6, 4};  // 7
-
-
         System.out.println(solution(Test1));
         System.out.println(solution(Test2));
         System.out.println(solution(Test3));
         System.out.println(solution(Test4));
-        // can't use the test cases anymore cause they are modified. 
-        System.out.println(countInversion(new int[]{8, 7, 6, 5, 4, 3, 2, 1}));
+        System.out.println(countInversion(new int[]{1, 3, 2, 5, 4})); // failed. 
     }
 
     /**
@@ -95,8 +92,8 @@ class Solution {
             }
             while(I < Mid || J < end)
             {
-                if (I < Mid) buckets[K++] = arr[I++];
-                if (J < end) buckets[K++] = arr[J++];
+                if (I < Mid) buckets[start + (K++)] = arr[I++];
+                if (J < end) buckets[start + (K++)] = arr[J++];
             }
         }
         for (int I = start; I < end; I++)
@@ -107,9 +104,4 @@ class Solution {
     }
 
     
-}
-
-class TestThatShit
-{
-
 }
