@@ -130,7 +130,7 @@ i < j, and the `arr[i]` is `x`, and `arr[j]` is `x*r`.
 * The number of occurences of all elements in the array while traversing in reversed order need to be kept in another
 map data structure.
 
-## Moral of the Story
+## Moral of the Story (Corollary)
 
 * This can be phrased generally as: "Given a sequence of symbols, find all 3 non-continous sub sequences that satisfy
 certain conditions.", the conditions are phrased in such a way that, given any element, the element immdiately next
@@ -150,3 +150,6 @@ to that element can be determined by what element comes before it.
     tuples.
       * The problem becomes similar to couting the number of triplets.
       * Apply recursion here, then we have a general solution to any tupe of discontinous subsequences.
+
+  * Choice to store other relavent information about the discontinous subsequences give solution to different 
+  problems and requirements for outputs.
