@@ -20,12 +20,11 @@ only interested in then appearing after the array.
 
   * Increment the number of appearances for `x` too.
 
-
-## Implementations:
+## Implementations
 
 * I will write it in python first before writing it in java.
 
-## Submission Failed:
+## Submission Failed
 
 ```
 def soln(arr, r):
@@ -110,6 +109,44 @@ and `arr[j]` is `x*r*r`, and, `i < j`.
 will be `x/r`
 
  * The number of `x, x*r` is the number of occurances of `x*r` if x never appears.
+
  * if x already appeared, then we add that `x*r` to the existing value in the dictionary.
 
-* **ONLY ONE TESTCASE FAILED FOR THIS IDEA** ... 
+* **ONLY ONE TESTCASE FAILED FOR THIS IDEA** ...
+  * I have no idea one it failed specifically for hidden Testcase 6, and the output is: `690302634` and expected
+  value is `2325652489`.
+
+## Ideal 5.1
+
+* Create map `m`: (x) |---> (a) where `a` denotes the number of tuples (i, j) comes after the element x in the array, with
+i < j, and the `arr[i]` is `x`, and `arr[j]` is `x*r`.
+
+* Traversing the element in reversed order, let `X` be the current element:
+  * then `m[X*r]` is the number of tuples of `x*r, x*r*r` after `X`.
+    * `Counter += m.get(X*r, 0)`
+  * The new element X is part of the tuple: `X, X*r`, corresponds to the key: `X`. The number of such tuples is given
+  as: `m[X]`, and the additional number of tuple is computer via `m[X] + "The number of occurences of element X*r"`.
+
+* The number of occurences of all elements in the array while traversing in reversed order need to be kept in another
+map data structure.
+
+## Moral of the Story
+
+* This can be phrased generally as: "Given a sequence of symbols, find all 3 non-continous sub sequences that satisfy
+certain conditions.", the conditions are phrased in such a way that, given any element, the element immdiately next
+to that element can be determined by what element comes before it.
+
+* Keys:
+  * Ordering of the non-continous subsequence.
+  * The counting the number of apperances.
+  * Using the map to do the things.
+
+* Extension:
+  * If we are looking more than a triplets, say quadruples of `x, x*r, x*r**2, x*r**3`, def m: (x) |---> y where y is
+  the number of triplets `(x, x*r, x*r**2)` that comes after x.
+    * Then the additional number of qudruples of `(x, x*r, x*r**2, x*r**3)` is `m[x*r]`
+    * x is the start of the triplets: `(x, x*r, x*r**2)`, the additional number of such triplets are given by:
+    `x` multiplied by the number of tuples: `(x*r, x*r**2)`, so we need another dictionary to keep track of all the
+    tuples.
+      * The problem becomes similar to couting the number of triplets.
+      * Apply recursion here, then we have a general solution to any tupe of discontinous subsequences.

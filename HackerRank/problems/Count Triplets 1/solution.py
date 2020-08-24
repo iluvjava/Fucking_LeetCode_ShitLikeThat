@@ -31,7 +31,7 @@ def soln_dead2(arr, r):
     return Counter
 
 
-def soln(arr, r):
+def soln_dead3(arr, r):
     FreqTable, TupleFreq = {}, {}
     Counter = 0
     for X in reversed(arr):
@@ -43,7 +43,17 @@ def soln(arr, r):
                 TupleFreq[X//r] = FreqTable.get(X*r, 0)
         FreqTable[X] = FreqTable.get(X, 0) + 1
     return Counter
-        
+
+
+def soln(arr, r):
+    FreqTable, TupleFreq = {}, {}
+    Counter = 0
+    for X in reversed(arr):
+        Counter += TupleFreq.get(X*r, 0)
+        TupleFreq[X] = TupleFreq.get(X, 0) + FreqTable.get(X*r, 0)
+        FreqTable[X] = FreqTable.get(X, 0) + 1
+    return Counter
+
 
 def wrap(arr, a):
     return soln(list(map(int, arr.split())), a)
