@@ -44,7 +44,7 @@ def soln_dead3(arr, r):
         FreqTable[X] = FreqTable.get(X, 0) + 1
     return Counter
 
-
+# This is the final solution that passes all the tests. 
 def soln(arr, r):
     FreqTable, TupleFreq = {}, {}
     Counter = 0

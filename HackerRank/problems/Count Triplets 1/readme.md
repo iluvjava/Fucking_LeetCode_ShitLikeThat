@@ -116,7 +116,7 @@ will be `x/r`
   * I have no idea one it failed specifically for hidden Testcase 6, and the output is: `690302634` and expected
   value is `2325652489`.
 
-## Ideal 5.1
+## Ideal 5.1 (Worked)
 
 * Create map `m`: (x) |---> (a) where `a` denotes the number of tuples (i, j) comes after the element x in the array, with
 i < j, and the `arr[i]` is `x`, and `arr[j]` is `x*r`.
@@ -138,7 +138,7 @@ to that element can be determined by what element comes before it.
 
 * Keys:
   * Ordering of the non-continous subsequence.
-  * The counting the number of apperances.
+  * Counting the number of occurancesof the discontinuous sequences.
   * Using the map to do the things.
 
 * Extension:
