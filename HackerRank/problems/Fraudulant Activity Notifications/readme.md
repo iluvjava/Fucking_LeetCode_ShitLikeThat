@@ -12,7 +12,6 @@ the number of "fraudulent activities".
   * This is a big big hint that, the usage of heap, dequeue, or linked list and sorting might not be desirable. 
 
 ## Idea 1
-<<<<<<< HEAD
 * Use an array of fixed size to keep track of the median, this requires some really big brain solution. 
 * assume an array to keep tracks of all the counts of the numbers. 
   * The frequencies of the element E, is arr[E]
