@@ -32,10 +32,10 @@ class MedianKeeper():
         if self._Arr[E] == 0:
             raise RuntimeError
         self._N -= 1
-        I, J, Arr = self._P[0], self.P[1], self._Arr
+        I, J, Arr = self._P[0], self._P[1], self._Arr
         Arr[E] -= 1
         if self._N % 2 == 1:
-            if Arr[I] < J:
+            if Arr[I] < J or J - 1 == 0:
                 while Arr[I] == 0:
                     I -= 1
                 self._P = (I, Arr[I])
@@ -62,7 +62,7 @@ class MedianKeeper():
     
 def main():
     def Test1():
-        Keeper = MedianKeeper(100)
+        Keeper = MedianKeeper(10)
         Keeper.add(3)
         print(Keeper.median())
         Keeper.add(6)
@@ -71,7 +71,10 @@ def main():
         print(Keeper.median())
         Keeper.add(9)
         print(Keeper.median())
-        print(Keeper.arr)
+        Keeper.remove(9)
+        print(Keeper.median())
+        Keeper.remove(3)
+        print(Keeper.median())
 
     def Test2():
         pass
