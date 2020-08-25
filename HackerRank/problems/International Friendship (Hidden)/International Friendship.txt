@@ -1,0 +1,16 @@
+# Coding Challenge from Duolingual
+
+## International Friendship 
+
+Input: Graph
+Node: People, a set of language they speaks
+Edge: Friendship. 
+
+Output: The Minum # of Languages need to be taught. 
+
+Say: Edge: (A, B)
+def: Edge Weight := 0 if both shared the same language. 
+def: Edge Weight := 1 if Lang taught speaks by one of A, B.
+def: Edge Weight := 2 if A, B where taught a language they both don't speek. 
+
+Apply Prim's algorithm? 
