@@ -12,6 +12,7 @@ the number of "fraudulent activities".
   * This is a big big hint that, the usage of heap, dequeue, or linked list and sorting might not be desirable. 
 
 ## Idea 1
+<<<<<<< HEAD
 * Use an array of fixed size to keep track of the median, this requires some really big brain solution. 
 * assume an array to keep tracks of all the counts of the numbers. 
   * The frequencies of the element E, is arr[E]
@@ -46,6 +47,13 @@ the number of "fraudulent activities".
   * This data structure can be modified for other purposes, for example, fuzzy median locator. (That is if we only 
   care about the approximate range of the median of an inputs stream)
 
+
+* Use an array of fixed size to keep track of the median, this requires some really big brain solution.
+* Meticulous Design is needed and it will work great if it works. 
+* 
+
+
 ## Idea 2
+
 * Use a min, max heap to keep track of the median, and the heap better supports removal of elements. 
 
