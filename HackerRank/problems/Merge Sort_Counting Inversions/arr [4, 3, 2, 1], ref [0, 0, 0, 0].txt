@@ -1,0 +1,24 @@
+Arr1 ->[8, 7, 6, 5, 4, 3, 2, 1] 
+Arr2 ->[0, 0, 0, 0, 0, 0, 0, 0]
+
+merge(Arr1, Arr2, from=0, to=8):
+    
+    merge(Arr1, Arr2, 0, 5)
+        recur:
+        merge(Arr1, Arr2, 0, 3)
+        Arr1 -> [8, 7, 6, 5, 4, 3, 2, 1] 
+        Arr2 -> [7, 8, 0, 0, 0, 0, 0, 0]
+        
+        recur:
+        merge(Arr1, Arr2, 3, 5)
+        Arr1 -> [8, 7, 6, 5, 4, 3, 2, 1] 
+        Arr2 -> [7, 8, 5, 6, 0, 0, 0, 0]
+        
+    merge from Arr2 to Arr1:
+    Arr1 -> [5, 6, 7, 8, 4, 3, 2, 1] 
+    Arr2 -> [7, 8, 5, 6, 0, 0, 0, 0]
+        
+    merge(Arr1, Arr2, 5, 8)
+        merge(Arr1, Arr2, 5, 6)
+        merge(Arr1, Arr2, 6, 8)
+
