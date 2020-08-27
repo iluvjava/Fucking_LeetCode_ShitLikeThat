@@ -18,7 +18,7 @@ def longest_common_substring(a, b):
     # back trace -----------------------------------------------------------------------------------
     return T, T2
 
-def solution(a, b):
+def solution_failed(a, b):
     T = {}
     M, N = len(a), len(b)
     S = set()  # Longest Common Subsequence
@@ -32,6 +32,25 @@ def solution(a, b):
                 T[I, J] = max(T.get((I - 1, J), 0), T.get((I, J - 1), 0))
     MustBeLower = all(a[I].lower() == a[I] for I in range(M) if I not in S)
     return T[I, J] == N and MustBeLower
+
+def solution(a, b):
+    T = {}
+    M, N = len(a), len(b)
+    for I in range(M):
+        for J in range(N):
+            # A[I] is upper cased letter 
+            if a[I].upper() == a[I]:
+                T[I, J] = T.get((I, J - 1), False) or \
+                    (T.get((I - 1, J - 1), False) or a[I] == b[J])
+            else:  
+            # A[I] is a lower cased letter
+                T[I, J] = T.get((I - 1, J), False) or \
+                    (T.get((I - 1, J - 1), True) and a[I].upper() == b[J])
+    
+    T = [[("T" if T[I, J] else "F") for I in range(M)] for J in range(N)]
+    for R in T:
+        print(R)
+    return T[J][I]
 
 
 def main():

@@ -8,7 +8,7 @@
   * Given some kinda of allowed string operations, determinie if it's possible to convert one string
   to another given string under the set of operations.
 
-* Operations allowed: 
+* Operations allowed:
   * capitalize a **LOWER CASED** letter in the word A.
   * Delete all of the remaining **Lower Cased** Letter in A.
 
@@ -71,7 +71,7 @@ substring B[: J + 1] with the given string operations"
 * Base case:
   * T[-1, ?] = T[?, -1] = T[-1, -1] = True
 
-* Let's fucking do it by hands first before coding this shit out. 
+* Let's fucking do it by hands first before coding this shit out.
 
 ```python
 A = "AbcDE", B = "ABDE"
@@ -106,7 +106,7 @@ LCS: APZN
 
 ```python
 A, B = "beFgH", "EFG"
-  
+
   b e F g H
 E 0 1 1 1 1
 F 0 1 2 2 2
@@ -114,8 +114,8 @@ G 0 1 2 3 3
 
   b e F g H
 E T T F F F
-F 
-G 
+F
+G
 ```
 
 * Expected to be False...
@@ -124,8 +124,8 @@ G
   * "H", "b" in `B` are deleted, and one of them is not a lower cased letter.
 
 ### Something Extra
-  
-  * We might need to keep track of **the sequence of letters** in `A` that made its way to construct the string `B`.  
+
+  * We might need to keep track of **the sequence of letters** in `A` that made its way to construct the string `B`.
 
 ```
 foreach(letter: L not in LCS):
@@ -134,15 +134,28 @@ foreach(letter: L not in LCS):
 
 ### Still failed
 
-  * There are multiple LCS, some of them may be valid, some of the might not. 
+* There are multiple LCS, some of them may be valid, some of the might not.
 
 ## Idea 3 (Modifed LCS but with Boolean Matrix)
 
-* If, A[I].upper() == B[J], then we can include it into our solution. 
-  * T[I, J] := True and T[I - 1, J - 1]
+* T[I, J] := "It is possible that, there exists a sequence of operations that map subtring A[: I + 1] to B[:J + 1]. "
+* Set of Operations;
+  * Capitalized a lowercased letter in A.
+  * Delete all Lowercased Letter in A.
 
-* If, A[I].upper() != B[J] and A[I] is Lower Cased, then we can exlude this letter for sub B.
-  * T[I, J] := T[I - 1, J]
+* Consider any T[I, J]
+  * Then A[I] is either an upper case letter, or a lower case letter.
+  * if A[I] is Upper:
+    * if A[I] != B[J]: Cannot Deleted A[I]. T[I, J] = T[I, J - 1]
+    * else it's equal, still cannot delete it because it's capitalized: T[I, J] := T[I - 1, J - 1]
+  * if A[I] is Lower:
+    * Delete A[I]: T[I, J] = T[I - 1, J]
+    * Capitalize A[I]: T[I, J] = T[I - 1, J - 1] and (A[I].upper() == B[J])
 
-* If, A[I].upper() != B[J] and A[I] is upper cased, then this letter cannot be deleted for sub B.
-  * T[I, J] := False
+* Define Base case:
+  * T[-1, ?] = T[?, -1] = True
+
+
+
+## Idea 4, (Recursion with Memeorization)
+
