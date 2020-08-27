@@ -19,15 +19,28 @@ def longest_common_substring(a, b):
     return T, T2
 
 def solution(a, b):
-    
     T = {}
-    
-    
+    M, N = len(a), len(b)
+    S = set()  # Longest Common Subsequence
+    for I in range(M):
+        for J in range(N):
+            L1, L2 = a[I], b[J]
+            if L1.upper() == L2:
+                S.add(I)
+                T[I, J] = T.get((I - 1, J - 1), 0) + 1
+            else:
+                T[I, J] = max(T.get((I - 1, J), 0), T.get((I, J - 1), 0))
+    MustBeLower = all(a[I].lower() == a[I] for I in range(M) if I not in S)
+    return T[I, J] == N and MustBeLower
 
 
 def main():
-
-    pass
+    a, b = "AfPAN", "APZNC"
+    print(f"Get: {solution(a, b)}, Expects: False")
+    a, b = "AbcDE", "ABDE"
+    print(f"Get: {solution(a, b)}, Expects: True")
+    a, b = "beFgH", "EFG"
+    print(f"Get: {solution(a, b)}, Expects: False")
 
 
 if __name__ == "__main__":
