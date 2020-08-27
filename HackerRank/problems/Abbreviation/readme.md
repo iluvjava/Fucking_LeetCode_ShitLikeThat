@@ -59,10 +59,15 @@ part of A, then the output is automatically false.
 * Fact: letters in B is a sub-set of letters in A. 
   * For [i, j] pair in A, B, letter in A can be skipped but letter in B cannot be skipped.
 
-* define T, T[I, J] := "It's possible that, using the substring a[J: I+1], we can reduce it to the 
+* define T, T[I, J] := "It's possible that, using the substring A[J: I+1], we can reduce it to the 
 substring B[: J + 1]."
 
-* T[I, J] := T[I - 1, J - 1] + 1 if A[I].capitalize() == B[J]
+* T[I, J] := T[I - 1, J - 1] + 1 if (A[I].capitalize() or A[I] == B[J]) else SKIP
+
+* When skipping the letter in I th letter in A: 
+  * T[I, J] = T[I - 1, J]
+
+
 
 
 

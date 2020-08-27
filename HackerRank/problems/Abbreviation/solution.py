@@ -18,7 +18,13 @@ def longest_common_substring(a, b):
     # back trace -----------------------------------------------------------------------------------
     return T, T2
 
+def solution(a, b):
     
+    T = {}
+    
+    
+
+
 def main():
 
     pass
