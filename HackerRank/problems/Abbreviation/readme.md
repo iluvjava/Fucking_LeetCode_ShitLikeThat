@@ -111,6 +111,11 @@ A, B = "beFgH", "EFG"
 E 0 1 1 1 1
 F 0 1 2 2 2
 G 0 1 2 3 3
+
+  b e F g H
+E T T F F F
+F 
+G 
 ```
 
 * Expected to be False...
@@ -127,6 +132,17 @@ foreach(letter: L not in LCS):
   L must be lower.
 ```
 
-### Still failed: 
+### Still failed
+
   * There are multiple LCS, some of them may be valid, some of the might not. 
-  
+
+## Idea 3 (Modifed LCS but with Boolean Matrix)
+
+* If, A[I].upper() == B[J], then we can include it into our solution. 
+  * T[I, J] := True and T[I - 1, J - 1]
+
+* If, A[I].upper() != B[J] and A[I] is Lower Cased, then we can exlude this letter for sub B.
+  * T[I, J] := T[I - 1, J]
+
+* If, A[I].upper() != B[J] and A[I] is upper cased, then this letter cannot be deleted for sub B.
+  * T[I, J] := False
