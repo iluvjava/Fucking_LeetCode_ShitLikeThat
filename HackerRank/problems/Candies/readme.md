@@ -6,7 +6,8 @@
 
 * Constraint: All student must get at least one candy.
 
-* Problem didn't say what happen if the student next to each other happen to have the same score.
+* Problem didn't say what happen if the student next to each other happen to have the same score. So I will assume in that case, just go for the 
+absolute minimum for that student, that is, 1 candy.
 
 ## Idea 1 (Recursive formulation for the problem)
 
@@ -31,4 +32,6 @@ lowerbound on candy for each of the children.
 
 ## Idea 1.2 (Stackification)
 
-* 
+* Don't... Pop it... until the solution has been merged in. 
+
+

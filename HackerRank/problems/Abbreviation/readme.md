@@ -159,3 +159,10 @@ foreach(letter: L not in LCS):
 
 ## Idea 4, (Recursion with Memeorization)
 
+* For each non-cap letter in A, we have the choice to either ignore it, or 
+to capitalize it.
+
+* The base case is that, if 2 string B is empty, and all the letters in string A
+is lower cased (can be removed), then it's a match! A is empty also means a 
+mathc. 
+

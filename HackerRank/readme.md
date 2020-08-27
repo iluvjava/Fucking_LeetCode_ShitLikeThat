@@ -114,6 +114,17 @@ single elements already appeared while traversing the array.
 
 ## Dynamic Programming Related
 
+### In General
+
+* If the problem is discussed in class and it has the common patterns on the recrusion and we already have a
+algorithm for, eg. Longest Common Substring
+  * Applied the algorithm by copying the recursion table and then write codes that solve the problem.
+
+* If that is not the case and the problem seem unconventional, use the BIG GUN:
+  * Investigate recursive structure.
+  * Write a simple recursion and then solve it on small instances to verify that it's correct.
+  * Use Memeorization.
+  * Stackify it if stack over flow problem occured.
 
 ### Prefix Sum
 
