@@ -126,3 +126,7 @@ G 0 1 2 3 3
 foreach(letter: L not in LCS):
   L must be lower.
 ```
+
+### Still failed: 
+  * There are multiple LCS, some of them may be valid, some of the might not. 
+  
