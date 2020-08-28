@@ -1,6 +1,6 @@
 # What is this?
 
-* A Summarization of Ideas for Coding Challenges in General.
+* A Summarization of Ideas for Coding Challenges in General (for Hackrrank coding challenges).
 
 * Coding challenges from companies are design to throw people who are not preapred out of balance, and then filter
 
@@ -125,7 +125,7 @@ algorithm for, eg. Longest Common Substring, Weighted Interval, KnapSack, Prefix
 
   * Investigate recursive structure.
   * Write a simple recursion and then solve it on small instances to verify that it's correct.
-  * Use Memeorization.
+  * Use Memoization.
   * Stackify it if stack over flow problem occured.
   * Tablularized if the patterns of recursion can be easily put into forloops and such.
 

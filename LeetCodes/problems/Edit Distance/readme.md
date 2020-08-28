@@ -97,4 +97,5 @@ t 3   2
 
 * Diagonal Direction is all good, but the... the... Vertical and Horizontal needs working and polishing. 
 
-## Just read From Geek for Geek and solve it. 
+## Just read From Geek for Geek and solve it 
+
