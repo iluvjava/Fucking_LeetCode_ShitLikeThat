@@ -118,11 +118,11 @@ single elements already appeared while traversing the array.
 
 * If the problem is discussed in class and it has the common patterns on the recrusion and we already have a
 algorithm for, eg. Longest Common Substring, Weighted Interval, KnapSack, Prefix Sum, Isotonic Regression.
-  
+
   * Applied the algorithm by copying the recursion table and then write codes that solve the problem.
 
 * If that is not the case and the problem seem unconventional, use the BIG GUN:
-  
+
   * Investigate recursive structure.
   * Write a simple recursion and then solve it on small instances to verify that it's correct.
   * Use Memeorization.
@@ -151,8 +151,12 @@ looking up the parameters in another data structure)
 
 * Accumulating the partial sum for a given 2d or 1d array.
 
+### Longest Common Sub-String
 
+### Edit Distance
 
-## Greedy Algorithm Related 
+### Weighted Inverval Scheduling
+
+## Greedy Algorithm Related
 
 ## Graph Algorithm Related
