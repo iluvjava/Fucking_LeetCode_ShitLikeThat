@@ -117,7 +117,7 @@ single elements already appeared while traversing the array.
 ### In General
 
 * If the problem is discussed in class and it has the common patterns on the recrusion and we already have a
-algorithm for, eg. Longest Common Substring, Weighted Interval, KnapSack, Prefix Sum, Isotonic Regression. 
+algorithm for, eg. Longest Common Substring, Weighted Interval, KnapSack, Prefix Sum, Isotonic Regression.
   
   * Applied the algorithm by copying the recursion table and then write codes that solve the problem.
 
@@ -127,6 +127,7 @@ algorithm for, eg. Longest Common Substring, Weighted Interval, KnapSack, Prefix
   * Write a simple recursion and then solve it on small instances to verify that it's correct.
   * Use Memeorization.
   * Stackify it if stack over flow problem occured.
+  * Tablularized if the patterns of recursion can be easily put into forloops and such.
 
 ### Stackfication of With Memerization of DP
 
@@ -152,3 +153,6 @@ looking up the parameters in another data structure)
 
 
 
+## Greedy Algorithm Related 
+
+## Graph Algorithm Related

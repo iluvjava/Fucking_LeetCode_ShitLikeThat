@@ -113,9 +113,9 @@ F 0 1 2 2 2
 G 0 1 2 3 3
 
   b e F g H
-E T T F F F
-F
-G
+E 1 1 0 0 0
+F 1 1 1 1 0
+G 1 1 0 1 0
 ```
 
 * Expected to be False...
@@ -177,7 +177,7 @@ mathc.
 
 
 
-## Correct Solution from the Discussion Board: 
+## Correct Solution from the Discussion Board:
 
 # Complete the abbreviation function below.
 
@@ -192,13 +192,20 @@ def abbreviation(a, b):
                 dp[i][j] = a[j-1].islower() and dp[i][j-1]
             elif i != 0 and j != 0:
                 if a[j-1] == b[i-1]:
-                    dp[i][j] = dp[i-1][j-1]
+                    # that character matches. 
+                    dp[i][j] = dp[i-1][j-1]  # Depends on wehther, the [i - 1, j - 1] substring mathces. 
                 elif a[j-1].upper() == b[i-1]:
-                    dp[i][j] = dp[i-1][j-1] or dp[i][j-1]
-                elif not (a[j-1].isupper() and b[i-1].isupper()):
+                    # uppering that letter matches the letter
+                    dp[i][j] = dp[i-1][j-1] or dp[i][j-1]  # either, delet it, or don't, [i - 1, j - 1] is not deleting it. 
+                    # if deleting it, then it depends on [i][j - 1]. 
+                elif not (a[j-1].isupper() and b[i-1].isupper()): 
+                    # 
                     dp[i][j] = dp[i][j-1]
+                # if not all of the above, then it's false, because the character a[i - 1] is capitalized and b 
+                # just can't match it. 
     return "YES" if dp[n][m] else "NO"
-``` 
+```
 
 * Notes:
-  * j is for string a, i is for string b.  
+  * j is for string a, i is for string b.
+

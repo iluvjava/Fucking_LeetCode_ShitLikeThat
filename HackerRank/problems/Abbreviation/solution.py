@@ -18,6 +18,7 @@ def longest_common_substring(a, b):
     # back trace -----------------------------------------------------------------------------------
     return T, T2
 
+
 def solution_failed(a, b):
     T = {}
     M, N = len(a), len(b)
@@ -32,6 +33,7 @@ def solution_failed(a, b):
                 T[I, J] = max(T.get((I - 1, J), 0), T.get((I, J - 1), 0))
     MustBeLower = all(a[I].lower() == a[I] for I in range(M) if I not in S)
     return T[I, J] == N and MustBeLower
+
 
 def solution(a, b):
     T = {}
@@ -97,10 +99,9 @@ def solution_recur_mem(a, b):
         if I < 0 and J < 0:
             return True
         if I < 0:
-            return True
-
-        if J < 0:
             return False
+        if J < 0:
+            return True
         
         L1, L2 = a[I], b[J]
         if L1.lower() == L1:  # L1 is lower  
@@ -113,8 +114,28 @@ def solution_recur_mem(a, b):
         return T[I, J]
     M, N = len(a) - 1, len(b) - 1
     return recur(M, N)
-        
 
+
+def solution_tablularized(a, b):
+    T = {}
+    M, N = len(a) - 1, len(b) - 1
+    def DP(I, J):
+        if (I, J) in T:
+            return T[I, J]
+        if I < 0 and J < 0:
+            return True
+        if I < 0:
+            return False
+        if J < 0:
+            return True
+    for I in range(M):
+        for J in range(N):
+            L1, L2 = a[I], b[J]
+            if L1.lower() == L1:
+                T[I, J] = DP(I - 1, J) or (DP(I - 1, J - 1) and L1.upper() == L2)
+            else:
+                T[I, J] = L1 == L2 and DP(I - 1, J - 1)
+    return T[M - 1, N - 1]
 
 
 def main():
@@ -129,20 +150,20 @@ def main():
     
     def Test1():
         a, b = "AfPAN", "APZNC"
-        print(f"Get: {solution_recur_mem(a, b)}, Expects: False")
+        print(f"Get: {solution_tablularized(a, b)}, Expects: False")
         a, b = "AbcDE", "ABDE"
-        print(f"Get: {solution_recur_mem(a, b)}, Expects: True")
+        print(f"Get: {solution_tablularized(a, b)}, Expects: True")
         a, b = "beFgH", "EFG"
-        print(f"Get: {solution_recur_mem(a, b)}, Expects: False")
+        print(f"Get: {solution_tablularized(a, b)}, Expects: False")
         a = "RDWPJPAMKGRIWAPBZSYWALDBLDOFLWIQPMPLEMCJXKAENTLVYMSJNRJAQQPWAGVcGOHEWQYZDJRAXZOYDMNZJVUSJGKKKSYNCSFWKVNHOGVYULALKEBUNZHERDDOFCYWBUCJGbvqlddfazmmohcewjg"
         b = "RDPJPAMKGRIWAPBZSYWALDBLOFWIQPMPLEMCJXKAENTLVYMJNRJAQQPWAGVGOHEWQYZDJRAXZOYDMNZJVUSJGKKKSYNCSFWKVNHOGVYULALKEBUNZHERDOFCYWBUCJG"
-        print(f"Get: {solution_recur_mem(a, b)}, Expects: False")
+        print(f"Get: {solution_tablularized(a, b)}, Expects: False")
         a = "MBQEVZPBjcbswirgrmkkfvfvcpiukuxlnxkkenqp"
         b = "MBQEVZP"
-        print(f"Get: {solution_recur_mem(a, b)}, Expects: False")
+        print(f"Get: {solution_tablularized(a, b)}, Expects: False")
         a = "DINVMKSOfsVQByBnCWNKPRFRKMhFRSkNQRBVNTIKNBXRSXdADOSeNDcLWFCERZOLQjEZCEPKXPCYKCVKALNxBADQBFDQUpdqunpelxauyyrwtjpkwoxlrrqbjtxlkvkcajhpqhqeitafcsjxwtttzyhzvh"
         b = "DINVMKSOVQBBCWNKPRFRKMFRSNQRBVNTIKNBXRSXADOSNDLWFCERZOLQEZCEPKXPCYKCVKALNBADQBFDQU"
-        print(f"Get: {solution_recur_mem(a, b)}, Expects: True")
+        print(f"Get: {solution_tablularized(a, b)}, Expects: True")
     Test1()
         
 
