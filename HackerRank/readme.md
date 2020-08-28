@@ -23,7 +23,6 @@ j
 
 * Start coding NOW!
 
-
 ## Arrays Related
 
 ### Jungling Algorithm

@@ -49,4 +49,6 @@ then the cost will be: `n*c2`.
 
 * Finding CC: DFS, BFS.
 
-* 
+## Problem
+
+* One wrong answer and running out of time for the problems. 
