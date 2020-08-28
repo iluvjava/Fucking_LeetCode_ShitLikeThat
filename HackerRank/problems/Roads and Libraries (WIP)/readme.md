@@ -51,4 +51,4 @@ then the cost will be: `n*c2`.
 
 ## Problem
 
-* One wrong answer and running out of time for the problems. 
+* One wrong answer and running out of time for the problems.
