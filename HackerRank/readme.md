@@ -117,15 +117,38 @@ single elements already appeared while traversing the array.
 ### In General
 
 * If the problem is discussed in class and it has the common patterns on the recrusion and we already have a
-algorithm for, eg. Longest Common Substring
+algorithm for, eg. Longest Common Substring, Weighted Interval, KnapSack, Prefix Sum, Isotonic Regression. 
+  
   * Applied the algorithm by copying the recursion table and then write codes that solve the problem.
 
 * If that is not the case and the problem seem unconventional, use the BIG GUN:
+  
   * Investigate recursive structure.
   * Write a simple recursion and then solve it on small instances to verify that it's correct.
   * Use Memeorization.
   * Stackify it if stack over flow problem occured.
 
-### Prefix Sum
+### Stackfication of With Memerization of DP
+
+* The Recursion Stack Stores all the parameters needed for the algorithm, (or some kind of identifier that helps with
+looking up the parameters in another data structure)
+
+* Call the Memerization table T.
+
+* If the parameter given is already in the table, then remove the parameter and `continue` back to while loop, else:
+
+  * if Branch, then check if the parameters is in the Memorization or not, if it is, then skip the branching process.
+
+  * prepare the branching process first, for each of the sub problems, add the needed parameters for the sub-problem
+  and `continue` back to the loop.
+
+  * if all the branching sub-problem has been solved, merge results using the table T.
+
+  * store the new results to table T, pop that parameter because the problem has been solved.
+
+### Prefix Sum (Common Patterns)
 
 * Accumulating the partial sum for a given 2d or 1d array.
+
+
+

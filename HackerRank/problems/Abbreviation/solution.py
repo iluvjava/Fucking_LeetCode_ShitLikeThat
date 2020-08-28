@@ -53,14 +53,98 @@ def solution(a, b):
     return T[J][I]
 
 
-def main():
-    a, b = "AfPAN", "APZNC"
-    print(f"Get: {solution(a, b)}, Expects: False")
-    a, b = "AbcDE", "ABDE"
-    print(f"Get: {solution(a, b)}, Expects: True")
-    a, b = "beFgH", "EFG"
-    print(f"Get: {solution(a, b)}, Expects: False")
+def solution_recur_mem_failed(a, b):
+    T = {}  # Param map to results ---------------------------------------------
+    def recurFunc(a, b):
+        # Base -----------------------------------------------------------------
+        if (a, b) in T:
+            return T[a, b]
+        
+        if len(a) < len(b):
+            T[a, b] = False
+            return False
+        
+        if a.upper() == a:
+            T[a, b] = a == b
+            return T[a, b]
+        
+        # A contains at least one lower cased letter. --------------------------
+        L, I = a[0], 0
+        
+        while a[I].lower() != a[I]: # Find first lower cased letter ------------
+            I += 1
+            L = a[I]
+        
+        if L.lower() == L:  # Is lower -----------------------------------------
+            Case1 = recurFunc(a[:I] + a[I + 1:], b)  # remove L ----------------
+            a_cap = list(a)
+            a_cap[I] = a_cap[I].upper()
+            Case2 = recurFunc("".join(a_cap), b)
+            T[a, b] = Case1 or Case2
+        else:
+            raise RuntimeError("WTF")
 
+        return T[a, b]
+    
+    return recurFunc(a, b)
+
+
+def solution_recur_mem(a, b):
+    T = {}
+    def recur(I, J):  # If a[:I + 1], b[:J + 1] is a match. 
+        if (I, J) in T:
+            return T[I, J]
+        if I < 0 and J < 0:
+            return True
+        if I < 0:
+            return True
+
+        if J < 0:
+            return False
+        
+        L1, L2 = a[I], b[J]
+        if L1.lower() == L1:  # L1 is lower  
+            Case1 = recur(I - 1, J)  # delet L1
+            Case2 = recur(I - 1, J - 1) and L1.upper() == L2 # Cap L1
+            T[I, J] = Case1 or Case2
+        else: # L1 is upper
+            Case3 = L1 == L2 and recur(I - 1, J - 1)
+            T[I, J] = Case3
+        return T[I, J]
+    M, N = len(a) - 1, len(b) - 1
+    return recur(M, N)
+        
+
+
+
+def main():
+
+    def Bleh():
+        a, b = "AfPAN", "APZNC"
+        print(f"Get: {solution(a, b)}, Expects: False")
+        a, b = "AbcDE", "ABDE"
+        print(f"Get: {solution(a, b)}, Expects: True")
+        a, b = "beFgH", "EFG"
+        print(f"Get: {solution(a, b)}, Expects: False")
+    
+    def Test1():
+        a, b = "AfPAN", "APZNC"
+        print(f"Get: {solution_recur_mem(a, b)}, Expects: False")
+        a, b = "AbcDE", "ABDE"
+        print(f"Get: {solution_recur_mem(a, b)}, Expects: True")
+        a, b = "beFgH", "EFG"
+        print(f"Get: {solution_recur_mem(a, b)}, Expects: False")
+        a = "RDWPJPAMKGRIWAPBZSYWALDBLDOFLWIQPMPLEMCJXKAENTLVYMSJNRJAQQPWAGVcGOHEWQYZDJRAXZOYDMNZJVUSJGKKKSYNCSFWKVNHOGVYULALKEBUNZHERDDOFCYWBUCJGbvqlddfazmmohcewjg"
+        b = "RDPJPAMKGRIWAPBZSYWALDBLOFWIQPMPLEMCJXKAENTLVYMJNRJAQQPWAGVGOHEWQYZDJRAXZOYDMNZJVUSJGKKKSYNCSFWKVNHOGVYULALKEBUNZHERDOFCYWBUCJG"
+        print(f"Get: {solution_recur_mem(a, b)}, Expects: False")
+        a = "MBQEVZPBjcbswirgrmkkfvfvcpiukuxlnxkkenqp"
+        b = "MBQEVZP"
+        print(f"Get: {solution_recur_mem(a, b)}, Expects: False")
+        a = "DINVMKSOfsVQByBnCWNKPRFRKMhFRSkNQRBVNTIKNBXRSXdADOSeNDcLWFCERZOLQjEZCEPKXPCYKCVKALNxBADQBFDQUpdqunpelxauyyrwtjpkwoxlrrqbjtxlkvkcajhpqhqeitafcsjxwtttzyhzvh"
+        b = "DINVMKSOVQBBCWNKPRFRKMFRSNQRBVNTIKNBXRSXADOSNDLWFCERZOLQEZCEPKXPCYKCVKALNBADQBFDQU"
+        print(f"Get: {solution_recur_mem(a, b)}, Expects: True")
+    Test1()
+        
 
 if __name__ == "__main__":
     main()
