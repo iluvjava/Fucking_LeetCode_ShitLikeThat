@@ -8,6 +8,22 @@ them out. This can be seem easily through the coding challanges they send to peo
 
 * If this is really their strategy, then this repo provides the counter strategies.
 
+## Things at front
+
+* There are something to keep in mind when solving interview problems in general.
+
+* The 80% rule:
+  * only start coding the solution when you know above 80% about the problem you are solving at hands.
+
+* If constraints a explicit given, please think about it and its implications.
+j
+* Read the conditions of the problem carefully and make use of all relavent information.
+  * unlike solving problem in the real worlds, the relavent information in the coding challanges are always
+  useful information for producing the correct/optimal solution for the problem.
+
+* Start coding NOW!
+
+
 ## Arrays Related
 
 ### Jungling Algorithm
