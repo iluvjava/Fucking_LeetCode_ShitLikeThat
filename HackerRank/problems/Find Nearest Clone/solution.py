@@ -48,7 +48,7 @@ def findShortest(graph_nodes, graph_from, graph_to, ids, val):
         AjdList[V].append(U)
         AjdList[U].append(V)
     del U, V
-    # index starts with 1. color zero is a color to ignore. --------------------
+    # index starts with 1 color zero is a color to ignore. --------------------
     ColorDict = dict((I + 1, V) for I, V in enumerate(ids))
     VertexWithThatColor = [ID for ID, C in ColorDict.items() if C == val]
     MinDis = float("+inf")
@@ -63,7 +63,6 @@ def findShortest(graph_nodes, graph_from, graph_to, ids, val):
     return MinDis if MinDis != float("+inf") else -1
 
 
-
 def main():
 
     def Test1():
@@ -72,7 +71,7 @@ def main():
         Colors = [1, 2, 2, 2, 1]
         Val = 1
         print(findShortest(5, From, To, Colors, Val))
-    
+        
     Test1()
     pass
 
