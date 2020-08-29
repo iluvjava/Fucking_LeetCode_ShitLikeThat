@@ -1,5 +1,5 @@
 
-def dfs(v, adjList):
+def bfs(v, adjList, Visited):
     """
         provide a vertex and an adjacency list, provide a vertex that is in 
         the adjacency list.
@@ -18,17 +18,19 @@ def dfs(v, adjList):
         vertext v. 
     """
     Q = [v]
-    V = set()
+    # Visited = set()
+    Vertices = 1
     while len(Q) != 0:
         U = Q.pop(0)
         for W in adjList[U]:
-            if (W not in V):
+            if (W not in Visited):
                 Q.append(W)
-                V.add(W)
-        V.add(U)
-    else:
-        V.add(v)
-    return V
+                Visited.add(W)
+                Vertices += 1
+        Visited.add(U)
+    else:  # The while loop runs successful
+        return Vertices
+    return 1
 
 
 def solution(n, c_lib, c_road, cities):
@@ -51,10 +53,9 @@ def solution(n, c_lib, c_road, cities):
     for V in range(n):
         if V in Explored:
             continue
-        CC = dfs(V, AjdList)
-        Explored = Explored.union(CC)
-        CCSize.append(len(CC))
+        CCSize.append(bfs(V, AjdList, Explored))
     # Computing the total Costs ------------------------------------------------
+    print(CCSize)
     return sum(((K - 1)*c_road + c_lib) for K in CCSize)
 
 

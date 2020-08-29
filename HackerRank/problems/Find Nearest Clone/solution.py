@@ -51,17 +51,15 @@ def findShortest(graph_nodes, graph_from, graph_to, ids, val):
     # index starts with 1. color zero is a color to ignore. --------------------
     ColorDict = dict((I + 1, V) for I, V in enumerate(ids))
     VertexWithThatColor = [ID for ID, C in ColorDict.items() if C == val]
-
     MinDis = float("+inf")
     while len(VertexWithThatColor) >= 0:
-        V = VertexWithThatColor.pop() # WTF.... 
+        V = VertexWithThatColor.pop()
         Distance, NextVertex = dfs_modified(V, AjdList, ColorDict, val)
         if NextVertex is None: 
             # Queue must be empty at this point. 
             break
         MinDis = min(MinDis, Distance)
         ColorDict[V] = 0  # No color they already found.
-        
     return MinDis if MinDis != float("+inf") else -1
 
 
