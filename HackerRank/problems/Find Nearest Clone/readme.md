@@ -31,7 +31,7 @@
 * we also need to skip all the vertices that has already been identified, or else, we will alternate between 2
 vertices when doing the BFS.
 
-* can we do better? Do we really need to find ALL PAIRS of distances for vertices with that color? 
+* can we do better? Do we really need to find ALL PAIRS of distances for vertices with that color?
 
 ## Idea 2 (Doesn't work)
 
@@ -77,11 +77,11 @@ give us a distance of 0 between them. Hence, the level doesn't tell us that.
 ### Algorithm
 
 * We run the BFS, and then once a pair is found, we discolor the first vertex we started with.
-  * Proof. 
-  * Start with v1, get v2, as the shortest distance blue vertex. 
-  * Ignore v1, start with v2, find the shortest distance blue vertex, say, v3. 
-  * V2 found before v3, hence dis(v1, v2) > dis(v1, v3). 
-    * now we can confidently ignore v1. 
+  * Proof.
+  * Start with v1, get v2, as the shortest distance blue vertex.
+  * Ignore v1, start with v2, find the shortest distance blue vertex, say, v3.
+  * V2 found before v3, hence dis(v1, v2) > dis(v1, v3).
+    * now we can confidently ignore v1.
 
 * And then, we finda new blue vertex, repeat.
 
@@ -89,7 +89,7 @@ give us a distance of 0 between them. Hence, the level doesn't tell us that.
 
 * Triangle inequality kept us safe.
 
-* By connectivity of the graph, if we can't find any other blue vertices during the process, then that vertex is the 
-last one. 
+* By connectivity of the graph, if we can't find any other blue vertices during the process, then that vertex is the
+last one.
 
 

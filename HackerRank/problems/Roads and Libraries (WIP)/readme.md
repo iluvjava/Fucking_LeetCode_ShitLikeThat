@@ -32,6 +32,9 @@ vertices are the city with/without libraries.
 
 * Therefore, the decision is made purely on whether: c2 > c1, or c1 > c2.
 
+
+## Idea 1 (Using the above fact)
+
 ## Algorithm (How to compute the cost)
 
 * If the cost of the libraries and the cost of the roads are the same, then the cost is n * c where n i |V| for the
@@ -49,6 +52,14 @@ then the cost will be: `n*c2`.
 
 * Finding CC: DFS, BFS.
 
-## Problem
+## Problem!
 
-* One wrong answer and running out of time for the problems.
+* One wrong answer and running out of time for the problems. That is very anonying.
+
+* Too much time is spent on looking for the connected components via BFS. 
+
+* Python should be fast enough, and even if that is not the case, the hidden testcase showed that it's really bad, 
+input super huge. 
+
+
+

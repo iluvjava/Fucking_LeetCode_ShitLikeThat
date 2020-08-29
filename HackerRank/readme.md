@@ -15,7 +15,7 @@ them out. This can be seem easily through the coding challanges they send to peo
 * The 80% rule:
   * only start coding the solution when you know above 80% about the problem you are solving at hands.
 
-* If constraints a explicit given, please think about it and its implications.
+* If constraints are explicit given, please think about it and its implications.
 j
 * Read the conditions of the problem carefully and make use of all relavent information.
   * unlike solving problem in the real worlds, the relavent information in the coding challanges are always
@@ -54,7 +54,7 @@ to a predefined permutations)
 
 * A inversion counting algorithm is implemented in: `problems/New Year Chaos`, in **Java**.
 
-### Minimum Swaps (Related to Sorting)
+### Minimum Swaps (Related to Sorting, not necessarily adjacent swapping)
 
 * The # of minimum swapp to reduce the array to a certain permutation (sorted order) is reduced to a cycle detection
 
@@ -168,6 +168,8 @@ looking up the parameters in another data structure)
 
 ### Longest Common Sub-String
 
+
+
 ### Edit Distance
 
 ### Weighted Inverval Scheduling
@@ -175,3 +177,59 @@ looking up the parameters in another data structure)
 ## Greedy Algorithm Related
 
 ## Graph Algorithm Related
+
+* In general:
+  * Don't expect things that are too hard like Network flow, Negative Cycles, Clique delection or Independent sets.
+  * Expect simple stuff. I don't think they will even touch on negative weight edges.
+  * Careful what assumption to make, espcailly about the connectivity of the graph, can't assume anything if
+  it's not explicitly given in the problem.
+
+## Triangle Inequalities
+
+  * Use this to simplify and optimize the runtime of some algorithms, see (./HackerRank/Find Nearest Clone) for
+  example.
+  * Use that fact and pair it with algorithm on shortest distances.
+
+## Think Inductively and come up with good examples.
+
+* This is very important when doing graph coding challenges.
+
+### BFS:
+
+* BFS tree.
+  * Levels.
+  * Edges doesn't cross more than 2 levels on the tree.
+* Unweighted Directed/Undirected simple graph.
+* Expanding like a spider when searching.
+
+* The vertex it visted.
+* The edge distance to the root.
+* The size of the connected components associated with a vertex.
+* Always remember SINGLETON!
+
+```python
+def dfs(v, adjList):
+  Q = [v]
+  Visited = {}
+  while len(Q) != 0:
+    U = Q.pop(0)  # change here to make DFS
+    for W in adjList[U]:
+      if W not in Visited:
+        Visited.add(W)
+        Q.add(W)
+  else:
+    Return Visited  
+  return set([v])  # singleton.
+```
+
+### DFS:
+
+* DFS tree.
+  * Ancestors on the branches, no crossing between different branches.
+* Connected Components.
+
+
+## Basic facts
+
+* The numeber of edges and connected components. (|V| - 1) to be the minimum.
+
