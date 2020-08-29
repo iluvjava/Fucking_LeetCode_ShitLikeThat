@@ -23,6 +23,7 @@ def dfs(v, adjList):
         U = Q.pop(0)
         for W in adjList[U]:
             if (W not in V):
+                Q.append(W)
                 V.add(W)
         V.add(U)
     else:
