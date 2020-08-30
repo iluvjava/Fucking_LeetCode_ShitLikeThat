@@ -76,6 +76,7 @@ handling for the edges cases, I might be "overfitting" so I googled the correct 
 * Hist: A array of positive integer, representing all the bars of on the axis. 
 
 * Stack: The indices of all the bars, such that, the bars will be increasing order of their heights.
+  * This is the invariant that we are keeping for the algorithm's first phase. 
 
 * Monotonic Hitogram
 ```
@@ -98,5 +99,19 @@ handling for the edges cases, I might be "overfitting" so I googled the correct 
 
 * Assuming a stack of bars are given, with their height, and from the top of the stack to the bottom
 they are in decreasing height. 
+  * As we remove them sequencially, we will be able to compute all the rectangles that potentially
+  has the maximal size. 
 
-* 
+
+* Algorithm Phase I: 
+  * Exploiting monotonic 
+```python
+Stack = list()
+Pointer = 0  # int that points to the bar in the variable "hist"
+while index <len(hist):
+    if (len(stack) == 0) or (hist[Stack[-1]] <= hist[index]):  # Increasng bar height. 
+        stack.append(Pointer)
+        Pointer += 1
+    else:  # The new element break the increasing bar height invariant in the stack. 
+        pass
+```
