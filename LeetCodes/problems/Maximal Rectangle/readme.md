@@ -9,7 +9,7 @@
   * Indexing from 0.
   * The top left corner of the array is the [0, 0]
 
-## Idea 1
+## Idea 1 
 
 * Recurrences, let's define that, T[I, J] gives the maximum continous block of 1 square such that its bottom
 left corner is located at the index [I, J].
@@ -57,3 +57,46 @@ left corner is located at the index [I, J].
 * If we used multiple table, then is the recursive formulation of the algorithm gonna be multi-recursive? Like
 recursion but with multiple functions?
 
+## What failed 
+* For some reasons I just cannot get it right and the solution exploded as I add more and more 
+handling for the edges cases, I might be "overfitting" so I googled the correct solution instead. 
+
+## Idea 3 
+
+* The solution for the problem can be found here: (link)[https://www.geeksforgeeks.org/largest-rectangle-under-histogram/]
+
+### Largest Rect In Histogram Sub Routine
+
+* Construct the longest continuous 1 array for each horizontal level on the matrix. 
+
+* For each level, find the largest rectangle on the histograms. 
+
+#### Algorithm
+
+* Hist: A array of positive integer, representing all the bars of on the axis. 
+
+* Stack: The indices of all the bars, such that, the bars will be increasing order of their heights.
+
+* Monotonic Hitogram
+```
+*
+* *
+* * *
+* * * *
+```
+
+* The sets of rectangles that can have maximum sizes are
+```
+*  
+*   * *
+*   * *  * * *
+* , * *, * * *, * * * *
+```
+* if not, extending it to the left side will improve the size. 
+
+* Now we exploit this property for our algorithm. 
+
+* Assuming a stack of bars are given, with their height, and from the top of the stack to the bottom
+they are in decreasing height. 
+
+* 
