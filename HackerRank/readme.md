@@ -12,16 +12,38 @@ them out. This can be seem easily through the coding challanges they send to peo
 
 * There are something to keep in mind when solving interview problems in general.
 
-* The 80% rule:
+* **The 80% rule**:
   * only start coding the solution when you know above 80% about the problem you are solving at hands.
 
-* If constraints are explicit given, please think about it and its implications.
+* If constraints are **explicit given**, please think about it and its implications.
 j
 * Read the conditions of the problem carefully and make use of all relavent information.
   * unlike solving problem in the real worlds, the relavent information in the coding challanges are always
   useful information for producing the correct/optimal solution for the problem.
 
 * Start coding NOW!
+
+## Common Good Strategies for Coding Problem
+
+* Read the problem carefully, and if no ideas pop up immediately, skip and do the next one to save time.
+
+* When during interview, you have to communicate with the interviewers to get what they are trying to do and do the
+problem under their guides. This is a process of communications.
+
+* **Dimentionality Reduction**:
+  * Reduce the dimension of the problem too see if it gets into an easier problem, sometimes, the subroutine for
+  solving the problem is in the sobroutine.
+
+* **Spacial Case Inspiration**
+
+  * Consider an special case of the problem, especially consider the problem for an easier instance. If that problem
+  can be solved, then there is a "Partial solution" of the full solution hidden in how the special cased is solved.
+
+* **Base Cases**
+  * This one is escpecially important because a lot of the recursive backtracking/Dynamic programming solution comes
+  down to a good analysis of the base cases, and the is also the place where a lot of problems are having a **good
+  amount of diversity**.
+
 
 ## Arrays Related
 
@@ -165,10 +187,26 @@ looking up the parameters in another data structure)
 ### Prefix Sum (Common Patterns)
 
 * Accumulating the partial sum for a given 2d or 1d array.
+  * The 1d is kinda trivial
+* Recurrence Structure:
+  * T[I, J] := "The sum of the sub-array on the top right corner, and the bottom right corner
+  locates at [I, J] inclusive"
+
+  * T[I, J] = T[I - 1, J] + T[I, J - 1] + T[I - 1, J - 1]
+
+  * Base Cases:
+    * T[I < 0, J < 0] = 0; If you want to sum them up, then you better start summing up from zero.
+    * And there are other ways.
+      * T[I = 0, for all J] = arr[0][J], T[for all I, J = 0] = arr[I][0], T[0, 0] = T[I, J]
+      * This one won't support empty array anymore, but it's more legit because it follows the
+      philosophy that, a sum has to start with something.
 
 ### Longest Common Sub-String
 
+* Looking for the longest common discontinous substring between any 2 given string uses dynamic programming and it's 
+related to edit distance of 2 strings. 
 
+* 
 
 ### Edit Distance
 
@@ -218,7 +256,7 @@ def dfs(v, adjList):
         Visited.add(W)
         Q.add(W)
   else:
-    Return Visited  
+    Return Visited
   return set([v])  # singleton.
 ```
 
