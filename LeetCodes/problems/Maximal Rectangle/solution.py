@@ -56,6 +56,7 @@ def solution(arr):
                     else:
                         T3[I, J] = (1, DP2(I, J - 1) + 1)
                 RunningMax = max(RunningMax, T3[I, J][0]*T3[I, J][1])
+                RunningMax = max(RunningMax, T1[I, J], T2[I, J])
             else:
                 T1[I, J] = T2[I, J] = 0 
                 T3[I, J] = (0, 0)
@@ -75,17 +76,17 @@ def solution(arr):
 
 
 def main():
-    arr = [
-    ["1","0","1","0","0"],
-    ["1","0","1","1","1"],
-    ["1","1","1","1","1"],
-    ["1","0","0","1","0"]
-    ]
-    arr = [[int(arr[I][J]) for J in range(len(arr[0]))] for I in range(len(arr))]
-    print(f"and the solution is: {solution(arr)}")
+    # arr = [
+    # ["1","0","1","0","0"],
+    # ["1","0","1","1","1"],
+    # ["1","1","1","1","1"],
+    # ["1","0","0","1","0"]
+    # ]
+    # arr = [[int(arr[I][J]) for J in range(len(arr[0]))] for I in range(len(arr))]
+    # print(f"and the solution is: {solution(arr)}")
 
-    print(solution([[1, 1, 1]]))
-    print(solution([[0, 1], [0, 1]]))
+    # print(solution([[1, 1, 1]]))
+    # print(solution([[0, 1], [0, 1]]))
     print(solution([[1]*4 for _ in range(3)]))
     pass
 
