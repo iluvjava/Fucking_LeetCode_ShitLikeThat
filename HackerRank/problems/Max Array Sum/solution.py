@@ -4,7 +4,7 @@ def solution(arr):
     T[0] = arr[0]
     T[1] = max(arr[0], arr[1])
     for I in range(2, len(arr)):
-        T[I] = max(arr[I] + max(T[I - 2], 0), T[I - 1])
+        T[I] = max(arr[I] + max(T[I - 2], 0), T[I - 1])  # This is like a Binary recursion. 
     return T[len(arr) - 1]
 
 

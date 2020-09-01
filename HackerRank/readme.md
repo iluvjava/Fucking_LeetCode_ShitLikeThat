@@ -203,12 +203,28 @@ looking up the parameters in another data structure)
 
 ### Longest Common Sub-String
 
-* Looking for the longest common discontinous substring between any 2 given string uses dynamic programming and it's 
-related to edit distance of 2 strings. 
+* Looking for the longest common discontinous substring between any 2 given string uses dynamic programming and it's
+related to edit distance of 2 strings. Say the 2 strings are denoted as `A`, `B`.
 
-* 
+* For the `I` th element in the string a and the `J` th element in string b, there are the several cases:
+  * If `A[I] == B[J]`, then that letter has to be in the longest common substring.
+
+* Recurrence:
+  * T[I, J]:= The length of the longest common substring between the the prefix of `A[:I + 1]` and `B[:J + 1]`.
+  * Then:
+    * T[I, J] := Max(T[I - 1, J], T[I, J - 1]) if A[I] != B[J]
+    * T[I, J] := T[I - 1, J - 1] + 1 if A[I] == B[J]
+  * Base Cases:
+    * The longest common substring where one of the string is empty, is 0
+
 
 ### Edit Distance
+
+* Edit distance is defined to be the number of INSERT, REPLACE, DELETE that edit from one string to the other string. 
+
+* Say 2 of the string that we are interested is: `A`, `B`.
+
+
 
 ### Weighted Inverval Scheduling
 
