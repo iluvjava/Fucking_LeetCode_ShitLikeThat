@@ -155,16 +155,20 @@ single elements already appeared while traversing the array.
 
 * If the problem is discussed in class and it has the common patterns on the recrusion and we already have a
 algorithm for, eg. Longest Common Substring, Weighted Interval, KnapSack, Prefix Sum, Isotonic Regression.
-
   * Applied the algorithm by copying the recursion table and then write codes that solve the problem.
 
 * If that is not the case and the problem seem unconventional, use the BIG GUN:
-
   * Investigate recursive structure.
   * Write a simple recursion and then solve it on small instances to verify that it's correct.
   * Use Memoization.
   * Stackify it if stack over flow problem occured.
   * Tablularized if the patterns of recursion can be easily put into forloops and such.
+
+* Identifying Dynamic Programming Problem 
+  * A dynamic programming problem experiences the optimal structure: 
+    * The optimal solution of a problem can be constructucted from the optimal solutions 
+    of the sub-problems. 
+    * A greedy algorithms can be solved with dynamic programming
 
 ### Stackfication of With Memerization of DP
 
