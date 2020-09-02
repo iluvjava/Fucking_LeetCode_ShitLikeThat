@@ -1,4 +1,4 @@
-# Problem statement.
+# Problem statement
 
 * Intro:
   * We defined a set of operations that is applied to the string, and then applied it to a given string,
@@ -17,3 +17,4 @@
 
 * Find that string A, that with the smallest Lexical graphical order.
 
+* Note this problem is hard and we might need some kind of proof to justify what we are doing. 
