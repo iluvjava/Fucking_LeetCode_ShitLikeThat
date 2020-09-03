@@ -21,6 +21,10 @@ j
   * unlike solving problem in the real worlds, the relavent information in the coding challanges are always
   useful information for producing the correct/optimal solution for the problem.
 
+* The problem presented from the copanies will have fancy names and long description to mask what the problem it 
+is exactly, preventing the candidtate from reaching to google if the candidate cannot phrase the problem correctly
+and don't know how to describe the problem. 
+
 * Start coding NOW!
 
 ## Common Good Strategies for Coding Problem

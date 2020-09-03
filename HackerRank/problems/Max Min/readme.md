@@ -39,5 +39,5 @@ of all of them.
 heapq in python to make a heap datastructure for coding problems like these.  
 
 * The heapq in python doesn't support removal of any elements that is already in the heap. 
-  * Which is a big bummer. 
+  * Which is a big bummer.
   
