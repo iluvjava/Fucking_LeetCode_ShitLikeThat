@@ -48,7 +48,6 @@ problem under their guides. This is a process of communications.
   down to a good analysis of the base cases, and the is also the place where a lot of problems are having a **good
   amount of diversity**.
 
-
 ## Arrays Related
 
 ### Jungling Algorithm

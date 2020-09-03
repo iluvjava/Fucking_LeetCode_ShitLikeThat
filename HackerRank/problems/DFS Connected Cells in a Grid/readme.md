@@ -29,4 +29,9 @@
 
 ## Idea 2: DFS
 
-* Just do a DFS and find the size of the connected components and that is all. 
+* Just do a DFS and find the size of the connected components and that is all.
+
+## Idea 3 (Big Brain needs more Data structure)
+
+* Use the data structure called Union-find to count the number of connected components in the 
+graph.
