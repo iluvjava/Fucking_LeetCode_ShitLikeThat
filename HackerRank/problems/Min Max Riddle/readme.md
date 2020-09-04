@@ -27,7 +27,7 @@ using its subroutine.
 
 * And using the information about the nearest smallest element, we can construct the minimum for each window sizes.
 
-* [Geek link]()
+* [Geek link](https://www.geeksforgeeks.org/find-the-maximum-of-minimums-for-every-window-size-in-a-given-array/)
 
 ### Reasoning
 
@@ -39,7 +39,7 @@ minimum of those window sizes.
 
 * To look for, 2 arrays of indices that denotes the immediate smaller element on the left and right of the element
 at `I` we use the similar stack strategies described in `..\Largest Reactangle`
-  * 
+
 
 * Then, use those 2 array to get the window size for each of the element, so we have a map:
 `index of the element` |---> `size of the window that contain that element such that the minimum is that element`
@@ -48,23 +48,23 @@ at `I` we use the similar stack strategies described in `..\Largest Reactangle`
 
 ### Let's try it out by hands and see what we can learn
 
-* Let the input of the problem be: 
+* Let the input of the problem be:
   * `[1, 2, 3, 5, 1, 13, 3]`
-* For each element in the array, find the immediate left, right smaller elements. 
+* For each element in the array, find the immediate left, right smaller elements.
   * Right immediate smaller: `[None, 4, 4, 4, None, 6, None]`
-    * Where none denotes that, the element is out of the index, and it's like far far beyond the 
-    right side of the array. 
+    * Where none denotes that, the element is out of the index, and it's like far far beyond the
+    right side of the array.
   * Left immediate smaller: `[None, 0, 1, 2, None, 4, 4]`
 
-  * For immediate element that are on the left side that are smaller, replace `None` with -1 and 
-  for the right side, use `len(arr)`, which is `7`, then we get the following 2 arrays: 
+  * For immediate element that are on the left side that are smaller, replace `None` with -1 and
+  for the right side, use `len(arr)`, which is `7`, then we get the following 2 arrays:
   * `[7, 4, 4, 4, 7, 6, 7]`, `[-1, 0, 1, 2, -1, 4, 4]`
   * Using the arrays, we an computer the window size such that, the minimum is that number.
   * Formula: `R - L - 1`
-    * `[7, 3, 3, 1, 7, 1, 2]` 
+    * `[7, 3, 3, 1, 7, 1, 2]`
 * Using the data we obtained from the previous part, we will be able to obtained the soulution.
-  * create map with array, where the index is the size of the window and the value is the maximum 
-  of all minimum of that window size. 
+  * create map with array, where the index is the size of the window and the value is the maximum
+  of all minimum of that window size.
     * 7 |---> 1
     * 6 |---> ?
     * 5 |---> ?
@@ -73,39 +73,69 @@ at `I` we use the similar stack strategies described in `..\Largest Reactangle`
     * 2 |---> 3
     * 1 |---> 13
 
-  * Observe that there are these unfilled values. 
-  * The key here is, if the size of the window gets smaller, then the minimum gets larger, because 
-  the smaller window is a sub-interval of the larger window.  
-  * there are 3 window in the array with size of 5. 
+  * Observe that there are these unfilled values.
+  * The key here is, if the size of the window gets smaller, then the minimum gets larger, because
+  the smaller window is a sub-interval of the larger window.
+  * there are 3 window in the array with size of 5.
     * `[0 --> 4]`, `[1 --> 5]`, `[2 --> 7]` which belongs to sub intervals with length 6:
     * `[0 --> 5]`, `[1 --> 6]`
 
-  * Therefore, the lower bound is determine by the larger interval, since for window with size 5, 
-  it's underdeterined (**Proof needed here it's kinda complicated**), we assert that, for all the 
+  * Therefore, the lower bound is determine by the larger interval, since for window with size 5,
+  it's underdeterined (**Proof needed here it's kinda complicated**), we assert that, for all the
   underdetermined sliding window with a size:
-   
-    * ans[i] = max(ans[i + 1], ans[i + 2])
-    * Note that, the global minimum eixsts, hence, the quantity is defined. 
 
-### A more involved example by hand: 
+    * ans[i] = max(ans[i + 1], ans[i + 2])  # huh... why is it the max of TWO of them...
+    * Note that, the global minimum eixsts, hence, the quantity is defined.
 
-* Arr = "3 5 4 7 6 2" 
+### What kind of dark magic is going here
+
+* For the global minimum, the window size of the element is `n`
+
+* For the second minimum in the array, the size of the window must be <= `n - 1`
+  * It's equal when the second, first minimum is at the opposite side of the array.
+  * If it's not the above case, then the window size it's strictly less than that. In that case, the maximum of
+  window size n - 1 will not be in the final array we found.
+  * It still works if there are repeated element in the array.
+  * If the first and second smallest element is not at the `0`, and `n - 1` index of the array, then the max min of
+  window size of n - 1 will be the same as the global minimum. (Because that window will have to include them at some
+  point)
+* Inductively, for the `k`th smallest element, the max window size for that element, is `<= n - k`
+
+#### Do it Formally
+
+* Basic Definitions:
+  * Let `arr` be the array we are looking at.
+  * Let, `Min1, Min2, Min3` be the smallest 3 elements in the array.
+  * Def F[] be a function that map the element in array to the maximum window size such that, the element remains to be
+  the minimum of tha window.
+  * `n` the size of the array.
+* Hypothesis:
+  * For all element in array, say `I`, `F[I]` never equals to `n - 1` or `n - 2`.
+* Then:
+  * F[Min1] <= n, F[Min2] <= n - 1, F[Min3] <= n + 2
+  
+
+### A more involved example by hand
+
+* Arr = "3 5 4 7 6 2"
          0 1 2 3 4 5
 * Immediate left smaller:  `[-1, 0, 0, 2, 2,-1]`
 * Immediate right smaller: `[ 5, 2, 5, 4, 5, 6]`
 * Window size:             `[ 5, 1, 4, 1, 2, 6]`
-* Maximum for each window size: 
+* Maximum for each window size:
   * 1 |--> 7  # Cannot be ? because it's the global maximum
   * 2 |--> 6
   * 3 |--> ?
   * 4 |--> 4
   * 5 |--> 3
   * 6 |--> 2  # cannot be ? becaues it's the global Minimum
+    * Fact:
+      * Monotonically Decreasing as the window's size goes up.
+* Then, the maximum of windows size 3 is the max of 4, 5, which is 4.
 
-* See codes for more on how this is handled. 
-
+* See codes for more on how this is handled.
 
 ### Extension of the problem
 
-* The maximum for all the window sizes, and we are looking for the minimum for each of the window's 
-size. 
+* The maximum for all the window sizes, and we are looking for the minimum for each of the window's
+size.

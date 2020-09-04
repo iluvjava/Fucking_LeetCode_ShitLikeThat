@@ -42,9 +42,17 @@ def solution(arr):
     print(f"left and right: {Left}, {Right}")
     WinSize = [(R - L - 1) for L, R in zip(Left, Right)]
     print(f"Winsize: {WinSize}")
-    Ans = [min(arr)]*len(arr)  # To store the result
+    Ans = [float("-inf")]*len(arr)  # To store the result
     for I, V in enumerate(WinSize):
         Ans[V - 1] = max(Ans[V - 1], arr[I])
+
+    if Ans[len(Ans) - 2] == float("-inf"):
+        Ans[len(Ans) - 2] = Ans[len(Ans) - 1]
+
+    for I in reversed(range(len(Ans) - 2)):
+        if Ans[I] == float("-inf"):
+            Ans[I] = max(Ans[I + 1], Ans[I + 2])
+        pass
     return Ans
 
 
