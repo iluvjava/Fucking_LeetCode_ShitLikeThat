@@ -119,7 +119,6 @@ def solution_recur_mem(a, b):
 def solution_tablularized(a, b):
     T = {}
     M, N = len(a) - 1, len(b) - 1
-    
     def DP(I, J):
         if (I, J) in T:
             return T[I, J]

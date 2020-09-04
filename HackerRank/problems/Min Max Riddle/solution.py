@@ -36,14 +36,17 @@ def immediate_smaller_bothside(arr):
 
 def solution(arr):
     """
-        This is the solution to the problem 
+        This is the solution to the problem
     """
     Left, Right = immediate_smaller_bothside(arr)
+    print(f"left and right: {Left}, {Right}")
     WinSize = [(R - L - 1) for L, R in zip(Left, Right)]
-    Ans = [float("-inf")]*len(arr)  # To store the result. 
-    for I, V in enumerate(Ans):
-        Ans[I] = max(WinSize[I], V)
+    print(f"Winsize: {WinSize}")
+    Ans = [min(arr)]*len(arr)  # To store the result
+    for I, V in enumerate(WinSize):
+        Ans[V - 1] = max(Ans[V - 1], arr[I])
     return Ans
+
 
 def main():
     def Test1():
@@ -51,7 +54,15 @@ def main():
         print(immediate_right_smaller([1, 2, 3, 4]))
         print(immediate_right_smaller([4, 3, 2, 1]))
         print(immediate_left_smaller([1, 3, 1, 5, 6, 7, 2]))
+
+    def Test2():
+        Array = [1, 2, 3, 5, 1, 13, 3]
+        print(solution(Array))
+        Array = [3, 5, 4, 7, 6, 2]
+        print(solution(Array))
+    Test2()
     pass
+
 
 if __name__ == "__main__":
     main()

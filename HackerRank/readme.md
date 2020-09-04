@@ -106,7 +106,6 @@ problem. See `./problems/Minimum Swaps 2` for more information.
 
 * An anagram of substring is defined to be the substring of a string that are
 permutations of each other.
-
 * All substring has a unique permutations to it, putting them into a set
 structure will create basis for comparison.
 
@@ -151,6 +150,20 @@ indices `i_k`, `1 <= k <= n`, `i_k < i_{k - 1}`.
 single elements already appeared while traversing the array.
 
 * Using those information to get the total number of triplets sub-sequences that are involved in the array.
+
+## Stack and Queue Related
+
+* The Stack data strcuture is widely use for: 
+  * Reversing the order of element. 
+  * Verifying the balance of rackets. 
+  * Parsing expression tree.
+  * Reading the traversal of tree nodes. 
+
+* The stack data structure have weird usage for: 
+  * Identifying the nearest element that are immediate smaller/larger for the element at that array. 
+    * See more at : `.\problems\Largest Rectangle`
+    * `.\problems\Min Max Riddle`
+    
 
 ## Dynamic Programming Related
 
