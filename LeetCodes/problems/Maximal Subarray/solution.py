@@ -8,7 +8,6 @@ def solution(nums):
 
 def main():
     print(solution([-2,1,-3,4,-1,2,1,-5,4]))
-    pass
 
 
 if __name__ == "__main__":
