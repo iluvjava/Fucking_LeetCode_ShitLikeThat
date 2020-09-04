@@ -39,20 +39,24 @@ def solution(arr):
         This is the solution to the problem
     """
     Left, Right = immediate_smaller_bothside(arr)
-    print(f"left and right: {Left}, {Right}")
     WinSize = [(R - L - 1) for L, R in zip(Left, Right)]
-    print(f"Winsize: {WinSize}")
     Ans = [float("-inf")]*len(arr)  # To store the result
     for I, V in enumerate(WinSize):
         Ans[V - 1] = max(Ans[V - 1], arr[I])
 
-    if Ans[len(Ans) - 2] == float("-inf"):
-        Ans[len(Ans) - 2] = Ans[len(Ans) - 1]
+    for I in reversed(range(len(Ans) - 1)):
+        Ans[I] = max(Ans[I], Ans[I + 1])
+    return Ans
 
-    for I in reversed(range(len(Ans) - 2)):
-        if Ans[I] == float("-inf"):
-            Ans[I] = max(Ans[I + 1], Ans[I + 2])
-        pass
+def solution_brute_force(arr):
+    def MaxMinOf(i):
+        RunningMax = float("-inf")
+        for I in range(len(arr) - i + 1):
+            RunningMax = max(RunningMax, min(arr[I:I + i]))
+        return RunningMax
+    Ans = [None]*len(arr)
+    for I in range(len(arr)):
+        Ans[I] = MaxMinOf(I + 1)
     return Ans
 
 
@@ -63,11 +67,23 @@ def main():
         print(immediate_right_smaller([4, 3, 2, 1]))
         print(immediate_left_smaller([1, 3, 1, 5, 6, 7, 2]))
 
+    def Test1_1():
+        print(solution_brute_force([1, 3, 1, 5, 6, 7, 2]))
+
     def Test2():
-        Array = [1, 2, 3, 5, 1, 13, 3]
-        print(solution(Array))
-        Array = [3, 5, 4, 7, 6, 2]
-        print(solution(Array))
+        from random import random as random
+        for _ in range(1000):
+            Array = [int(random() * 10) for _ in range(15)]
+            Soln1 = solution(Array)
+            Soln2 = solution_brute_force(Array)
+            print(f"Soln1: {Soln1}, Soln2: {Soln2}")
+            assert str(Soln1) == str(Soln2), f"problem: {Array}"
+
+    def Test_Failed_Cases():
+        
+        pass
+        
+        
     Test2()
     pass
 

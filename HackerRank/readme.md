@@ -21,9 +21,9 @@ j
   * unlike solving problem in the real worlds, the relavent information in the coding challanges are always
   useful information for producing the correct/optimal solution for the problem.
 
-* The problem presented from the copanies will have fancy names and long description to mask what the problem it 
+* The problem presented from the copanies will have fancy names and long description to mask what the problem it
 is exactly, preventing the candidtate from reaching to google if the candidate cannot phrase the problem correctly
-and don't know how to describe the problem. 
+and don't know how to describe the problem.
 
 * Start coding NOW!
 
@@ -153,17 +153,18 @@ single elements already appeared while traversing the array.
 
 ## Stack and Queue Related
 
-* The Stack data strcuture is widely use for: 
-  * Reversing the order of element. 
-  * Verifying the balance of rackets. 
+* The Stack data strcuture is widely use for:
+  * Reversing the order of element.
+  * Verifying the balance of rackets.
   * Parsing expression tree.
-  * Reading the traversal of tree nodes. 
+  * Reading the traversal of tree nodes.
 
-* The stack data structure have weird usage for: 
-  * Identifying the nearest element that are immediate smaller/larger for the element at that array. 
+* The stack data structure have weird usage for:
+  * Identifying the nearest element that are immediate smaller/larger on the left/right for the element in that array.
     * See more at : `.\problems\Largest Rectangle`
     * `.\problems\Min Max Riddle`
-    
+    * This is an extremely new idea for me.
+
 
 ## Dynamic Programming Related
 
@@ -180,10 +181,10 @@ algorithm for, eg. Longest Common Substring, Weighted Interval, KnapSack, Prefix
   * Stackify it if stack over flow problem occured.
   * Tablularized if the patterns of recursion can be easily put into forloops and such.
 
-* Identifying Dynamic Programming Problem 
-  * A dynamic programming problem experiences the optimal structure: 
-    * The optimal solution of a problem can be constructucted from the optimal solutions 
-    of the sub-problems. 
+* Identifying Dynamic Programming Problem
+  * A dynamic programming problem experiences the optimal structure:
+    * The optimal solution of a problem can be constructucted from the optimal solutions
+    of the sub-problems.
     * A greedy algorithms can be solved with dynamic programming
 
 ### Stackfication of With Memerization of DP
@@ -240,13 +241,15 @@ related to edit distance of 2 strings. Say the 2 strings are denoted as `A`, `B`
 
 ### Edit Distance
 
-* Edit distance is defined to be the number of INSERT, REPLACE, DELETE that edit from one string to the other string. 
+* Edit distance is defined to be the number of INSERT, REPLACE, DELETE that edit from one string to the other string.
 
 * Say 2 of the string that we are interested is: `A`, `B`.
 
-
-
 ### Weighted Inverval Scheduling
+
+* Foreach(I: The I th interval in the list of intervals):
+    
+    * find J: The latest interval such that it doesn't have any conflict with the I th interval.
 
 ## Greedy Algorithm Related
 
@@ -268,7 +271,7 @@ related to edit distance of 2 strings. Say the 2 strings are denoted as `A`, `B`
 
 * This is very important when doing graph coding challenges.
 
-### BFS:
+### BFS
 
 * BFS tree.
   * Levels.
@@ -296,12 +299,11 @@ def dfs(v, adjList):
   return set([v])  # singleton.
 ```
 
-### DFS:
+### DFS
 
 * DFS tree.
   * Ancestors on the branches, no crossing between different branches.
 * Connected Components.
-
 
 ## Basic facts
 

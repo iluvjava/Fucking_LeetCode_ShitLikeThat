@@ -84,10 +84,10 @@ at `I` we use the similar stack strategies described in `..\Largest Reactangle`
   it's underdeterined (**Proof needed here it's kinda complicated**), we assert that, for all the
   underdetermined sliding window with a size:
 
-    * ans[i] = max(ans[i + 1], ans[i + 2])  # huh... why is it the max of TWO of them...
-    * Note that, the global minimum eixsts, hence, the quantity is defined.
+    * ans[i] = max(ans[i + 1], ans[i])  # huh... why is it the max of TWO of them...
+    * I have no idea why, but this is how the correct algorithm works.
 
-### What kind of dark magic is going here
+### What Kind of Dark Magic is Going Here
 
 * For the global minimum, the window size of the element is `n`
 
@@ -101,19 +101,29 @@ at `I` we use the similar stack strategies described in `..\Largest Reactangle`
   point)
 * Inductively, for the `k`th smallest element, the max window size for that element, is `<= n - k`
 
-#### Do it Formally
+## A Formal Argument
 
 * Basic Definitions:
   * Let `arr` be the array we are looking at.
-  * Let, `Min1, Min2, Min3` be the smallest 3 elements in the array.
-  * Def F[] be a function that map the element in array to the maximum window size such that, the element remains to be
-  the minimum of tha window.
+  * Let, `Min1 <= Min2 <= Min3` be the smallest 3 elements in the array.
+  * Def  `F[I]` be a function that map the element in array to the maximum window size such that, the element `I` remains
+  to be the minimum of tha window.
   * `n` the size of the array.
+  * Def `Soln[I]` to be the solution for the problem, in this case, the the max min of all window size of `I` in the
+  array.
 * Hypothesis:
   * For all element in array, say `I`, `F[I]` never equals to `n - 1` or `n - 2`.
-* Then:
-  * F[Min1] <= n, F[Min2] <= n - 1, F[Min3] <= n + 2
-  
+* Claim 1: F[Min1] = n, F[Min2] <= n - 1, F[Min3] <= n + 2
+  * For Min1, there exists no other elements smaller than it.
+  * For Min2, there eixists Min1 that is smaller than it, they are at most, `n - 1` slots apart in the `arr`.
+  * For Min3, it follows.
+* Claim 2: if F[I] = K, then for all windows size that is less than K, the max min of the window size is **at least** I.
+  * for contradiction assume that, there eixsts a window with size less than K and with I in it, then F[I] should be
+  that number, and not K.
+* Claim 2.1: The solution sequence `Soln` has to be Monotonic Decreasing.
+  * For contradiction assume: there exists `J`: `Soln[J] < Soln[J + 1]`, Among all windows with size `J + 1`, take
+  that element makes it larger than Soln[J], then there eixsts a smaller window of length `J - 1` that contain
+  the element too, which, contradicts the statement.
 
 ### A more involved example by hand
 
