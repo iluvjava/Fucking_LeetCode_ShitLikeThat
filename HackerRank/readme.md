@@ -318,7 +318,6 @@ def(StartV, AdjacencyList):
 * There are 3 algorithms for doing Topological Sort, with different run-time. 
 
 
-
 ## Basic facts
 
 * The numeber of edges and connected components. (|V| - 1) to be the minimum.
