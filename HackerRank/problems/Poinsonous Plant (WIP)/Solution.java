@@ -7,7 +7,7 @@ class Solution {
         System.out.println("Has been running");
         int arr[] = new int[]{1, 2, 3, 4, 2, 3, 4};
         System.out.println("Output:");
-        System.out.println(solution(arr));
+        System.out.println(GroupsIt(arr));
     }
 
     public static int solution(int[] arr)
