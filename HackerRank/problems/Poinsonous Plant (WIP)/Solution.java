@@ -6,13 +6,15 @@ class Solution {
     
     public static void main(String[] args)
     {
-        System.out.println("Has been running");
-        int arr[] = new int[]{1, 2, 3, 4, 2, 3, 4};
-        System.out.println("Output:");
-        LinkedList<LinkedList<Integer>> Groups = GroupsIt(arr);
-        System.out.println(Groups);
-        solution_cancellation(Groups);
-        System.out.println(Groups);
+        { // This is the first test. -----------------------------------------------------------------------------------
+            System.out.println("Has been running");
+            int arr[] = new int[]{1, 2, 3, 4, 2, 3, 4};
+            System.out.println("Output:");
+            LinkedList<LinkedList<Integer>> Groups = GroupsIt(arr);
+            System.out.println(Groups);
+            solution_cancellation(Groups);
+            System.out.println(Groups);
+        }
 
     }
 
