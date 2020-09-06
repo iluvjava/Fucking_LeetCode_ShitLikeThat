@@ -3,7 +3,6 @@ import java.lang.System;
 
 class Solution {
 
-    
     public static void main(String[] args)
     {
         { // This is the first test. -----------------------------------------------------------------------------------
@@ -16,13 +15,31 @@ class Solution {
             System.out.println(Groups);
         }
 
+        {
+            System.out.println();
+            int arr[] = new int[]{3, 5, 8, 6, 4};
+            LinkedList<LinkedList<Integer>> Groups = GroupsIt(arr);
+            System.out.println("Initial Groups: \n" + Groups);
+            solution_cancellation(Groups); 
+            System.out.println("After Cancellation:\n" + Groups);
+            System.out.println("Expect it to be 3");
+            System.out.println(solution(arr));
+        }
+
+
+        {  // Test the whole thing out
+            int arr[] = new int[]{1, 5, 4, 3, 2};
+            System.out.println("Expect it to be 4");
+            System.out.print(solution(arr));
+        }
+
     }
 
     public static int solution(int[] arr)
     {
         LinkedList<LinkedList<Integer>> Groups = GroupsIt(arr);
         int Counter = 0;
-        while (Groups.size() >= 0)
+        while (Groups.size() >= 2)
         {
             Counter++;
             solution_cancellation(Groups);
@@ -87,6 +104,10 @@ class Solution {
                 {
                     Pre.addAll(Cur);  // Concat that thing.
                     Itr.remove();
+                }
+                else
+                {
+                    Pre = Cur;
                 }
             }
         }
