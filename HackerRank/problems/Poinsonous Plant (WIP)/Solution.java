@@ -9,7 +9,11 @@ class Solution {
         System.out.println("Has been running");
         int arr[] = new int[]{1, 2, 3, 4, 2, 3, 4};
         System.out.println("Output:");
-        System.out.println(GroupsIt(arr));
+        LinkedList<LinkedList<Integer>> Groups = GroupsIt(arr);
+        System.out.println(Groups);
+        solution_cancellation(Groups);
+        System.out.println(Groups);
+
     }
 
     public static int solution(int[] arr)
@@ -47,10 +51,6 @@ class Solution {
                     Groups.getLast().add(arr[I]);
                 }
             }
-            System.out.println("Constructed Group: ");
-            for (LinkedList<Integer> L : Groups) {
-                System.out.println(L);
-            }
         }
         return Groups;
     }
@@ -83,7 +83,7 @@ class Solution {
                 LinkedList<Integer> Cur= Itr.next();
                 if (Cur.getFirst() <= Pre.getLast())
                 {
-                    Pre.addAll(Cur);
+                    Pre.addAll(Cur);  // Concat that thing.
                     Itr.remove();
                 }
             }
