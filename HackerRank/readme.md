@@ -248,10 +248,27 @@ related to edit distance of 2 strings. Say the 2 strings are denoted as `A`, `B`
 ### Weighted Inverval Scheduling
 
 * Foreach(I: The I th interval in the list of intervals):
-    
-    * find J: The latest interval such that it doesn't have any conflict with the I th interval.
+
+  * find J: The latest interval such that it doesn't have any conflict with the I th interval.
 
 ## Greedy Algorithm Related
+
+* Greedy algorithm is not hard, the hard part is identifying that, a greedy algorithm works for a certain problem, 
+because, for most of the optimization problem outthere, it always never works. So we must prove it to make sure that 
+it works for that given algorithm. Here are some famous examples of problems that can be solved Greedily: 
+
+* MST.
+* Shortest path without negative edge weights.
+* Squeeze Min/Max number of intervals in a certain time frame.
+* Minimum absolute minmax for a window size for an array.
+  * a lot of them in the greedy section of Hackerrank contains the idea of sorting elements.
+
+### Reasoning with Greedy
+
+* The reasons why greedy algorith works is very complicated and we have to use the idea of Matroid to prove that. 
+
+* But in general, it can be prove inductively by showing that, at each step, a greedy choice built up previous 
+optimal solution will keep its global optimality.   
 
 ## Graph Algorithm Related
 
@@ -263,9 +280,9 @@ related to edit distance of 2 strings. Say the 2 strings are denoted as `A`, `B`
 
 ## Triangle Inequalities
 
-  * Use this to simplify and optimize the runtime of some algorithms, see (./HackerRank/Find Nearest Clone) for
-  example.
-  * Use that fact and pair it with algorithm on shortest distances.
+* Use this to simplify and optimize the runtime of some algorithms, see (./HackerRank/Find Nearest Clone) for
+example.
+* Use that fact and pair it with algorithm on shortest distances.
 
 ## Think Inductively and come up with good examples.
 
@@ -307,19 +324,59 @@ def dfs(v, adjList):
 * Topological Sort.
 
 ```python
-def(StartV, AdjacencyList):
-    
-    pass
+def dfs(StartV):
+    Stack := Stack
+    Visited := Set
+    Visited := add "StartV" to Visited
+    while Stack is not empty:
+      V = stack.pop()
+      foreach W as neighbours of V:
+        Visited.add(W)
+        Stack.add(W)
+    return Visited
 ```
 
+* Or we can have a recursive version of the same thing:
 
-### Topological Sort 
+```
+def dfs(StartV, Visited=None):
+    Initialize Visited as a set if it haven't.
+    Visited.add(StartV)
+    for W as neibours of Vstart:
+      dfs(W, Visited)
+```
 
-* There are 3 algorithms for doing Topological Sort, with different run-time. 
+### Topological Sort (Just something I love)
 
+* There are 3 algorithms for doing Topological Sort, with different run-time.
+* Preconditions of the algorithm:Input is a Directed Acyclic Graph
 
+* Using Priority Queue.
+  * Rank all the vertices with their indegree.
+  * Pick vertices from the top, and then decrement it's neghbours indegree and update them
+  in the priority queue. Put that vertex into the another stack, storing the topological sequences, repeat
+  this process until the priority queue becomes empty.
+    * if at anypoint, the vertex at the front of the priority queue has an indegree of 1 or more, then
+    the graph contains cycles.
+  * This approaches highly depends on the implementation of the "Priority Queue"
+
+* Using a "Indegree storage auxlilary data structure"
+  * Let L[V: vertex in the graph] stores the indegree for each of the vertices.
+  * Let Q be the stack that stores the list of vertices in topolotical order. 
+  * Initialize an collection, Arr, containing all the vertices that has an indegree of 0
+    * while(Arr is not empty)
+      * Take V out of Arr add it to Q
+      * foreach(Vertex W as neighbours of V)
+        * L[W]--
+        * If L[W] == 0:
+          * Add W to Arr
+
+* Using the DFS algorithm.
+  * This modifies the DFS algorithm and suit it for the Topolotical sort algorithm.
+  * While traversing in DFS order, at the back-tracking process, add the nodes in reverse order then we have the
+  topolotical ordering with respect to that vertex in the graph.
+  * A modified verson of this one can be used to construct some kinda of Acyclic Graph from any simple digraph.
 
 ## Basic facts
 
 * The numeber of edges and connected components. (|V| - 1) to be the minimum.
-
