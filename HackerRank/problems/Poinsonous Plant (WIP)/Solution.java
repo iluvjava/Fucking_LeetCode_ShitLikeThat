@@ -1,24 +1,28 @@
 import java.util.*;
 import java.lang.System;
+
 class Solution {
 
+    
     public static void main(String[] args)
     {
         System.out.println("Has been running");
         int arr[] = new int[]{1, 2, 3, 4, 2, 3, 4};
         System.out.println("Output:");
-        System.out.println(solution(arr));
+        System.out.println(GroupsIt(arr));
     }
 
     public static int solution(int[] arr)
     {
         LinkedList<LinkedList<Integer>> Groups = GroupsIt(arr);
+        int Counter = 0;
         while (Groups.size() >= 0)
         {
+            Counter++;
             solution_cancellation(Groups);
-
+            solution_merge(Groups);
         }
-        return 0; 
+        return Counter; 
     }
 
     public static LinkedList<LinkedList<Integer>> GroupsIt(int[] arr)
@@ -72,11 +76,20 @@ class Solution {
     public static boolean solution_merge(LinkedList<LinkedList<Integer>> arrs)
     {
         Iterator<LinkedList<Integer>> Itr = arrs.iterator();
-        LinkedList<Integer> Pre = Itr.next();
+        LinkedList<Integer> Pre = Itr.next();  // Take out the first 
         {
-            LinkedList<Integer> Cur= Itr.next();
-            
+            while (Itr.hasNext())
+            {
+                LinkedList<Integer> Cur= Itr.next();
+                if (Cur.getFirst() <= Pre.getLast())
+                {
+                    Pre.addAll(Cur);
+                    Itr.remove();
+                }
+            }
         }
         return true;
     }
+
+    
 }
