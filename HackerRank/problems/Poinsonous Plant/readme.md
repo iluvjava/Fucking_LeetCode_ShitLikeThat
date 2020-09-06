@@ -131,7 +131,7 @@ it an incredible run time.
 * Summary:
 
 * (1) Construct a list of monotone decreasing sequences from the array, such that the first.
-  element of each linkedlist is larger than the last element in the previous linkedlist. Name that lists of lists 
+  element of each linkedlist is larger than the last element in the previous linkedlist. Name that lists of lists
   to be `Groups`.
 
 while(There are more than one list in the `Groups`):
@@ -139,4 +139,16 @@ while(There are more than one list in the `Groups`):
   run: Merge Subroutine.
   Increment: The number of days.
 
-Output: The numeber of days is the result we want. 
+Output: The numeber of days is the result we want.
+
+### The moral of the story
+
+* I am very surprised by the fact that, not only this section of the coding challanges contain a variety of exploits
+on the usage of stack, but I am also surprised by how they are related to the particular problem we are solving.
+
+* This one is very different from the `Max Min Riddle` and very different from the `Largest Rect`, it uses multiple
+NestedLinked List to exploit the **disconnected Monotone subsequences in the array** in an effective way.
+
+* This problem is also one of those problem that required the specific usage of a data-structure, in this case, the
+Linkedlist<LinkedList<Integer>>, and it's only avaiable in Java, not even C# has it to provide a good runtime. We
+have to leverage the the concat of the linkedlist for this particular problem.

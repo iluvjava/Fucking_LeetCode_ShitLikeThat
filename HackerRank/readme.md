@@ -304,6 +304,20 @@ def dfs(v, adjList):
 * DFS tree.
   * Ancestors on the branches, no crossing between different branches.
 * Connected Components.
+* Topological Sort.
+
+```python
+def(StartV, AdjacencyList):
+    
+    pass
+```
+
+
+### Topological Sort 
+
+* There are 3 algorithms for doing Topological Sort, with different run-time. 
+
+
 
 ## Basic facts
 
