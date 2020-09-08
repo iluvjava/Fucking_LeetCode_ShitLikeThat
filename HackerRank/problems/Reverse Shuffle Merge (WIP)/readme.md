@@ -17,4 +17,22 @@
 
 * Find that string A, that with the smallest Lexical graphical order.
 
-* Note this problem is hard and we might need some kind of proof to justify what we are doing. 
+* Note this problem is hard and we might need some kind of proof to justify what we are doing.
+
+### Let's do an example
+
+* 233211 = merge(shuffle("123"), reverse("123")), original = ???
+
+* From the output, 233211 we know that, the symbols involved for the strings are: `s = {1, 2, 3}`
+  * Greedily, we want the lowest lexigraphical ordering of the original string, hence, it's reverse order should
+  preferably start with the biggest element in the set.
+
+  * Can the reversed(original) start with 3? yes, because, 1, 2 comes after it, and in that sense, it's a valid.
+
+  * Can the second element of reversed(original) be 2? yes, 1 comes after it, hence, it's valid.
+
+  * Then, we know that, reversed(original) can be 321, and that means, original = 123, and it's the lowest lexicalgraphic
+  ordering of all permutations.
+
+* abcdefgabcdefg = merge(shuffle(???),reverse(???))
+  * 
