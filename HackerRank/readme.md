@@ -164,6 +164,9 @@ single elements already appeared while traversing the array.
     * See more at : `.\problems\Largest Rectangle`
     * `.\problems\Min Max Riddle`
     * This is an extremely new idea for me.
+  * The idea is to keep a monotonic increasing/decreasing stack such that, we can figure out the immediate
+  elements that are immediate larger/smaller on the left/right side than the current element in a O(n) time.
+  * This features of the stack is tested implicitly for a lot of the programming challenges.
 
 
 ## Dynamic Programming Related
@@ -253,9 +256,9 @@ related to edit distance of 2 strings. Say the 2 strings are denoted as `A`, `B`
 
 ## Greedy Algorithm Related
 
-* Greedy algorithm is not hard, the hard part is identifying that, a greedy algorithm works for a certain problem, 
-because, for most of the optimization problem outthere, it always never works. So we must prove it to make sure that 
-it works for that given algorithm. Here are some famous examples of problems that can be solved Greedily: 
+* Greedy algorithm is not hard, the hard part is identifying that, a greedy algorithm works for a certain problem,
+because, for most of the optimization problem outthere, it always never works. So we must prove it to make sure that
+it works for that given algorithm. Here are some famous examples of problems that can be solved Greedily:
 
 * MST.
 * Shortest path without negative edge weights.
@@ -265,10 +268,10 @@ it works for that given algorithm. Here are some famous examples of problems tha
 
 ### Reasoning with Greedy
 
-* The reasons why greedy algorith works is very complicated and we have to use the idea of Matroid to prove that. 
+* The reasons why greedy algorith works is very complicated and we have to use the idea of Matroid to prove that.
 
-* But in general, it can be prove inductively by showing that, at each step, a greedy choice built up previous 
-optimal solution will keep its global optimality.   
+* But in general, it can be prove inductively by showing that, at each step, a greedy choice built up previous
+optimal solution will keep its global optimality.
 
 ## Graph Algorithm Related
 
@@ -362,7 +365,7 @@ def dfs(StartV, Visited=None):
 
 * Using a "Indegree storage auxlilary data structure"
   * Let L[V: vertex in the graph] stores the indegree for each of the vertices.
-  * Let Q be the stack that stores the list of vertices in topolotical order. 
+  * Let Q be the stack that stores the list of vertices in topolotical order.
   * Initialize an collection, Arr, containing all the vertices that has an indegree of 0
     * while(Arr is not empty)
       * Take V out of Arr add it to Q
