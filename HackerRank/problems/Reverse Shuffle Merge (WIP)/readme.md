@@ -42,4 +42,3 @@
     * Find the symbol `a` such that all the elements except `a` comes before `s` in the array.
     * Choose: `abcdefg(a)bcdefg`, the first appearance of a in the sequence indeed, has the property that, all the
     other symbols comes after it.
-    
