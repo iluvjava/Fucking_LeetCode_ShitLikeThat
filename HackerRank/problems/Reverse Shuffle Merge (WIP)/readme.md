@@ -35,4 +35,11 @@
   ordering of all permutations.
 
 * abcdefgabcdefg = merge(shuffle(???),reverse(???))
-  * 
+  * Identifying the set of elements for the string, we sort it, and extract the set of symbols that can makes the stirng
+  * 'aabbccddeeffgg', all elements the elements are repeated 2k times.
+    * Set: {a, b, c, d, e, f, g}
+  * We want reversed(???) to end with a, so it's lexicographically as small as possible.
+    * Find the symbol `a` such that all the elements except `a` comes before `s` in the array.
+    * Choose: `abcdefg(a)bcdefg`, the first appearance of a in the sequence indeed, has the property that, all the
+    other symbols comes after it.
+    

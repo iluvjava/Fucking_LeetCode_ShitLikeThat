@@ -1,4 +1,4 @@
-# What is this?
+# What is this
 
 * A Summarization of Ideas for Coding Challenges in General (for Hackrrank coding challenges).
 
@@ -168,7 +168,6 @@ single elements already appeared while traversing the array.
   elements that are immediate larger/smaller on the left/right side than the current element in a O(n) time.
   * This features of the stack is tested implicitly for a lot of the programming challenges.
 
-
 ## Dynamic Programming Related
 
 ### In General
@@ -240,7 +239,6 @@ related to edit distance of 2 strings. Say the 2 strings are denoted as `A`, `B`
     * T[I, J] := T[I - 1, J - 1] + 1 if A[I] == B[J]
   * Base Cases:
     * The longest common substring where one of the string is empty, is 0
-
 
 ### Edit Distance
 
@@ -383,3 +381,4 @@ def dfs(StartV, Visited=None):
 ## Basic facts
 
 * The numeber of edges and connected components. (|V| - 1) to be the minimum.
+
