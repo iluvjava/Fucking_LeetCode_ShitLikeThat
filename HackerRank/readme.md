@@ -271,6 +271,11 @@ it works for that given algorithm. Here are some famous examples of problems tha
 * But in general, it can be prove inductively by showing that, at each step, a greedy choice built up previous
 optimal solution will keep its global optimality.
 
+* If, it's hard to prove that greedy algorithm works, then we need to bet on counter examples that break it.
+  * When looking for a counter example for something, tries to use different permutations for the greedy choices, and
+  if the solution differs, then greedy algorithm cannot produce the optimal solution for the problem.
+
+
 ## Graph Algorithm Related
 
 * In general:
