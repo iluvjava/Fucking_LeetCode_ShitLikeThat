@@ -57,9 +57,7 @@ and then add the vertices to the path, and add the edges with weights to a dicti
 
 * Make a spanning tree that is as expensive as possible while keeping all the red vertex apart from each other.
 
-* Or the equivelent is, joining compoenent with edges in ascending order as long as one of the edge set has a
-machine in it.
+* Or the equivelent is, joining components with edges in ascending order as long as **at most** one of the edge set has a
+machine in it (This will retain the invartiant that, for each connected components, there is only **one** machine
+node in it).
   * We need to use the union join data-structure.
-
-
-
