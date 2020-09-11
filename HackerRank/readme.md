@@ -275,7 +275,6 @@ optimal solution will keep its global optimality.
   * When looking for a counter example for something, tries to use different permutations for the greedy choices, and
   if the solution differs, then greedy algorithm cannot produce the optimal solution for the problem.
 
-
 ## Graph Algorithm Related
 
 * In general:
@@ -386,4 +385,3 @@ def dfs(StartV, Visited=None):
 ## Basic facts
 
 * The numeber of edges and connected components. (|V| - 1) to be the minimum.
-

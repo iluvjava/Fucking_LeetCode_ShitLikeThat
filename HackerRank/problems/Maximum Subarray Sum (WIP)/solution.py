@@ -1,7 +1,20 @@
-def solution(arr):
+def solution(roads, machines):
+    """
+        roads: 
+        [
+            [city1, city2, roads], 
+            [city1, city2, roads], 
+            ...
+        ]
+    return: 
+        The minimum costs.
     """
 
-    """
+    def IdentifyPaths():
+        pass
+
+    
+
     pass
 
 
