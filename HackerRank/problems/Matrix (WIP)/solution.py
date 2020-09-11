@@ -110,9 +110,9 @@ class UnionSetJoin(UnionFind):
 
 def solution(roads, machines):
     roads = map(tuple, roads); machines = set(machines)
-    sorted(roads, key=lambda x: x[2])
+    roads = sorted(roads, key=lambda x: x[2], reverse = True)
     Uf = UnionFind()
-    TotalEdgeCost = sum([W for _, _, W in roads])
+    TotalEdgeCost = 0
     for U, V, W in roads:
         if not (Uf(U) in machines and Uf(V) in machines):
             if Uf(U) in machines:
@@ -121,9 +121,7 @@ def solution(roads, machines):
                 Uf.join(U, V)
         else:
             # Can't join edges skip 
-            TotalEdgeCost -= W
-            continue
-        pass
+            TotalEdgeCost += W
     return TotalEdgeCost
 
 
@@ -135,7 +133,7 @@ if __name__ == "__main__":
                     [2, 4, 5], 
                     [1, 3, 4]]
             machines = [2, 4, 0]
-            soln = solution_failed(roads, machines)
+            soln = solution(roads, machines)
             print(f"The solution is: {soln}")
         
         def Test2():
@@ -146,7 +144,7 @@ if __name__ == "__main__":
                 [0, 2, 5]
             ]
             machines = [1, 3, 4]
-            soln = solution_failed(roads, machines)
+            soln = solution(roads, machines)
             print(f"The solution is: {soln}")
         Test1(); Test2()
        

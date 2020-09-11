@@ -57,7 +57,12 @@ and then add the vertices to the path, and add the edges with weights to a dicti
 
 * Make a spanning tree that is as expensive as possible while keeping all the red vertex apart from each other.
 
-* Or the equivelent is, joining components with edges in ascending order as long as **at most** one of the edge set has a
+* Or the equivelent is, joining components with edges in descending order as long as **at most** one of the edge set has a
 machine in it (This will retain the invartiant that, for each connected components, there is only **one** machine
 node in it).
+  * In descending order because we want the edges that get discard to be minimum. 
+    * after the termination of the algorithm, each of the red vertex will be in its own connected components and will 
+    not share the same CC with any other sets of vertices. 
+    * And the edges that got discard will be minimum because edges with higher weights are already joined into the 
+    connected components. 
   * We need to use the union join data-structure.
