@@ -12,7 +12,7 @@ def solution(roads, machines):
 
     def IdentifyPaths():
         pass
-
+        
     
 
     pass
