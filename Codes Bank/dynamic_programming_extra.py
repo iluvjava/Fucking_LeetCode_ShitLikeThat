@@ -7,12 +7,6 @@
 """
 
 
-def main():
-    for I in range(5000):
-        print(fib_recur_mem_stackified(I))
-    pass
-
-
 def fib_recur_mem(n):
     """
         Inner Scope Recursification of Fibo-Sequence with Memiozation
@@ -56,6 +50,43 @@ def fib_recur_mem_stackified(n, T = {}):
         return T[i]
     return F(n)
 
+
+def Ackerman(m, n):
+    T = {}  # mem
+    M, N = m, n
+    Stack = [(M, N)]
+    while len(Stack) != 0:
+        M, N = Stack[-1]
+        if M == 0:
+            T[M, N] = N + 1
+            Stack.pop()
+            continue
+        if M > 0 and N == 0:
+            if (M - 1, 1) in T:
+                T[M, N] = T[M - 1, 1]
+                Stack.pop()
+            else:
+                Stack.append((M - 1, 1))
+            continue
+        if M > 0 and N > 0:
+            if (M, N - 1) in T:
+                if (M - 1, T[M, N - 1]) in T:
+                    T[M, N] = T[M - 1, T[M, N - 1]]
+                    Stack.pop()
+                else:
+                    Stack.append((M - 1, T[M, N - 1]))
+                continue
+            else:
+                Stack.append((M, N - 1))
+            continue
+    return T[m, n]
+
+def main():
+    # for I in range(5000):
+    #     print(fib_recur_mem_stackified(I))
+    print(Ackerman(2, 4))
+    print(Ackerman(3, 4))
+    print(Ackerman(4, 1))
 
 
 

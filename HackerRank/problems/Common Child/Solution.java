@@ -7,7 +7,6 @@ class Solution
         System.out.println(solution("HARRY", "SALLY"));
         System.out.println(solution("SHINCHAN", "NOHARAAA"));
         System.out.println(solution("ABCDEF", "FBDAMN"));
-        
     }
 
     public static int solution(String s1, String s2)
