@@ -14,5 +14,4 @@ editing, String B will become string A.
 by only using on array to store the itermediate results. This is the only way to solve it. 
 
 * The solution in python didn't past the test because python is just too slow, but the implementations in java passes
-the test easily. 
-
+the test easily.
