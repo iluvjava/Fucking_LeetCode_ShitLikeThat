@@ -27,6 +27,8 @@ def reverse_shuffle_merge(s):
     Merged = SubRoutine()
     return Merged, "".join(ShuffledSymbols), "".join(Reversed)
 
+
+
 def main():
     print(reverse_shuffle_merge("123"))
     

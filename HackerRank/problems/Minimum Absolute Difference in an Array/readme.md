@@ -11,6 +11,6 @@
 
 * Sort the element so that, the minimum difference must appear in a pair of elements that are 
 
-adjacent in the sorted array. 
+adjacent in the sorted array.
 
-  * Assume that this is not ture, then we have a bit contradiction. 
+  * Assume that this is not ture, then we have a bit contradiction.
