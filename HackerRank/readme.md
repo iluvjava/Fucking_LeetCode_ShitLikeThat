@@ -25,6 +25,11 @@ j
 is exactly, preventing the candidtate from reaching to google if the candidate cannot phrase the problem correctly
 and don't know how to describe the problem.
 
+* When doing the Online Accessment from big companies, prepare a local IDE, and use somme of your own testcases, 
+this is good because: 
+  * Running testcases on the online platform will cost you some amount of time. 
+  * The IDE will have more features to work with than the online platform. 
+
 * Start coding NOW!
 
 ## Common Good Strategies for Coding Problem
