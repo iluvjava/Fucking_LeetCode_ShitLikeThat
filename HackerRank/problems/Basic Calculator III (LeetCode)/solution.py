@@ -4,6 +4,7 @@ def solution(s):
         """
             Parse the string into a list of eoperands and operators. 
         """
+        s = [C for C in s if C != " "]
         Operators = "+-*/()"
         Token = ""
         Tokens = []
@@ -47,7 +48,7 @@ def solution(s):
         Stack1, Stack2 = [], []
         for I in range(len(expr)):
             
-            print(Stack1, Stack2)
+            # print(Stack1, Stack2)
             
             Token = expr[I]
             if type(Token) != int:
@@ -66,7 +67,7 @@ def solution(s):
             Opt = Stack2.pop()
             Stack1.append(compute(T2, T1, Opt))
             
-            print(Stack1, Stack2)
+            # print(Stack1, Stack2)
 
         return Stack1[0]
 
@@ -107,7 +108,7 @@ def solution(s):
         return EvalNoBrackets(ExpressionNoBracket)
 
     s = parse_string(s)
-    print(f"After Tokenization: {s}")
+    # print(f"After Tokenization: {s}")
     return EvaluateWithBracket(s)
 
 
