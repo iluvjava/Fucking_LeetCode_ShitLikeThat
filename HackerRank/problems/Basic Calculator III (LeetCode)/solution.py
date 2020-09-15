@@ -1,17 +1,55 @@
 def solution(s):
-    
-    s = parse_string(s)
-    
-    def EvalNoBrackets(i, j):
+
+    def parse_string(s):
         """
-            i, J both inclusive
+            Parse the string into a list of eoperands and operators. 
         """
+        Operators = "+-*/()"
+        Token = ""
+        Tokens = []
+        for C in s: 
+            if C not in Operators:
+                Token += C
+            else:
+                if Token != "":
+                    Tokens.append(Token)
+                Tokens.append(C)
+                Token = ""
+        if Token != "":
+            Tokens.append(Token)
+        return [(int(T) if T not in Operators else T) for T in Tokens]
+
+    def EvalNoBrackets(expr):
+        """
+            input is an array of operands and oprators. 
+        """
+        print(f"Eval no bracket: ")
+        print(expr)
+        expr = list(reversed(expr))
+
+        def OptRank(opt):
+            if opt in "+-":
+                return 2
+            if opt in "*/":
+                return 1
+            return None
+
+        def compute(a, b, opt):
+            if opt == "+":
+                return a + b
+            elif opt == "-":
+                return a - b
+            elif opt == "*":
+                return a * b
+            elif opt == "/":
+                return a//b
+            
         Stack1, Stack2 = [], []
-        for I in range(i, j + 1):
+        for I in range(len(expr)):
             
             print(Stack1, Stack2)
             
-            Token = s[I]
+            Token = expr[I]
             if type(Token) != int:
                 
                 while len(Stack2) != 0 and OptRank(Token) > OptRank(Stack2[-1]):
@@ -32,48 +70,52 @@ def solution(s):
 
         return Stack1[0]
 
-    def OptRank(opt):
-        if opt in "+-":
-            return 2
-        if opt in "*/":
-            return 1
+    def NextBracket(expr, start):
+        """
+            Given the current index of the opening bracket, find the whole sub
+            expression. 
+        """
+        assert expr[start] == "(", "Misuse."
+        RunningSum = 0
+        for I in range(start, len(expr)):
+            if expr[I] == "(":
+                RunningSum += 1
+            elif expr[I] == ")":
+                RunningSum -= 1
+            else:
+                pass
+            if RunningSum == 0:
+                return I
         return None
 
-    def compute(a, b, opt):
-        if opt == "+":
-            return a + b
-        elif opt == "-":
-            return a - b
-        elif opt == "*":
-            return a * b
-        elif opt == "/":
-            return a//b
-    
-    def HasBrackets(i, j):
-        pass
-    
-    return EvalNoBrackets(0, len(s) - 1)
+    def EvaluateWithBracket(expr):
+        """
+            Intput: The array, not the string. 
+        """
+        ExpressionNoBracket = []
+        Pointer = 0
+        while Pointer < len(expr):
+            if expr[Pointer] == "(": 
+                NextPointer = NextBracket(expr, Pointer)
+                ExpressionNoBracket.append(EvaluateWithBracket(expr[Pointer + 1: NextPointer]))
+                Pointer = NextPointer
+            else:
+                if expr[Pointer] != ")":
+                    ExpressionNoBracket.append(expr[Pointer])
+                Pointer += 1
+        
+        return EvalNoBrackets(ExpressionNoBracket)
 
-
-def parse_string(s):
-    Token = ""
-    Tokens = []
-    for C in s: 
-        if C not in "+-*/":
-            Token += C
-        else:
-            Tokens.append(Token)
-            Tokens.append(C)
-            Token = ""
-    Tokens.append(Token)
-    return list(reversed([(int(T) if T not in "+-*/" else T) for T in Tokens]))
+    s = parse_string(s)
+    print(f"After Tokenization: {s}")
+    return EvaluateWithBracket(s)
 
 
 def main():
-    solution("3 + 8 * 7 / 2")
-    solution("6 - 4 * 6 + 9 - 3 / 3")
-    solution("3*5/6-4+2")
-
+    # print(solution("3 + 8 * 7 / 2"))
+    # print(solution("6 - 4 * 6 + 9 - 3 / 3"))
+    # print(solution("3*5/6-4+2"))
+    print(solution("(3*(4-1))*(4-3*2/6)+(1+1/1)"))
 
 
 if __name__ == "__main__":
