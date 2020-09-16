@@ -1,4 +1,7 @@
 def reverse_shuffle_merge(s):
+    """
+        This is just for creating some inputs for investigations. 
+    """
     from random import shuffle
     from random import random
     ShuffledSymbols = [C for C in s]
@@ -30,7 +33,7 @@ def reverse_shuffle_merge(s):
 
 
 def main():
-    print(reverse_shuffle_merge("123"))
+    print(reverse_shuffle_merge("4312"))
     
 if __name__ == "__main__":
     main()
