@@ -35,7 +35,7 @@
   lexicographic ordering of all permutations.
 
 * abcdefgabcdefg = merge(shuffle(???),reverse(???))
-  * Identifying the set of elements for the string, we sort it, and extract the set of symbols that can makes the stirng
+  * Identifying the set of elements for the string, we sort it, and extract the set of symbols that can makes the string
   * 'aabbccddeeffgg', all elements the elements are repeated 2k times.
     * Set: {a, b, c, d, e, f, g}
   * We want reversed(???) to end with a, so it's lexicographically as small as possible.
@@ -119,6 +119,43 @@ of symbols.
 
 * Then, (1)21(34)43(2) = merge(shuffle(2431), reverse(2431)).
 
-#### Let's summarized what we did, trying to reduce it to an algorithm. 
+#### Let's summarized what we did, trying to reduce it to an algorithm
 
-* 
+* Construct the set of symbols needed for A, counting in the repeating symbols too, it better be sorted too.
+  * The most efficient data structure will be a Map, name it: `MultiSetR`
+
+* We need to find the first occurence of a character in the sequence too, so we can analyze those characters that
+comes after it.
+  * name the function that does it as: ".find()", returns the index, and it's applied to the input sequence.
+
+* Given an index to the sequence, we need to know efficiently whether, for a given set of symbols (with repeatitions)
+are appearing after this given index for the given sequence.
+
+  * Name this function. `containSubSet(i, theSet)`.
+    * Given the starting index to search in the subseuqence, we are interested whether, a shole multi-set can be
+    contained in the sebsequence, containing all the elements from the multi-set.
+
+* Now we should be able to rephrase what we did before into an algorithm:
+
+  ```
+    Input String: s
+    Initialize: MultiSetR, sorted in ascending order
+    Initialize: Output Queue.
+    while (MultiSetR containing more than one character):
+      foreach (Character C in s):
+        if (containSubSet(s.find(C), MutliSetR)):
+          MutiSetR.remove(C)
+          break;
+        else:
+          // move onto the next character
+          pass
+    Append the last character in MutiSetR, there we have it, the desired output for the problem.
+  ```
+
+### A Failed Input
+
+* abacacaeeaebdba|badaedceaeaaadeadaecabadb
+
+
+
+### What to Retain from the incorrect solution. 
