@@ -38,7 +38,6 @@ class MMMAnalyzer
 
     public MMMAnalyzer(int[] arr)
     {
-        
         Arrays.sort(arr); // Important. 
         data = arr;
         getMedian();

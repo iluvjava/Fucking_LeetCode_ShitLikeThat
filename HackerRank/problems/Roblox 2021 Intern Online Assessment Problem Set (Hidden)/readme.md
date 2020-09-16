@@ -55,7 +55,7 @@ good, else, you might need to work from somewhere to reach the soltuion.
 
 * Idea: Frequencies Tuple mapping for each of the characters in the string.
 
-* ** Yeah it will be good if we can use the dubugger and the testcases run faster.**
+* **Yeah it will be good if we can use the dubugger and the testcases run faster.**
 
 * The problem is concerned with a technique of string reduction.
   * String reducton: converting the string to a list of tuples, where each tuples repsents a sequence of consequtive

@@ -25,10 +25,10 @@ j
 is exactly, preventing the candidtate from reaching to google if the candidate cannot phrase the problem correctly
 and don't know how to describe the problem.
 
-* When doing the Online Accessment from big companies, prepare a local IDE, and use somme of your own testcases, 
-this is good because: 
-  * Running testcases on the online platform will cost you some amount of time. 
-  * The IDE will have more features to work with than the online platform. 
+* When doing the Online Accessment from big companies, prepare a local IDE, and use somme of your own testcases,
+this is good because:
+  * Running testcases on the online platform will cost you some amount of time.
+  * The IDE will have more features to work with than the online platform.
 
 * Start coding NOW!
 
@@ -361,7 +361,7 @@ def dfs(StartV, Visited=None):
 * There are 3 algorithms for doing Topological Sort, with different run-time.
 * Preconditions of the algorithm:Input is a Directed Acyclic Graph
 
-* Using Priority Queue.
+* **Using Priority Queue.**
   * Rank all the vertices with their indegree.
   * Pick vertices from the top, and then decrement it's neghbours indegree and update them
   in the priority queue. Put that vertex into the another stack, storing the topological sequences, repeat
@@ -370,7 +370,7 @@ def dfs(StartV, Visited=None):
     the graph contains cycles.
   * This approaches highly depends on the implementation of the "Priority Queue"
 
-* Using a "Indegree storage auxlilary data structure"
+* Using a **Indegree storage auxlilary data structure**
   * Let L[V: vertex in the graph] stores the indegree for each of the vertices.
   * Let Q be the stack that stores the list of vertices in topolotical order.
   * Initialize an collection, Arr, containing all the vertices that has an indegree of 0
@@ -381,12 +381,59 @@ def dfs(StartV, Visited=None):
         * If L[W] == 0:
           * Add W to Arr
 
-* Using the DFS algorithm.
+* **Using the DFS algorithm.** (The Most Interesting Algorithm)
   * This modifies the DFS algorithm and suit it for the Topolotical sort algorithm.
   * While traversing in DFS order, at the back-tracking process, add the nodes in reverse order then we have the
   topolotical ordering with respect to that vertex in the graph.
   * A modified verson of this one can be used to construct some kinda of Acyclic Graph from any simple digraph.
 
+### The Shunting Yard Algorithm (Expression Tree)
+
+* This is not directly related to graph, but the thing that is operating under it, it's a tree, a special type of
+graph.
+
+* The Expression tree represent an mathematical expression involving operators and operands.
+  * Human can read an expression that is written as an infix expression, and the infix expression is the same
+  as traversing the expression tree with Inorder Traversal.
+  * The bracket in the expression represents some syntactical meaning, and it represents the whole sub tree
+  in the expressioen tree.
+  * Important Components
+    * Operands stack, Operator stack, Output Queue, Input Queue.
+
+    ```
+      OptStack = []; OutputQueue = []
+      foreach(Token in the infix expression):
+          if (Token is operand):
+            Append it to the output list.
+          if (Token is left parenthesis):
+            push it to the OptStack
+          if (Token is right parenthsis):
+            Flush all the operators that comes after the left parenthesis in the stack.
+          if (Token is an operator):
+            if (Token on top of OptStack is higher than the current operator):
+              Flush all operators to the output queue until one with equal rank is met.
+            else:
+              Just put it to the OptStack.
+    ```
+
+  * Leetcode Simple calculator asked about it.
+
 ## Basic facts
 
 * The numeber of edges and connected components. (|V| - 1) to be the minimum.
+
+## Strings Related
+
+* When dealing with string related problem, we are actually dealing with problems that involves a sequence of symbols.
+
+### String Reduction, Repeated Consecutive Characters
+
+* Usage of a special type of data structure List, Tuples, Frequencies Mapping.
+  * See more about that here:
+
+## Misc Stuff About Interview
+
+* Some companies have specific requirement and their platform for online assessment is more complex, most specifically:
+FANG.
+  * Amazon: Uses Java and C++, C++ 2014 and Java 1.8
+  * For java1.8 we are going to know some of the Java Stream, which is important because it can be coded like python.
