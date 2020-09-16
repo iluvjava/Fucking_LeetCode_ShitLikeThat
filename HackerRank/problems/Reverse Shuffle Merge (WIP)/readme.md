@@ -19,7 +19,7 @@
 
 * Note this problem is hard and we might need some kind of proof to justify what we are doing.
 
-### Let's do an example
+### Let's do An Example
 
 * 233211 = merge(shuffle("123"), reverse("123")), original = ???
 
@@ -43,7 +43,7 @@
     * Choose: `abcdefg(a)bcdefg`, the first appearance of a in the sequence indeed, has the property that, all the
     other symbols comes after it.
 
-#### A observation
+#### An Observation
 
 * Just reverse the input string, because we don't care about the shuffled subsequence in the input of the string
 anyway.
@@ -156,6 +156,22 @@ are appearing after this given index for the given sequence.
 
 * abacacaeeaebdba|badaedceaeaaadeadaecabadb
 
+## Moral of the Story
 
+* I have find the correct algorithm, and the algorithm we developed, of greedily checking.
 
-### What to Retain from the incorrect solution. 
+* Hence, we need to be better at doing the following things:
+  * How to model a multi-set that is related to a sequences.
+  * How to compare, and maintain the multiset for the algorithm.
+
+* The idea of a multi-set:
+
+  * A set of element where equivalent elements are group together, containing a representative and a integers for
+  that group of elements.
+
+  * In this case, we want the set to be ordered, so we can choose the symbols needed in a greedy manner, find it in the
+  shuffled merged string, and then do a subsequence search on it.
+
+  * Here is a list of things that a multiset is going to care about:
+    * The set of unique elements, ordered.
+    * The number of times they repeated in the original sequence.

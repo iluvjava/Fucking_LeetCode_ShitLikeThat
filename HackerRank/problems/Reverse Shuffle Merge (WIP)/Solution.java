@@ -5,10 +5,16 @@ class Solution {
     public static void main(String[] args)
     {
 
-
+        System.out.print("It's running. ");
+        
     }
 
-    public static Map<Character, Integer> charMultiSet(String s)
+    /**
+     * Multiset for characters in the string, sorted too. 
+     * @param s
+     * @return
+     */
+    public static TreeMap<Character, Integer> charMultiSet(String s)
     {
         
         return null;
