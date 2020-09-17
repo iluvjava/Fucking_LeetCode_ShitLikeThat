@@ -10,7 +10,6 @@ class Solution
             new int[] {3, 5, 7}, 
             new int[] {1, 8, 1}, 
             new int[] {5, 9, 15}
-
         };
         System.out.print(arrayManipulation(100, Query));
     }

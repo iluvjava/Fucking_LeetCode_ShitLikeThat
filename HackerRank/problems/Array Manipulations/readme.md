@@ -57,4 +57,4 @@ def arrayManipulation(n, queries):
     return maximum
 ```
 
-* Amazing.
+* Amazing

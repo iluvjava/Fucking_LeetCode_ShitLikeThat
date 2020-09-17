@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)chrome-extension://pddljdmihkpdfpkgmbhdomeeifpklgnm/sidebar.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Sidebar</title>
+<style>.Logo {
+  transition: all 0.1s ease-out;
+}
+
+.Img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+</style><style>/* Popover */
+.PopoverContainer {
+  background-color: #fff;
+  opacity: 1;
+  color: rgb(32, 33, 36);
+  border: 1px solid #ebebeb;
+  border-radius: 0px;
+  box-shadow: 0px 2px 2px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+}
+
+.PopoverContainer.Dark {
+  border: 1px solid rgb(82, 82, 82);
+}
+
+.PopoverTitle {
+  padding: 0.5rem 0.75rem;
+  background-color: #f2f0f0;
+  font-weight: 600;
+  font-size: 15px;
+
+  display: flex;
+  align-items: center;
+}
+
+.PopoverTitle.Dark {
+  background-color: rgb(51, 51, 51);
+  color: rgb(162, 162, 162);
+}
+
+.VersionBadge {
+  font-weight: 400;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 12px;
+  background-color: rgb(228, 228, 228);
+  color: black;
+  text-decoration: none;
+}
+
+.VersionBadge.Dark {
+  background-color: rgb(98, 98, 99);
+  color: rgb(212, 212, 212);
+}
+
+.PopoverContent {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.PopoverContent.Dark {
+  background-color: rgb(36, 36, 36);
+  color: rgb(162, 162, 162);
+}
+
+.SettingEntryDivider {
+  height: 0px;
+  border-bottom: 1px solid #f2f0f0;
+}
+
+.SettingEntryDivider.Dark {
+  border-bottom: 1px solid rgb(82, 82, 82);
+}
+
+.PopoverContent .SettingEntryContainer {
+  padding: 0.5rem 0.75rem;
+}
+
+.PopoverContent .SettingEntryTitle {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.PopoverContent .SettingEntryContent {
+  margin: 6px 0px 0px 18px;
+  opacity: 0.8;
+}
+
+.PopoverContent .SettingEntryContent label {
+  /* flex: 0; */
+  margin-right: 3px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 3px 3px;
+
+  transition: all 0.1s ease-in;
+}
+
+.PopoverContent .SettingEntryContent label:last-child {
+  margin-right: 0px;
+}
+
+.PopoverContent .SettingEntryContent label:hover,
+.PopoverContent .SettingEntryContent label.Active {
+  background-color: #f2f0f0;
+}
+
+.PopoverContent .SettingEntryContent label.Dark:hover,
+.PopoverContent .SettingEntryContent label.Dark.Active {
+  background-color: #000;
+  color: #fff;
+}
+
+.PopoverContent .SettingEntryContent label input {
+  margin-right: 6px;
+}
+
+.SettingEntryTitleIcon {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.SettingEntryOptionIcon {
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.PopoverContent .SettingEntryContent label .AdditionalSettingItemContainer {
+  margin-left: 4px;
+}
+
+.PopoverContent
+  .SettingEntryContent
+  label
+  .AdditionalSettingItemContainer
+  input {
+  width: 35px;
+  margin: 0px 0px 0px 2px;
+}
+
+.PopoverContent
+  .SettingEntryContent
+  label
+  .AdditionalSettingItemContainer
+  input:focus {
+  outline: none;
+}
+
+input.MillSecondsInput {
+}
+</style><style>.TitleContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 16px;
+  z-index: 9999999;
+
+  background-color: rgb(245, 245, 245);
+  color: rgb(33, 33, 33);
+
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 2px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
+}
+
+.TitleContainer.Dark {
+  background-color: rgb(51, 51, 51);
+  color: rgb(162, 162, 162);
+}
+
+.TitleLogoContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.TitleNameContainer {
+  font-size: 16px;
+  font-weight: 500;
+  user-select: none;
+}
+
+.SettingIconConainer {
+  margin: 0px 10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SettingIcon {
+  opacity: 0.3;
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+
+  transition: all 0.15s ease-in;
+}
+
+.SettingIcon:hover,
+.SettingIcon.Open {
+  opacity: 0.7;
+  width: 18px;
+  height: 18px;
+
+  transform: rotate(120deg);
+}
+
+.TitleContainer .ActionButtonContainer {
+  flex-shrink: 0;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.TitleContainer .ActionButton {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  color: rgb(86, 91, 94);
+  transition: all 0.2s ease-in;
+}
+
+.TitleContainer .ActionButton.Dark {
+  color: rgb(235, 235, 235);
+}
+
+.TitleContainer .ActionButton:hover {
+  color: rgb(60, 64, 67);
+  background-color: rgb(232, 234, 237);
+}
+
+.TitleContainer .ActionButton.Dark:hover {
+  color: rgb(167, 167, 167);
+  background-color: rgb(32, 32, 32);
+}
+</style><style>.SearchBarContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: searchfield-cancel-button;
+}
+
+.SearchBarInput {
+  flex: 1;
+  margin-left: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border-radius: 290486px;
+  padding-left: 1em;
+  padding-right: 1em;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  border: 1px solid transparent;
+  background-color: #fff;
+  border-color: #dbdbdb;
+  color: #363636;
+  max-width: 100%;
+  width: 100%;
+
+  font-size: 0.9rem;
+  height: 2em;
+
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 1.3;
+
+  position: relative;
+
+  transition: 0.1s all ease-in;
+}
+
+.SearchBarInput.Dark {
+  background-color: rgb(51, 51, 51);
+  color: rgb(190, 193, 198);
+  border-color: rgb(32, 33, 36);
+}
+
+.SearchBarInput:focus {
+  outline: none;
+}
+
+.SearchBarInput:hover {
+  background-color: rgb(252, 252, 252);
+}
+
+.SearchBarInput.Dark:hover,
+.SearchBarInput.Dark:hover {
+  background-color: rgb(41, 41, 41);
+}
+
+.SearchResultsCountContainer {
+  flex-shrink: 0;
+  margin-right: 6px;
+  width: 36px;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchResultsCount {
+  width: 25px;
+  height: 25px;
+  font-size: 0.8rem;
+
+  background-color: #d5d5d5;
+  color: #363636;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.1s ease-in;
+}
+
+.Searching {
+  background-color: #209cee;
+  color: #fff;
+}
+
+.CloseToSuccess {
+  background-color: #ffdd57;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.Success {
+  background-color: #23d160;
+  color: #fff;
+}
+
+.NoResults {
+  background-color: #ff3860;
+  color: #fff;
+}
+</style><style>.TabItem {
+  /* padding: 0px 8px; */
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.TabContainerPad {
+  flex-shrink: 0;
+  width: 8px;
+}
+
+.TabContainerPadActive {
+  background-color: rgb(255, 255, 255);
+}
+
+.TabContainerPadActive.Dark {
+  background-color: rgb(53, 54, 58);
+}
+
+.TabContainerPadInactiveHovering {
+  background-color: rgb(244, 245, 247);
+}
+
+.TabContainerPadInactiveHovering.Dark {
+  background-color: rgb(46, 47, 50);
+}
+
+.TabContainerLeftPadInner {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(222, 225, 230);
+  border-bottom-right-radius: 8px;
+}
+
+.TabContainerLeftPadInner.Dark {
+  background-color: rgb(36, 36, 36);
+}
+
+.TabContainerRightPadInner {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(222, 225, 230);
+  border-bottom-left-radius: 8px;
+}
+
+.TabContainerRightPadInner.Dark {
+  background-color: rgb(36, 36, 36);
+}
+
+.TabContainer {
+  flex: 1;
+  min-width: 0;
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  padding: 8px 8px 8px 10px;
+  cursor: default;
+  color: rgb(60, 64, 67);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  /* border-radius: 6px; */
+
+  transition: all 0.1s ease-in;
+
+  position: relative;
+}
+
+.TabContainer.Dark {
+  color: rgb(190, 193, 198);
+}
+
+.ActiveTabContainer {
+  background-color: rgb(255, 255, 255);
+}
+
+.ActiveTabContainer.Dark {
+  background-color: rgb(53, 54, 58);
+}
+
+.InactiveTabContainerHovering {
+  background-color: rgb(244, 245, 247);
+}
+
+.InactiveTabContainerHovering.Dark {
+  background-color: rgb(46, 47, 50);
+}
+
+.PinnedIconContainer {
+  position: absolute;
+  top: -3px;
+  left: 1px;
+  padding-left: 1px;
+  padding-top: 0px;
+}
+
+.PinnedIcon {
+  width: 8px;
+  height: 8px;
+  opacity: 0.5;
+  color: rgb(66, 66, 66);
+  transform: rotate(-45deg);
+}
+
+.PinnedIcon.Dark {
+  color: rgb(190, 193, 198);
+}
+
+.TabFaviconContainer {
+  flex-shrink: 0;
+  margin-right: 8px;
+  flex-shrink: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.TabTitleContainer {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+.TabTitle {
+  flex: 1;
+  position: relative;
+}
+
+.Truncated {
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .FadeOut {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(222, 225, 230, 1) 100%
+  );
+}
+
+.FadeOutHovering {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(244, 245, 247, 1) 100%
+  );
+} */
+
+.MutedIconContainer {
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  color: rgb(124, 128, 130);
+}
+
+.MutedIconContainer.Dark {
+  color: rgb(190, 193, 198);
+}
+
+.Ordinal {
+  width: 20px;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.TabItemActionButtonContainer {
+  flex-shrink: 0;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease-in;
+}
+
+.TabItemActionButton {
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  color: rgb(124, 128, 130);
+}
+
+.TabItemActionButton.Dark {
+  color: rgb(190, 193, 198);
+}
+
+.TabItemActionButton:hover {
+  color: rgb(60, 64, 67);
+  background-color: rgb(232, 234, 237);
+}
+
+.TabItemActionButton.Dark:hover {
+  color: rgb(190, 193, 198);
+  background-color: rgb(68, 69, 71);
+}
+
+.TabItemActionButtonSpaceBetween {
+  width: 5px;
+}
+
+.MenuItemIconContainer {
+  height: 16px;
+  width: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.blink {
+  animation: blinker 0.8s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+</style><style>.react-contextmenu {
+  background-color: rgb(246, 246, 246);
+  color: #373a3c;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  margin: 2px 0 0;
+  min-width: 150px;
+  outline: none;
+  opacity: 0;
+  padding: 3px 0;
+  pointer-events: none;
+  text-align: left;
+  transition: opacity 250ms ease !important;
+  z-index: 10000000;
+}
+
+.react-contextmenu.Dark {
+  background-color: rgb(54, 54, 54);
+  color: #d0d0d0;
+}
+
+.react-contextmenu.react-contextmenu--visible {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 9999;
+}
+
+.react-contextmenu-item {
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 1.8;
+  padding: 1px 15px;
+  text-align: inherit;
+  white-space: nowrap;
+
+  display: flex;
+  align-items: center;
+}
+
+.react-contextmenu-item:hover {
+  color: #fff;
+  background-color: rgb(31, 92, 209);
+}
+
+.react-contextmenu-item:focus {
+  outline: none;
+}
+
+/* .react-contextmenu-item.react-contextmenu-item--active,
+.react-contextmenu-item.react-contextmenu-item--selected {
+  color: #fff;
+  background-color: #20a0ff;
+  border-color: #20a0ff;
+  text-decoration: none;
+} */
+
+.react-contextmenu-item.react-contextmenu-item--disabled,
+.react-contextmenu-item.react-contextmenu-item--disabled:hover {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #878a8c;
+}
+
+.react-contextmenu-item--divider {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+  cursor: inherit;
+  margin-bottom: 3px;
+  padding: 2px 0;
+}
+
+.react-contextmenu-item--divider.Dark {
+  border-bottom: 2px solid rgb(84, 84, 84);
+}
+
+.react-contextmenu-item--divider:hover {
+  background-color: transparent;
+}
+
+.react-contextmenu-item.react-contextmenu-submenu {
+  padding: 0;
+}
+
+.react-contextmenu-item.react-contextmenu-submenu > .react-contextmenu-item {
+}
+
+.react-contextmenu-item.react-contextmenu-submenu
+  > .react-contextmenu-item:after {
+  content: '▶';
+  display: inline-block;
+  position: absolute;
+  right: 7px;
+}
+
+.example-multiple-targets::after {
+  content: attr(data-count);
+  display: block;
+}
+</style><style>.NewTabButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 8px 8px 10px;
+  color: rgb(60, 64, 67);
+}
+
+.NewTabButtonContainer.Dark {
+  color: rgb(190, 193, 198);
+}
+
+.NewTabButton {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  color: rgb(60, 64, 67);
+  transition: all 0.2s ease-in;
+}
+
+.NewTabButton.Dark {
+  color: rgb(190, 193, 198);
+}
+
+.NewTabButton:hover {
+  background-color: rgb(203, 206, 211);
+}
+
+.NewTabButton.Dark:hover {
+  background-color: rgb(68, 69, 71);
+}
+</style><style>.SidebarContainer {
+  background-color: rgb(222, 225, 230);
+}
+
+.SidebarContainer.Dark {
+  color: rgb(167, 167, 167);
+  background-color: rgb(36, 36, 36);
+}
+</style><style>body {
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+  background-color: rgb(222, 225, 230);
+  height: 100%;
+}
+
+body.Dark {
+  background-color: rgb(36, 36, 36);
+}
+</style><style data-jss="" data-meta="MuiSnackbar">
+.MuiSnackbar-root {
+  left: 8px;
+  right: 8px;
+  display: flex;
+  z-index: 1400;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+}
+.MuiSnackbar-anchorOriginTopCenter {
+  top: 8px;
+}
+@media (min-width:600px) {
+  .MuiSnackbar-anchorOriginTopCenter {
+    top: 24px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+.MuiSnackbar-anchorOriginBottomCenter {
+  bottom: 8px;
+}
+@media (min-width:600px) {
+  .MuiSnackbar-anchorOriginBottomCenter {
+    left: 50%;
+    right: auto;
+    bottom: 24px;
+    transform: translateX(-50%);
+  }
+}
+.MuiSnackbar-anchorOriginTopRight {
+  top: 8px;
+  justify-content: flex-end;
+}
+@media (min-width:600px) {
+  .MuiSnackbar-anchorOriginTopRight {
+    top: 24px;
+    left: auto;
+    right: 24px;
+  }
+}
+.MuiSnackbar-anchorOriginBottomRight {
+  bottom: 8px;
+  justify-content: flex-end;
+}
+@media (min-width:600px) {
+  .MuiSnackbar-anchorOriginBottomRight {
+    left: auto;
+    right: 24px;
+    bottom: 24px;
+  }
+}
+.MuiSnackbar-anchorOriginTopLeft {
+  top: 8px;
+  justify-content: flex-start;
+}
+@media (min-width:600px) {
+  .MuiSnackbar-anchorOriginTopLeft {
+    top: 24px;
+    left: 24px;
+    right: auto;
+  }
+}
+.MuiSnackbar-anchorOriginBottomLeft {
+  bottom: 8px;
+  justify-content: flex-start;
+}
+@media (min-width:600px) {
+  .MuiSnackbar-anchorOriginBottomLeft {
+    left: 24px;
+    right: auto;
+    bottom: 24px;
+  }
+}
+</style></head>
+
+<body>
+  <div id="app-container"><div class="SidebarContainer"><div class="TitleContainer"><div class="TitleLogoContainer"><div style="width: 20px; height: 20px; position: relative; box-sizing: border-box;"><img class="Img" src="chrome-extension://pddljdmihkpdfpkgmbhdomeeifpklgnm/icon-128.png" alt="APP Logo"></div></div><div class="TitleNameContainer">Vertical Tabs</div><div title="Settings" class="SettingIconConainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="SettingIcon " height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"></path></svg></div><div style="flex: 1 1 0%;"></div><div title="Hide" class="ActionButtonContainer"><div class="ActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="22px" width="22px" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg></div></div></div><div style="margin: 0px; padding: 48px 0px 0px;"><div class="SearchBarContainer"><input type="search" class="SearchBarInput" placeholder="🔍 search tabs here" value=""><div class="SearchResultsCountContainer"><div class="SearchResultsCount">13</div></div></div><ul style="margin: 0px; padding: 0px;"><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/https://mail.protonmail.com/inbox/uprSHtehFRu0G3TF91v5kZXYinW4H9LY6-HqvpvlX4-YaoclU9DZVCNyZfvDzB6aQysG-Qo4DH-ERWON-TRqcg==" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="https://mail.protonmail.com/inbox/uprSHtehFRu0G3TF91v5kZXYinW4H9LY6-HqvpvlX4-YaoclU9DZVCNyZfvDzB6aQysG-Qo4DH-ERWON-TRqcg=="><div class="TabTitle">Inbox | autisticlycan@protonmail.com | ProtonMail</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad TabContainerPadActive"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer ActiveTabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/https://amcatglobal.aspiringminds.com/?data=eyJsb2dpbiI6eyJ1c2VybmFtZSI6ImVtYWlsQGVtYWlsLmNvbV81MyIsInBhc3N3b3JkIjoieHR5Mm1iZXUiLCJpc0F1dG9sb2dpbiI6MSwicGFydG5lcklkIjoiMzAwMSIsImF1dGhrZXkiOiJNalZoWkRReE5HWmpNVGN4TkRJek1qRmtZelUxWXpFMFlUVTNNRFF3WkdVPSIsImxhbmd1YWdlIjoiZW4iLCJyZXR1cm5VcmwiOiIifX0%3D#/en" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="https://amcatglobal.aspiringminds.com/?data=eyJsb2dpbiI6eyJ1c2VybmFtZSI6ImVtYWlsQGVtYWlsLmNvbV81MyIsInBhc3N3b3JkIjoieHR5Mm1iZXUiLCJpc0F1dG9sb2dpbiI6MSwicGFydG5lcklkIjoiMzAwMSIsImF1dGhrZXkiOiJNalZoWkRReE5HWmpNVGN4TkRJek1qRmtZelUxWXpFMFlUVTNNRFF3WkdVPSIsImxhbmd1YWdlIjoiZW4iLCJyZXR1cm5VcmwiOiIifX0%3D#/en"><div class="TabTitle">Aspiring Minds</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad TabContainerPadActive"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/chrome-extension://klbibkeccnjlkjkiokjodocebajanakg/suspended.html#ttl=Home%20%7C%20Amazon%20Career%20Day&amp;pos=0&amp;uri=https://www.amazoncareerday.com/" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="chrome-extension://klbibkeccnjlkjkiokjodocebajanakg/suspended.html#ttl=Home%20%7C%20Amazon%20Career%20Day&amp;pos=0&amp;uri=https://www.amazoncareerday.com/"><div class="TabTitle">Home | Amazon Career Day</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/chrome-extension://klbibkeccnjlkjkiokjodocebajanakg/suspended.html#ttl=SDE%2BAssessment%2BOverview%2B2020-2021.pdf&amp;pos=0&amp;uri=https://sp-brand2020.s3-us-west-2.amazonaws.com/SDE+Assessment+Overview+2020-2021.pdf" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="chrome-extension://klbibkeccnjlkjkiokjodocebajanakg/suspended.html#ttl=SDE%2BAssessment%2BOverview%2B2020-2021.pdf&amp;pos=0&amp;uri=https://sp-brand2020.s3-us-west-2.amazonaws.com/SDE+Assessment+Overview+2020-2021.pdf"><div class="TabTitle">SDE+Assessment+Overview+2020-2021.pdf</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/chrome-extension://klbibkeccnjlkjkiokjodocebajanakg/suspended.html#ttl=Positions%20for%20Students%20-%20Citadel&amp;pos=1100&amp;uri=https://www.citadel.com/careers/open-positions/positions-for-students/" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="chrome-extension://klbibkeccnjlkjkiokjodocebajanakg/suspended.html#ttl=Positions%20for%20Students%20-%20Citadel&amp;pos=1100&amp;uri=https://www.citadel.com/careers/open-positions/positions-for-students/"><div class="TabTitle">...</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/chrome-extension://klbibkeccnjlkjkiokjodocebajanakg/suspended.html#ttl=Quantitative%20Researcher%20-%20Intern%20(Asia)%20-%20Citadel&amp;pos=600&amp;uri=https://www.citadel.com/careers/details/quantitative-researcher-intern-asia/" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="chrome-extension://klbibkeccnjlkjkiokjodocebajanakg/suspended.html#ttl=Quantitative%20Researcher%20-%20Intern%20(Asia)%20-%20Citadel&amp;pos=600&amp;uri=https://www.citadel.com/careers/details/quantitative-researcher-intern-asia/"><div class="TabTitle">Quantitative Researcher - Intern (Asia) - Citadel</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/https://my.uw.edu/" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="https://my.uw.edu/"><div class="TabTitle">MyUW: Home</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/https://play.typeracer.com/" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="https://play.typeracer.com/"><div class="TabTitle">TypeRacer - Test your typing speed and learn to type faster. Free typing game and competition. Way more fun than a typing tutor!</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/https://www.facebook.com/messages/t/100008924406770" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="https://www.facebook.com/messages/t/100008924406770"><div class="TabTitle">(11) Messenger | Facebook</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/https://www.linkedin.com/notifications/" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="https://www.linkedin.com/notifications/"><div class="TabTitle">Notifications | LinkedIn</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/https://my.uw.edu/" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="https://my.uw.edu/"><div class="TabTitle">MyUW: Home</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/https://itconnect.uw.edu/connect/email/" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="https://itconnect.uw.edu/connect/email/"><div class="TabTitle">Email and calendaring | IT Connect</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><div><div class="react-contextmenu-wrapper"><li class="TabItem" draggable="true"><div class="TabContainerPad"><div class="TabContainerLeftPadInner"></div></div><div class="TabContainer"><div class="TabFaviconContainer"><img src="chrome://favicon/size/16@2x/https://canvas.uw.edu/" alt="favicon" style="width: 16px; height: 16px;"></div><div class="TabTitleContainer" title="https://canvas.uw.edu/"><div class="TabTitle">Dashboard</div></div><div title="Reload tab" class="TabItemActionButtonContainer" style="opacity: 0;"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path></svg></div></div><div class="TabItemActionButtonSpaceBetween"></div><div title="Close tab" class="TabItemActionButtonContainer"><div class="TabItemActionButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div></div></div><div class="TabContainerPad"><div class="TabContainerRightPadInner"></div></div></li></div><nav role="menu" tabindex="-1" class="react-contextmenu" style="position: fixed; opacity: 0; pointer-events: none;"><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V192h416v234z"></path></svg></div>New Tab</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"></path></svg></div>Reload</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M464 0H144c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v320c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-96 464H48V256h320v208zm96-96h-48V144c0-26.5-21.5-48-48-48H144V48h320v320z"></path></svg></div>Duplicate</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></div>Pin</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></svg></div>Mute This Tab</div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg></div>Copy Tab URL</div><div class="react-contextmenu-item react-contextmenu-item--divider" role="menuitem" tabindex="-1" aria-disabled="false" aria-orientation="horizontal"></div><div class="react-contextmenu-item" role="menuitem" tabindex="-1" aria-disabled="false"><div class="MenuItemIconContainer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></div>Close</div></nav></div><li class="NewTabButtonContainer" title="Open a new tab"><div class="NewTabButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="22px" width="22px" xmlns="http://www.w3.org/2000/svg"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg></div></li></ul></div></div></div>
+<script type="text/javascript" src="chrome-extension://pddljdmihkpdfpkgmbhdomeeifpklgnm/sidebar.bundle.js"></script>
+
+</body></html>
