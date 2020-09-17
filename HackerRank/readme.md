@@ -17,6 +17,7 @@ them out. This can be seem easily through the coding challanges they send to peo
 
 * If constraints are **explicit given**, please think about it and its implications.
 j
+
 * Read the conditions of the problem carefully and make use of all relavent information.
   * unlike solving problem in the real worlds, the relavent information in the coding challanges are always
   useful information for producing the correct/optimal solution for the problem.
@@ -104,6 +105,12 @@ problem. See `./problems/Minimum Swaps 2` for more information.
 * Array can be used as a map that maps the indices of an element to any value correlates to the index.
 
 * An array implemented median seeker in python is provided in `./problems/Fraudulant Activity Notifications`
+
+* The ultimate problem that is related to the Frequencies Mapping is the `./problems/Reverse Shuffle Merge`, 
+this is the challenge the lead to the development of a: "Sorted, Iterable, Multi-Set" for the problem, which
+is essential when it comes to solving the problem efficiently, because when the set of alphebet is small, and 
+repeatitions of elements are involved, then it will be very slow to use a list to manipulate some of the underlying 
+machenics, but with a multi-set, it will be a different story. 
 
 ## Set, Map Related
 

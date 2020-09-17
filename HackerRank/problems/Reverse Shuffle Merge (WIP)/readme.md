@@ -175,3 +175,5 @@ are appearing after this given index for the given sequence.
   * Here is a list of things that a multiset is going to care about:
     * The set of unique elements, ordered.
     * The number of times they repeated in the original sequence.
+
+* Using the Tailored Multi-set data structure, we are able to make the most efficient solution for the problem.
