@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.*;
 
@@ -46,6 +47,19 @@ public class StreamDemo {
             System.out.println(Boxed2);
             System.out.println(TopKMostFrequent(Boxed2, 2));
         }
+
+        // Testing Map reversed.
+        {
+            char[] Sequence = ("Ok, Amazon interviews can be very anonying and they test you on " + 
+            "core Leadership Principles. ").toCharArray();
+            List<Character> CharList = IntStream
+                    .range(0, Sequence.length).mapToObj(I -> Sequence[I])
+                    .collect(Collectors.toList());
+            TreeMap<Character, Integer> Fmap = QuickCounter(CharList);
+            Map<Integer, Character> MapReversed = MapReversed(Fmap);
+            System.out.println(MapReversed);
+
+        }
     }
 
     /**
@@ -56,7 +70,7 @@ public class StreamDemo {
     {
         TreeMap<T, Integer> Res = sequence.stream().
                 collect (
-                        Collectors.groupingBy (
+                            Collectors.groupingBy (
                             Function.identity(),  // The element itself as the classifer
                             TreeMap::new,  // Create the new map as a Treemap
                             Collectors.summingInt(e -> 1)  // e -> 1 maps element in the list of values into a list of 1, 
@@ -140,6 +154,7 @@ public class StreamDemo {
         return AdjList;
     }
 
+
     /**
      * Map the values to groups of keys. 
      * @param <K>
@@ -149,7 +164,16 @@ public class StreamDemo {
      */
     public static <K, V> Map<V, K> MapReversed(Map<K, V> map)
     {
-        return null;
+        // Map split it to tuples list
+        List<Entry<K, V>> Kvp = map.entrySet().stream().collect(Collectors.toList());
+        Map<Object, List<Object>> Reversed = Kvp.stream().collect(
+            Collectors.groupingBy(
+                (e) -> e.getValue(),
+                HashMap::new, 
+                Collectors.mapping( e -> e.getKey(), Collectors.toList())
+            )
+        ); // The generic information is lost. 
+        return (Map<V, K>) Reversed;
     }
 
 

@@ -22,5 +22,3 @@ data set.
 
 * Assuming that, the minimum pairing strategy works correctly (Pairing pair that are immediately larger on the right 
 side)
-
-
