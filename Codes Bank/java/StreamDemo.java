@@ -6,7 +6,6 @@ import java.util.stream.*;
 
 /**
  *   This is gonna be another demo for the method.
- * 
  */
 public class StreamDemo {
     
@@ -58,7 +57,6 @@ public class StreamDemo {
             TreeMap<Character, Integer> Fmap = QuickCounter(CharList);
             Map<Integer, Character> MapReversed = MapReversed(Fmap);
             System.out.println(MapReversed);
-
         }
     }
 
@@ -170,11 +168,18 @@ public class StreamDemo {
             Collectors.groupingBy(
                 (e) -> e.getValue(),
                 HashMap::new, 
-                Collectors.mapping( e -> e.getKey(), Collectors.toList())
+                Collectors.mapping(e -> e.getKey(), Collectors.toList())
             )
         ); // The generic information is lost. 
+
         return (Map<V, K>) Reversed;
     }
 
+    public static double VectorDot(double[] v1, double[] v2)
+    {
+        return IntStream
+                .range(0, Math.min(v1.length, v2.length))
+                .mapToDouble(I -> v1[I]*v2[I]).sum();
+    }
 
 }

@@ -28,6 +28,7 @@ def edit_distance(w1, w2):
         return T[I, J]
     return recur(M - 1, N - 1)
 
+
 def edit_distance2(a, b):
     """
         Given 2 string, determine whether it is possible, to reduce string "a" to string "b" with the following 

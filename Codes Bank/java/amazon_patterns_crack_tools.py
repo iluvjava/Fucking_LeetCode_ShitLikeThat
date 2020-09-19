@@ -44,6 +44,7 @@ def patterns_filter(before, after):
             print(RelativeRanksTransform(before))
         else: 
             print("NO")
+    # ----------------------------------------------------------------------------------------------
     
     
     
