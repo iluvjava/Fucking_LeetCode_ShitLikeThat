@@ -97,8 +97,6 @@ def candies(arr):
 
 
 
-
-
 def main():
     pass
 

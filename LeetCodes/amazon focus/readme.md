@@ -19,5 +19,3 @@ but failed because of limited amount of time.
   * When stucked for too long, read more challenges and let that problem resolve at the back of your mind, if hours 
   after it's still not resolve, read the solution and understand it thoroughly, expand the solution, and make 
   connections to existing knowledges of CS on an algorithmc level.
-
-  
