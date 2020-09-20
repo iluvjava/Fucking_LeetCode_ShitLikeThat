@@ -130,6 +130,39 @@ to see how this shit works out.
         }
   ```
 
+  * This idea so far is the coolest and craziest.
+
 * Stack:
+
   * The stack is used to search of the element that is immediately larger than the current element to the right side
   of the current element, which can be used to calculate the volumn of the water.
+
+  * The key I am mising here, is that, in order to trap rain water, we will need 3 bars to do that, and this is the
+  part that is important.
+    * The bar that is curring looking.
+    * The bar that is taken out right after the flushing start.
+    * The bar that is still on the top of the stack
+      * If the stack only has one bar, then the water cannot be trapped.
+
+  * Let's consider a base case, and for the base case, we need at least 3 bars to trap the water.
+    * 
+
+## Some Input Examples for checking the algorithm
+
+```
+ *   *   *   *
+ *   *   *   *
+ * * * * *   *
+ * * * * * * *
+```
+* `[4, 2, 4, 2, 4, 1, 4]`
+* Water volumn: 7
+```
+                  *
+* *       *   * * *
+* *     * * * * * *
+* *   * * * * * * *
+* * * * * * * * * *
+```
+* `[4, 4, 1, 2, 3, 4, 3, 4, 4, 5]`
+* Water: 7

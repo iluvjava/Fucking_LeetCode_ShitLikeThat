@@ -61,11 +61,11 @@ structure.
 * The solution passed a majority of tests, but there are few tests that we got the wrong answers for.
 
 * Failed Minimum Inputs: [3, 5, 8, 6, 4]
-  * Top [3] Bottom
-  * Top [3, 5] Bottom  # Day ++
-  * Top [3, 5, 8] Bottom  # Day ==
-  * Top [3, 5, 8, 6] Bottom  # Day ==
-  * Top [3, 5, 8, 6, 4] Bottom  # Day ==
+  * Top `[3] Bottom`
+  * Top `[3, 5] Bottom  # Day ++`
+  * Top `[3, 5, 8] Bottom  # Day ==`
+  * Top `[3, 5, 8, 6] Bottom  # Day ==`
+  * Top `[3, 5, 8, 6, 4] Bottom  # Day ==`
 
 ## A special Case where the first element is the global minimum of the array
 
@@ -108,24 +108,24 @@ let's only investigate the case where, the start of the array is the global mini
 use to simulate the plant dying. The clever part of the solution is the use of the data-structure which can give
 it an incredible run time.
 * Data structure to leverage: LinkedList<LinkedList<Integer>>, probably gonna need java.
-* Input: [1, 2, 3, 4, 5]
+* Input: `[1, 2, 3, 4, 5]`
   * Parse into parallel stacks:
-  * [[1], [2], [3], [4], [5]] # First day.
-  * [[1][0] < [2][0] < [3][0] < [4][0] < [5][0]]
-  * [[1]] # after day 1, terminate and that is all we need.
+  * `[[1], [2], [3], [4], [5]]`  # First day.
+  * `[[1][0] < [2][0] < [3][0] < [4][0] < [5][0]]`
+  * `[[1]] `# after day 1, terminate and that is all we need.
 
-* Input: [3, 5, 8, 6, 4]
-  * [[3][0] < [5][0] < [8, 6, 4][0]]
-  * [[3][0] < [6, 4][0]]  # after day 1
-  * [[3][0] < [4][0]]  # after day 2
-  * [[3]]  # after day 3
+* Input: `[3, 5, 8, 6, 4]`
+  *`[[3][0] < [5][0] < [8, 6, 4][0]]` 
+  * `[[3][0] < [6, 4][0]]  # after day 1`
+  * `[[3][0] < [4][0]]  # after day 2`
+  * `[[3]]  # after day 3` 
 
-* Input: [1, 2, 3, 4, 3, 4, 5, 2, 3, 4]
-  * [[1], [2], [3], [4, 3], [4], [5, 2], [3], [4]]
-  * [[1],           [3],         [2]             ]  # after cancellation
-  * [[1], [3, 2]]  # after merge
-  * [[1], [2]]  # after cancellation
-  * [[1]]  # after cancellation
+* Input: `[1, 2, 3, 4, 3, 4, 5, 2, 3, 4]`
+  *`[[1], [2], [3], [4, 3], [4], [5, 2], [3], [4]]`
+  * `[[1],           [3],         [2]             ]`  # after cancellation
+  * `[[1], [3, 2]]  # after merge`
+  * `[[1], [2]]  # after cancellation`
+  * `[[1]]  # after cancellation`
   * 3 round cancellation --> 3 days.
 
 * Summary:

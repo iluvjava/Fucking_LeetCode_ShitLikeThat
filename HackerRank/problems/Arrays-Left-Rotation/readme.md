@@ -1,6 +1,6 @@
 ## Hackerrank Left Rotation
 
-* [link](hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays)
+* [link](https://hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays)
 
 * Problem description is a PDF under the current directory. 
 

@@ -4,26 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "a86e24010681db3f",
+        "id": "663029560d260f64",
         "type": "leaf",
         "active": true,
         "state": {
-          "type": "graph",
-          "state": {}
-        },
-        "group": "f77038a377f30b8c"
-      },
-      {
-        "id": "6590571f734b8c00",
-        "type": "leaf",
-        "state": {
           "type": "markdown",
           "state": {
-            "file": "HackerRank/problems/Array-Manipulations/readme.md",
-            "mode": "preview"
+            "file": "README.md",
+            "mode": "source"
           }
         },
-        "group": "f77038a377f30b8c"
+        "group": "fabdc1e35f3c698c"
+      },
+      {
+        "id": "36a162afca02d5a4",
+        "type": "leaf",
+        "state": {
+          "type": "localgraph",
+          "state": {
+            "file": "README.md"
+          }
+        },
+        "group": "fabdc1e35f3c698c"
       }
     ],
     "direction": "vertical"
@@ -58,7 +60,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 368
+    "width": 468
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -73,22 +75,28 @@
             "type": "leaf",
             "state": {
               "type": "backlink",
-              "state": {}
+              "state": {
+                "file": "README.md"
+              }
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "lastOpenFiles": [
+    "README.md",
+    "HackerRank/Hacckerrank_General_Guide.md",
+    "HackerRank/problems/Array-Manipulations/Array-Manipulations.md",
+    "Link to problem.md",
+    "HackerRank/problems/Triple-Sum/Triple-Sum-Readme.md",
+    "HackerRank/problems/Triple-Sum/readme.md",
+    "HackerRank/problems/New-Year-Chaos/New-Year-Chaos.md",
     "HackerRank/problems/Array-Manipulations/readme.md",
     "HackerRank/readme.md",
-    "HackerRank/Jungling Algorithm.png",
-    "README.md",
-    "HackerRank/problems/Matrix/readme.md",
-    "HackerRank/problems/Mark and Toys/readme.md",
-    "HackerRank/problems/Poinsonous Plant/readme.md"
+    "Codes Bank/java/amazon_part1_prep.md"
   ]
 }

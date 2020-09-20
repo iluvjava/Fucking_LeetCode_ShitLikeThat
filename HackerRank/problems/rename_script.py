@@ -9,3 +9,4 @@ AllFolders = os.listdir("./")
 AllFoldersNewName = [S.replace(" ", "-") for S in AllFolders]
 for Old, New in zip(AllFolders, AllFoldersNewName):
     os.rename(Old, New)
+

@@ -74,7 +74,7 @@ might need to consider:
 
   * Using Map to model it and use some sorting to traverse all the intervals in order.
 
-  * Problem involved: `./problems/Array Manipulations` [Link to problem](./problems/Array-Manipulations/readme.md)
+  * Problem involved: `./problems/Array Manipulations` [[Array-Manipulations]]|Array Mainpulation]]
 
 ### Inversion (Related to Sorting)
 
@@ -83,7 +83,7 @@ might need to consider:
 * The # of Inversions equals to the minimum number of adjacent swapping for to sort the elements. (Or reducing it
 to a predefined permutations)
 
-* A inversion counting algorithm is implemented in: `problems/New Year Chaos`, in **Java**.
+* A inversion counting algorithm is implemented in: `problems/New Year Chaos` [New Year Chaos](New-Year-Chaos), in **Java**.
 
 ### Minimum Swaps (Related to Sorting, not necessarily adjacent swapping)
 
@@ -155,7 +155,7 @@ indices `i_k`, `1 <= k <= n`, `i_k < i_{k - 1}`.
 
   * Constraints 2: All the subsequence under the search space must be with the same length.
 
-* Usage is demonstrated in  `./problems/count-triplets 1`
+* Usage is demonstrated in  `./problems/count-triplets 1` [problem link](Triple-Sum-Readme)
 
 * Traversing the array in reverse order, using a map to keep track of the number of tuples and the frequencies for each
 

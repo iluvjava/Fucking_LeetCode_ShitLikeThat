@@ -56,7 +56,7 @@ class Solution {
             LinkedList<Integer> TheFirst = new LinkedList<>();
             TheFirst.add(arr[0]);
             Groups.add(TheFirst);
-            for(int I = 1; I < arr.length; I++)
+            for (int I = 1; I < arr.length; I++)
             {
                 Integer LastofLast = Groups.getLast().getLast();
                 if (arr[I] > LastofLast)
