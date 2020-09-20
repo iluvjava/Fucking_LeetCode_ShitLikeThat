@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "README.md",
+            "file": "HackerRank/problems/Candies/Candies.md",
             "mode": "source"
           }
         },
@@ -22,7 +22,7 @@
         "state": {
           "type": "localgraph",
           "state": {
-            "file": "README.md"
+            "file": "HackerRank/problems/Candies/Candies.md"
           }
         },
         "group": "fabdc1e35f3c698c"
@@ -76,7 +76,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md"
+                "file": "HackerRank/problems/Candies/Candies.md"
               }
             }
           }
@@ -88,15 +88,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "HackerRank/problems/Candies/readme.md",
+    "Obsidian Notes/Start.md",
+    "HackerRank/problems/Max-Array-Sum/Max-Array-Sum.md",
+    "HackerRank/problems/Max-Array-Sum/readme.md",
+    "Obsidian Notes/Untitled.md",
     "README.md",
     "HackerRank/Hacckerrank_General_Guide.md",
     "HackerRank/problems/Array-Manipulations/Array-Manipulations.md",
     "Link to problem.md",
-    "HackerRank/problems/Triple-Sum/Triple-Sum-Readme.md",
-    "HackerRank/problems/Triple-Sum/readme.md",
-    "HackerRank/problems/New-Year-Chaos/New-Year-Chaos.md",
-    "HackerRank/problems/Array-Manipulations/readme.md",
-    "HackerRank/readme.md",
-    "Codes Bank/java/amazon_part1_prep.md"
+    "HackerRank/problems/Triple-Sum/Triple-Sum-Readme.md"
   ]
 }
