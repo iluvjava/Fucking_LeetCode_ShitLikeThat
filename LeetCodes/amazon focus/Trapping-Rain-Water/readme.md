@@ -132,6 +132,12 @@ to see how this shit works out.
 
   * This idea so far is the coolest and craziest.
 
+  * **What is 2 Pointer Exploiting?**
+    
+    * The 2 point is exploiting the fact that, one of the point is always climbing up, and this forms the basis
+    for us to trap more and more water between these 2 pointer, and it can also be visualized as light shooting from
+    both side of the array, from left and to the right, and we are searching for the area of the shadows.
+
 * Stack:
 
   * The stack is used to search of the element that is immediately larger than the current element to the right side
@@ -144,8 +150,39 @@ to see how this shit works out.
     * The bar that is still on the top of the stack
       * If the stack only has one bar, then the water cannot be trapped.
 
+  * Algorithm:
+    ```
+      Given: Height  # The height of the bars in the array.
+      Initialize Stack = []  # Monotonical, storing bars, in differeht places in the array, strictly decreasing
+      Ans = 0  # The water that got trapped.
+      foreach (H: bar height, I: Bar index in the array):
+        while (Stack is not empty and H > Height[Stack[-1]]):
+          Top = Stack.pop()
+          Width = I - Stack[-1] - 1
+          BoundHeight = min(Height[Top], Height[-1]) - Height[Top] #  might need dummy variables, height can be empty.
+          Ans += Distance * BoundedHeight
+        Stack.append(I)
+    ```
+
   * Let's consider a base case, and for the base case, we need at least 3 bars to trap the water.
-    * 
+    *
+    ```
+      *   *
+      *   *
+      *   *
+      *   *
+      * * *
+    ```
+    * The amount of water that can be trapped here is the (min(left, right) - middle)*width
+  * Now let's consider the case of Valley with monotone structure.
+    *
+    ```
+      *         *
+      * *       *
+      * * *     *
+      * * * * * *
+    ```
+    *
 
 ## Some Input Examples for checking the algorithm
 
@@ -166,3 +203,12 @@ to see how this shit works out.
 ```
 * `[4, 4, 1, 2, 3, 4, 3, 4, 4, 5]`
 * Water: 7
+
+## The Problem Expanded
+
+* The problem can be expanded pretty easily, and one of the most straight forward way to do it is make
+it into 3d.
+
+* The dynamic programming solutin will still stand strong for this problem, we but this time we need to look
+into all 4 direction to look for the `Level height` (Whehter there eixsts a boundary that can hold the water on that
+direction).

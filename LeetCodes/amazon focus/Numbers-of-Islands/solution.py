@@ -18,7 +18,7 @@ def solution(arr):
                 if ArrWrapped(K, W) != 0:
                     MarkVisited(K, W)
                     Stack.append((K, W))
-        return # Ended
+        return  # Ended
     ConnectedComponents = 0
     for I, J in [(I, J) for I in range(len(arr)) for J in range(len(arr[0]))]:
         if ArrWrapped(I, J) != 0: 
