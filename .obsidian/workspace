@@ -1,0 +1,94 @@
+{
+  "main": {
+    "id": "afbe816efa8e5b3c",
+    "type": "split",
+    "children": [
+      {
+        "id": "a86e24010681db3f",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "graph",
+          "state": {}
+        },
+        "group": "f77038a377f30b8c"
+      },
+      {
+        "id": "6590571f734b8c00",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "HackerRank/problems/Array-Manipulations/readme.md",
+            "mode": "preview"
+          }
+        },
+        "group": "f77038a377f30b8c"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "362d4f74a8c0ffb8",
+    "type": "split",
+    "children": [
+      {
+        "id": "0bacc4ddc573f6b8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a84eb9c89e03ef89",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "dd11c43f8990c4ba",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": ""
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 368
+  },
+  "right": {
+    "id": "fe5e6ae59cbfaa68",
+    "type": "split",
+    "children": [
+      {
+        "id": "0af75d777bb1fa16",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "99667257d68fd48f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "lastOpenFiles": [
+    "HackerRank/problems/Array-Manipulations/readme.md",
+    "HackerRank/readme.md",
+    "HackerRank/Jungling Algorithm.png",
+    "README.md",
+    "HackerRank/problems/Matrix/readme.md",
+    "HackerRank/problems/Mark and Toys/readme.md",
+    "HackerRank/problems/Poinsonous Plant/readme.md"
+  ]
+}

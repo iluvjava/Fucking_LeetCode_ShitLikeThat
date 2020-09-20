@@ -61,7 +61,7 @@ problem under their guides. This is a process of communications.
 * Used when rotating an array without extra memory
 [Link](https://www.geeksforgeeks.org/array-rotation/)
 
-* <img src="Jungling Algorithm.png" width="500px"/>
+* ![image](jungling-algorithm.png)
 
 * Enhance Merge Sort as a way of counting inversions
   * The number of inversion is directly related to the number of adjacent swapps
@@ -74,7 +74,7 @@ might need to consider:
 
   * Using Map to model it and use some sorting to traverse all the intervals in order.
 
-  * Problem involved: `./problems/Array Manipulations`
+  * Problem involved: `./problems/Array Manipulations` [Link to problem](./problems/Array-Manipulations/readme.md)
 
 ### Inversion (Related to Sorting)
 
@@ -173,7 +173,7 @@ single elements already appeared while traversing the array.
 
 * The stack data structure have weird usage for:
   * Identifying the nearest element that are immediate smaller/larger on the left/right for the element in that array.
-    * See more at : `.\problems\Largest Rectangle`
+    * See more at : `.\problems\Largest Rectangle` 
     * `.\problems\Min Max Riddle`
     * This is an extremely new idea for me.
   * The idea is to keep a monotonic increasing/decreasing stack such that, we can figure out the immediate

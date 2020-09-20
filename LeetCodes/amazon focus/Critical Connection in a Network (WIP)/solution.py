@@ -47,7 +47,7 @@ def solution(n, connections):
         Stack = [startingVertex]
         while len(Stack) != 0:
             U = Stack[-1]
-            # U is the leave vertex ----------------------------------------------------------------
+            # U is the leaf vertex ----------------------------------------------------------------
             if U not in AdjListDFS:
                 MinPointBack = float("+inf")
                 for V in [V for V in AdjList[U] if V != U]:
@@ -56,6 +56,7 @@ def solution(n, connections):
             else:
                 for V in AdjListDFS[U]:
                     Stack.append(V)
+            # Merge in the result for getting the bridges in the graph. 
                 
 
                 
