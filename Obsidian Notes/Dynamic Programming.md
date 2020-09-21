@@ -3,8 +3,11 @@
 * Practices include: 
 	* Linear Recurrence: [[Max-Array-Sum]]., Hackerrank
 	* Edit Distance: [[Abbreviation]], Hackerrank
-	* Complex Recursions: [[Candies]], Hacckerrank
+	* Complex Linear Recursions: [[Candies]], Hacckerrank
 	* Trapping Rain Water: [[Trapping-Rain-Water]], Leetcode
+	* Edit Distance: [[Edit Distance]], Leetcode
+	* Prefix Sum of 2d/1d Array, ???
+	* Longest Common Substring Between 2 Strings: [[Common Child]]
 
 ## Introduction
 
@@ -25,7 +28,6 @@
 	* This is Memoization
 	* Improve the recursion either with a bottom up approach, or with a iterative solution to the recursion to avoid stackoverflow. 
 * Most Commonly use data structure is: "Hash Map"
-
 
 ## Noble Applications of Dynamic Programming
  1. Edit Distance of String

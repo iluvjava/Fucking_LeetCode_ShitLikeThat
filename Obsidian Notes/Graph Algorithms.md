@@ -1,7 +1,8 @@
 # Graph Algorithms
 
 * Algorithm that common got run on a graph
-* [[Code Vaults]] Visit here for actual running codes
+* A graph is usually stored in a hash map, as an adjacency list, the most widely used option for graphs, [[Hash Map]]. 
+* [[Code Vault]] Visit here for actual running codes
 
 ## Beginner Graph Algorithms:
 * DFS: [[Depth First Search]]
@@ -23,13 +24,15 @@ while (QueueStack has Vertext):
 ## Advanced
 * MST: Minimum Spanning Tree 
 	* [[Matrix]]
+	* [[Roads and Libraries]]; This is using the porperty of MST, the actual algorithm is not used. 
+	* MST: It is the spanning subgraph with the minimum amount of edges, If any additional edges were to remove from the graph, then the graph becomes disconnected.
 * Top Sort: Topological Sorting
 * Path Finding
 	* Bellmand Ford: General Shortest Path
-	* Dijkstra: Greedy Path
-		* This is too famous to described, however, I didn't see it popping up in coding challenges
+	* Dijkstra: Greedy Path [[Greedy Algorithm]]
+		* This one is too famous, however, I didn't see it popping up in coding challenges.
 		* Data Structure got used: [[Heap, Priority Queue]]
-	* A Start: Special Greedy Path
+	* A*: Spatial Greedy Path
 
 ### Kruskal Algorithm of Minimum Spanning Tree
 * Algorithm leverage the usage of a special type of data structure call: "Union find" or "Disjoint Set". 

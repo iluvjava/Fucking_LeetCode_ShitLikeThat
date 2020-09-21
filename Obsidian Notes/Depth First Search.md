@@ -12,6 +12,7 @@
 	* BFS also does it
 	* It can detect the size of connected components given a vertex in the graph.
 	* [[DFS-Connected-Cell-in-Grid]]
+	* [[Number of Islands]]
 * Top Sort
 	* DFS can be use to extract the reversely partial sequence of the Topological Ordering of the graph.  
 

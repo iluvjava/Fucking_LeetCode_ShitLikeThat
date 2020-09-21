@@ -1,6 +1,6 @@
 # Hidden Bonus Problem
 
-* This problem is a hidden problem used for the skill(intermediate) certificate on Hackerrank.
+* This problem is a hidden problem used for the skill (intermediate) certificate on Hackerrank.
 
 * Given an array of integers, we want to pair up numbers such that each pair has a absolute difference that is larger
 

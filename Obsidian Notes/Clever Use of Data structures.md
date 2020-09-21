@@ -3,7 +3,6 @@
 ## Unordered
 * Array
 * [[Hash Map]]
-* Dictionary/Map
 * [[Stack]]
 * [[Queue]]
 * LinkedList

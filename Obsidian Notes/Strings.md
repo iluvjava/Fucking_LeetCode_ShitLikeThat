@@ -16,6 +16,7 @@
 		* Figure out the minimum operations needed to reduce one string to another using the given set of operations.
 		* [[Edit Distance]]
 		* [[Abbreviation]]
+		* [[Common Child]]
 	
 ### Sequences of Integers
 

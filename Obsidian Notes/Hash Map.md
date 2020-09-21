@@ -5,7 +5,7 @@ Counting number of geometric triplets in a sequence.
 	
 * Frequencies Query
 	* Keep track of 2 hashmap, which represents a composite mapping.
-	* [[Frequencies Queue]]
+	* [[Frequencies Queries]]
 
 * Valid String
 	* A Valid string is possible if, removing one character will make the remaining string contains letters of the same frequencies in the string
@@ -17,6 +17,6 @@ Counting number of geometric triplets in a sequence.
 
 ### Major Exploits
 * HashMap is by far the most widely used exploits in programming. 
-
 * Hashmap used to stores the frequencies of some elements in the sequence. 
+	* [[Sort Characters by Frequency]]
 * Used to store the adjacency list of the array, whic is extremely important to the ideas of [[Graph Algorithms]]

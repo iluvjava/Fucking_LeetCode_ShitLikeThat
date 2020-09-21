@@ -16,4 +16,15 @@
 * Assume an optimal solution to the problem is given, then at each step of the algorithm, prove that it's the optimal solution. 
 	* Complete the proof inductively 
 * At each stage of the algorithm, prove  that it stays ahead among all other possible choices. 
-* Find the Invariant, connect the algorithm invariant to the optimal solution, then prove that the algorithm terminates with the invariant. 
+* Find the Invariant, connect the algorithm invariant to the optimal solution, then prove that the algorithm terminates with the invariant.
+
+
+### List Problems that Involves This Idea
+
+* Maximal Number of Intervals can be Scheduled
+* [[Greedy Flourist]]
+* [[Reverse Shuffle Merge]]
+* [[Luck Balance]]
+* [[Max Min]]
+* [[Minimum Absolute Difference In an Array]]
+* [[Mark and Toys]]

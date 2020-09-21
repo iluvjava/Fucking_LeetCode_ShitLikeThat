@@ -1,6 +1,7 @@
 # Start
 ## Hackerrank General
 [[Hacckerrank_General_Guide]]
+
 ## Ideas Behind Problem Solving
 1. [[Dynamic Programming]]
 2. [[Graph Algorithms]]
@@ -10,6 +11,6 @@
 6. [[Clever Use of Data structures]]
 
 ## Misc
-1. [[Code Vaults]]
+1. [[Code Vault]]
 
 
