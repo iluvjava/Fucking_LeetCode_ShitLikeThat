@@ -8,6 +8,7 @@
 	* Edit Distance: [[Edit Distance]], Leetcode
 	* Prefix Sum of 2d/1d Array, ???
 	* Longest Common Substring Between 2 Strings: [[Common Child]]
+	* Maximal of a Continous Subarray: [[Sliding Window Maximum]]
 
 ## Introduction
 
@@ -20,6 +21,26 @@
   * Assume a new interval with finishing time that is beyond all elements in `A` is added, then the new solution is constructed based on all previous solution:
 	  * Name the new added interval `I_{n+1}`, find starting time, and look for the interval in `A` such that it doesn't have a direct conflict, say that one is `J` in `A`, then we have recursion that can construct new optimal solution that includes the new interval: 
 	  * `Opt[I + 1] = min(Opt[J] + W[I + 1], Opt[I])`, where `W[I]` is the weight of the new interval. 
+
+## Notable Exploits
+
+* Prefix sum, while iterating through the array, 1d, or 2d, stores the partial sum of the array in another array. 
+* Longest Common Substring: 
+	* define `T[I, J]:= The longest common substring between the substring a[:I + 1] and b[:J + 1]`, then we can have the following recurrcences:
+	* If the current characters for both points `I`, `J` points to the same character in both string, then: 
+		* `T[I + 1, J + 1]:= T[I, J] + 1`
+	* Else, if the character at those 2 pointers in the string are not pointing at the same character, then: 
+		* `T[I + 1, J + 1] := max(T[I - 1, J], T[I, J - 1])`
+		* It can be extended to incorperate more operations about the string, this is exploited by the following practices problems: 
+			* [[Common Child]]
+			* [[Edit Distance]]
+	* Maximal of the partial array
+		* This is very similar to the prefix sum exploit, where we stored the following about our array.
+		* Define `T[I]:= max(Arr[:I+1])` 
+		* `T[I + 1] = max(T[I], Arr[I + 1])`
+		* Then, then stored the array can be used to speed up some of the computations, this is the exploit in the following practices problems: 
+			* [[Trapping-Rain-Water]]
+			* [[Sliding Window Maximum]]
   
 
 ## The Approach

@@ -5,7 +5,7 @@
 * Amazon allows for c++, C#, java, and python, I will focus on java 1.8 and python 3.7.
 
 * Amzon allows and recommends that a partially working non-optimal solution for a solution that is trying to be optimal
-but failed because of limited amount of time. 
+but failed because of limited amount of time.
 
 * When doing Coding challenges: Focus on the following:
 
@@ -19,3 +19,4 @@ but failed because of limited amount of time.
   * When stucked for too long, read more challenges and let that problem resolve at the back of your mind, if hours 
   after it's still not resolve, read the solution and understand it thoroughly, expand the solution, and make 
   connections to existing knowledges of CS on an algorithmc level.
+

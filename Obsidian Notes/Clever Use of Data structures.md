@@ -1,12 +1,11 @@
 ## Exploiting the Data Structures
 
 ## Unordered
-* Array
+* [[Array]]
 * [[Hash Map]]
 * [[Stack]]
 * [[Queue]]
 * LinkedList
-* Multi-set
+* [[Multi-set]]
 ## Ordered
-* [[Heap, Priority Queue]]
 * [[Tree Set, Tree Map]]
