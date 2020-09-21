@@ -4,28 +4,30 @@
     "type": "split",
     "children": [
       {
-        "id": "663029560d260f64",
+        "id": "f17ff4d26ece76aa",
         "type": "leaf",
+        "dimension": 45.3092425295344,
         "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "HackerRank/problems/Candies/Candies.md",
+            "file": "Obsidian Notes/Stack.md",
             "mode": "source"
           }
         },
-        "group": "fabdc1e35f3c698c"
+        "group": "9c2ee6f086a304ce"
       },
       {
-        "id": "36a162afca02d5a4",
+        "id": "44aa59bcc1a25a9d",
         "type": "leaf",
+        "dimension": 54.6907574704656,
         "state": {
           "type": "localgraph",
           "state": {
-            "file": "HackerRank/problems/Candies/Candies.md"
+            "file": "Obsidian Notes/Stack.md"
           }
         },
-        "group": "fabdc1e35f3c698c"
+        "group": "9c2ee6f086a304ce"
       }
     ],
     "direction": "vertical"
@@ -60,7 +62,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 468
+    "width": 421
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -76,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HackerRank/problems/Candies/Candies.md"
+                "file": "Obsidian Notes/Stack.md"
               }
             }
           }
@@ -88,15 +90,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "HackerRank/problems/Candies/readme.md",
-    "Obsidian Notes/Start.md",
-    "HackerRank/problems/Max-Array-Sum/Max-Array-Sum.md",
-    "HackerRank/problems/Max-Array-Sum/readme.md",
-    "Obsidian Notes/Untitled.md",
-    "README.md",
-    "HackerRank/Hacckerrank_General_Guide.md",
-    "HackerRank/problems/Array-Manipulations/Array-Manipulations.md",
-    "Link to problem.md",
-    "HackerRank/problems/Triple-Sum/Triple-Sum-Readme.md"
+    "Obsidian Notes/Stack.md",
+    "HackerRank/problems/Largest-Rectangle/Max Retangle.md",
+    "HackerRank/problems/Largest-Rectangle/readme.md",
+    "HackerRank/problems/Min-Max-Riddle/Min Max Riddle.md",
+    "HackerRank/problems/Min-Max-Riddle/readme.md",
+    "HackerRank/problems/Max-Min/readme.md",
+    "HackerRank/problems/Alternating-Characters/alternating-characters-English.pdf",
+    "HackerRank/problems/Alternating-Characters/Alternating Characters.md",
+    "HackerRank/problems/Alternating-Characters/readme.md",
+    "Obsidian Notes/Depth First Search.md"
   ]
 }

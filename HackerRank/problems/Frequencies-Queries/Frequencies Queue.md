@@ -6,4 +6,5 @@
 
 ## Idea:
 
-* Composite Mapping.
+* Composite Mapping
+	* Elements |---> Element's Frequencies |---> Numer of Elements with that exact frequency

@@ -155,7 +155,7 @@ indices `i_k`, `1 <= k <= n`, `i_k < i_{k - 1}`.
 
   * Constraints 2: All the subsequence under the search space must be with the same length.
 
-* Usage is demonstrated in  `./problems/count-triplets 1` [problem link](Triple-Sum-Readme)
+* Usage is demonstrated in  `./problems/count-triplets 1` [problem link](Triple-Sum)
 
 * Traversing the array in reverse order, using a map to keep track of the number of tuples and the frequencies for each
 

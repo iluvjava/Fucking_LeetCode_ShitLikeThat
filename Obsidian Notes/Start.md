@@ -1,14 +1,15 @@
 # Start
-
+## Hackerrank General
+[[Hacckerrank_General_Guide]]
 ## Ideas Behind Problem Solving
-1. Dynamic Programming 
-2. Graph Algorithm
-3. Symbols Sequence
-4. Others
+1. [[Dynamic Programming]]
+2. [[Graph Algorithms]]
+3. [[Strings]]
+4. Infix and Post Fix
+5. [[Greedy Algorithm]]
+6. [[Clever Use of Data structures]]
 
-## Dynamic Programming
-* Ideas include: 
-	* Linear Recurrence: [[Max-Array-Sum]]
-	* Edit Distance: [[Abbreviation]]
-	* Complex Recursions: [[Candies]]
+## Misc
+1. [[Code Vaults]]
+
 
