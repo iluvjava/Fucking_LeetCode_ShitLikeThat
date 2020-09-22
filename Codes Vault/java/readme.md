@@ -10,7 +10,7 @@
 follwoing parameters:
 
   * Takes in:
-    * An Instance of  ? = `Collector<? super T, A, R>`
+    * An Instance of  ? = `Collector <? super T, A, R>`
 
   * Output:
     * a output of type R, that specified in the context of the generic type of the thing we are looking at.

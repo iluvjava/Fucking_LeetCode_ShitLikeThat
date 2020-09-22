@@ -10,22 +10,22 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Obsidian Notes/Multi-set.md",
+            "file": "Obsidian Notes/Trie.md",
             "mode": "source"
           }
         },
-        "group": "384e5d21e7623961"
+        "group": "ea367dbbddb12da0"
       },
       {
-        "id": "8f60f716a7cbb1c4",
+        "id": "860efa3d08c06ebf",
         "type": "leaf",
         "state": {
           "type": "localgraph",
           "state": {
-            "file": "Obsidian Notes/Multi-set.md"
+            "file": "Obsidian Notes/Trie.md"
           }
         },
-        "group": "384e5d21e7623961"
+        "group": "ea367dbbddb12da0"
       }
     ],
     "direction": "vertical"
@@ -60,7 +60,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 377
+    "width": 310.99999809265137
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -76,7 +76,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian Notes/Multi-set.md"
+                "file": "Obsidian Notes/Trie.md"
               }
             }
           }
@@ -88,15 +88,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Obsidian Notes/Multi-set.md",
+    "Obsidian Notes/Trie.md",
     "Obsidian Notes/Clever Use of Data structures.md",
+    "Obsidian Notes/START.md",
+    "Obsidian Notes/Stack.md",
+    "Codes Vault/java/readme.md",
+    "Obsidian Notes/Union Find.md",
     "Obsidian Notes/Untitled.md",
-    "HackerRank/problems/Frequencies-Queries/Frequencies Queries.md",
-    "Obsidian Notes/Hash Map.md",
-    "LeetCodes/amazon focus/(WIP)-Concatenated-Words/Concatenated-Words.md",
-    "Obsidian Notes/Dynamic Programming.md",
-    "Obsidian Notes/Graph Algorithms.md",
-    "Obsidian Notes/Strings.md",
-    "LeetCodes/amazon focus/Sliding Window Maximum/Sliding Window Maximum.md"
+    "Queue.md",
+    "Obsidian Notes/Linked List.md",
+    "HackerRank/problems/Poinsonous-Plant/Poisonous Plant.md"
   ]
 }

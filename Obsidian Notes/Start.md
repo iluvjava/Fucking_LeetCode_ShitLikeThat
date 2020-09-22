@@ -6,7 +6,7 @@
 1. [[Dynamic Programming]]
 2. [[Graph Algorithms]]
 3. [[Strings]]
-4. [[Infix and Postfix]]
+4. [[Infix and Postfix]]  Maybe tree Related? or Stack? 
 5. [[Greedy Algorithm]]
 6. [[Clever Use of Data structures]]
 
