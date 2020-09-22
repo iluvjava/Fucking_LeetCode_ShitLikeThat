@@ -19,7 +19,7 @@
 * Find the Invariant, connect the algorithm invariant to the optimal solution, then prove that the algorithm terminates with the invariant.
 
 
-### List Problems that Involves This Idea
+### Practices Problems
 
 * Maximal Number of Intervals can be Scheduled
 * [[Greedy Flourist]]

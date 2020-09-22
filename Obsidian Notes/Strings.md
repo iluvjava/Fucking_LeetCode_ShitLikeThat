@@ -17,6 +17,11 @@
 		* [[Edit Distance]]
 		* [[Abbreviation]]
 		* [[Common Child]]
+
+
+## EXTREME String Algorithms
+* Manacher Algorithm: Longest Plindromic substring
+* Finding the Substring: Boyer Moore String search algorithm/Boyer Moore Horspool algorithm
 	
 ### Sequences of Integers
 

@@ -31,13 +31,13 @@ to represent this process.
 
 * The array we are looking at: [3, 1, 4, 2]
 
-  * <img src="g1.png">
+  * ![](g1.png)
 
   * The element at index 1 of the array is 3, and it should be at index 3, hence, we connet an edge fron 1, to 3.
 
 * Swap(0, 1): [1, 3, 4, 2]
 
-  * <img src="g2.svg">
+  * ![](g2.svg)
 
   * After applying the swap of 3, 1, we recovered one of the element in the circle into the desired position.
 

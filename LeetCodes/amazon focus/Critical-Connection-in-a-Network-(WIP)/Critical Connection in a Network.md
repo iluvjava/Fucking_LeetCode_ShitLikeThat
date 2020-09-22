@@ -52,7 +52,7 @@ graph but not in the tree, then, at step when recursing forward, we know whehter
   * The above is false, then the current edges is an critical edge.
   * NOPE, it cannot be efficient enough due the the set operations.
 
-## Algorithms Implementation Details
+## Algorithms Implementation Details (This is pretty wrong)
 
 * Recursion is going to be our friend and let's hope that we don't get into stack overflow problem.
 
@@ -104,3 +104,5 @@ foreach (Vertex V on the tree)
       )
       ```
  
+## Asserting the Minimum Pointback when doing the DFS traversal on the graph
+

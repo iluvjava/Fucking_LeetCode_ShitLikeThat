@@ -8,18 +8,6 @@
 * DFS: [[Depth First Search]]
 * BFS:  [[Breadth First Seach]]
 
-* Both algorithm shared the same structure, but they uses different data structure to keep track of the vertices. 
-* Here is the generic codes for both routine:
-```
-Initialize: QueueStack  # Queue if BFS, stack if DFS
-while (QueueStack has Vertext):
-	V = QueueStack.get() 
-	foreach (U as Neibours of V):
-		if (U is not visted):
-			MarkVisited(U)
-			QueueStack.add(U)
-```
-
 
 ## Advanced
 * MST: Minimum Spanning Tree 
