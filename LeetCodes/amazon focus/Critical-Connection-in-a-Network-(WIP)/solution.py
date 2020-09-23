@@ -1,7 +1,4 @@
 
-
-
-
 # def solution(n, connections):
 #     # Construct the adjacency list for the graph by the edges
 #     def GetAdjlist():
@@ -76,46 +73,45 @@
         
 #         return Criticals
         
-    """
-    def GetCriticalEdges(treeRoot = 0):
-        # Root doesn't have min point back
-        Criticals = []
-        PointBackDict = {}
-        Stack = [treeRoot]
-        while Stack:
-            print(Stack)
-            V = Stack[-1]
-            if V not in TreeAdjlist:
-                MinPointBack = float("+inf")
-                for Nv in GraphAdjlist[V]:
-                    if LevelMap[Nv] > LevelMap[V] - 1:  # Not its parent
-                        MinPointBack = min(LevelMap[Nv], MinPointBack)
-                PointBackDict[V] = MinPointBack
-                Stack.pop()
-                continue
-            else:
-                Exc = False
-                for C in TreeAdjlist[V]:
-                    if C not in PointBackDict:
-                        Stack.append(C)
-                        Exc = True
-                if Exc:
-                    continue
-                MinPointPackAllChildren = float("inf")
-                for C in TreeAdjlist[V]:
-                    MinPointPackAllChildren = min(MinPointPackAllChildren, PointBackDict[C])
-                    if PointBackDict[C] < LevelMap[V]:
-                        Criticals.append((V, C))
-                Stack.pop()
-        print(f"Criticals: {Criticals}")
-        print(f"MinPointBackDict: {PointBackDict}")
-        return Criticals
-        """
+    # """
+    # def GetCriticalEdges(treeRoot = 0):
+    #     # Root doesn't have min point back
+    #     Criticals = []
+    #     PointBackDict = {}
+    #     Stack = [treeRoot]
+    #     while Stack:
+    #         print(Stack)
+    #         V = Stack[-1]
+    #         if V not in TreeAdjlist:
+    #             MinPointBack = float("+inf")
+    #             for Nv in GraphAdjlist[V]:
+    #                 if LevelMap[Nv] > LevelMap[V] - 1:  # Not its parent
+    #                     MinPointBack = min(LevelMap[Nv], MinPointBack)
+    #             PointBackDict[V] = MinPointBack
+    #             Stack.pop()
+    #             continue
+    #         else:
+    #             Exc = False
+    #             for C in TreeAdjlist[V]:
+    #                 if C not in PointBackDict:
+    #                     Stack.append(C)
+    #                     Exc = True
+    #             if Exc:
+    #                 continue
+    #             MinPointPackAllChildren = float("inf")
+    #             for C in TreeAdjlist[V]:
+    #                 MinPointPackAllChildren = min(MinPointPackAllChildren, PointBackDict[C])
+    #                 if PointBackDict[C] < LevelMap[V]:
+    #                     Criticals.append((V, C))
+    #             Stack.pop()
+    #     print(f"Criticals: {Criticals}")
+    #     print(f"MinPointBackDict: {PointBackDict}")
+    #     return Criticals
+    #     """
 
-    # CriticalEdges = GetCriticalEdges()
-    # print(f"Critical Eges: {CriticalEdges}")
+    # # CriticalEdges = GetCriticalEdges()
+    # # print(f"Critical Eges: {CriticalEdges}")
     
-
 
 def solution_bruteforce(n, connections):
 

@@ -49,6 +49,8 @@
 	* This is Memoization
 	* Improve the recursion either with a bottom up approach, or with a iterative solution to the recursion to avoid stackoverflow. 
 * Most Commonly use data structure is: "Hash Map"
+* [[Stackify of Recursive Functions]]
+
 
 ## Noble Applications of Dynamic Programming
  1. Edit Distance of String

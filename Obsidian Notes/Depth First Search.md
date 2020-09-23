@@ -16,7 +16,7 @@
 			if Neighbour not in visited:
 				DFS(Neighbour, adjlist, visited)
 	```
-* Iterative implementation where repeated vertices might appear in the stack, for a vertex, it happens when its neighours are direct neighbours of each other.
+* Iterative implementation where repeated vertices might appear in the stack, for a vertex, it happens when its neighours are direct neighbours of each other, or, some vertex visited in the future share the same neighours as the current vertex in the iteration. 
 	```python
 	def DFS(startingVertex, adjlist):
 		Stack = [startingVertex]
@@ -30,24 +30,43 @@
 * Another iterative solution will let the vertex remembers to continue with the last neighours, so vertex acts like an iterator of its neighbours.
 * The level map of the DFS tree can be very useful, and it's applied to many places. 
 	```python
-	def DFS(startingVertex, adjlist):
-		Stack = [StartingVertex]
-		Visited = set([StartingVertex])
-		LastNeibour = {}
-		# remembers the last neigbour put into the stack.
+	def DFS_iterative(root, adjlist):
+		NextNeighbours = {}
+		for V, _ in adjlist.items():
+			NextNeighbours[V] = 0
+		Stack = [root]
+		Visited = set()
+		Depth = {}
+		Depth[root] = 0
 		while Stack:
+			print(f"Stack: {Stack}")
 			V = Stack[-1]
 			Visited.add(V)
-			if V not in LastNeighbour:
-				LastNeighbour[V] = 0
-			if LastNeighbour[V] < len(Adjlist[V]):
-				Stack.append(adjlist[LastNeighbour[V]])
-				LastNeighbour[V] += 1
+			Exec = False
+			while NextNeighbours[V] < len(adjlist[V]):
+				Neighbour = adjlist[V][NextNeighbours[V]]
+				if Neighbour not in Visited:
+					Stack.append(Neighbour)
+					NextNeighbours[V] += 1
+					Depth[Neighbour] = Depth[V] + 1
+					Exec = True
+					break
+				else:
+					NextNeighbours[V] += 1
+			if Exec:
+				continue
 			else:
 				Stack.pop()
-			
+		return Depth
 	```
 	
+* Please observe the role of `Exec` variable, the `NextNeighours` hashmap, and the role of `beak` clause in the inner while loop. 
+* The `NextNeigbhours` variable is a remembers which neighbours in the adjlist the vertex should be adding to the stack next, emulating the effect of an iterator.
+* The Inner while loop searches for the first unvisited vertex and then breaks out to the `if` clause, where it detects  the breaking conditions of the inner while loop. The inner while loop can exit with the following conditions: 
+	* All Neighbours are visited. 
+		* Under this case, the if statement captures it and pop the vertex out of the stack, the life time of the vertex in the stack has been completed. 
+	* At least one neighbour remains unvisited
+		* Under this case, the if statement captures it and return to the larger while loop, with the unvisited neighbour added to the stack.
 
 ### DFS Exploited
 * DFS tree
@@ -63,5 +82,5 @@
 * Top Sort
 	* DFS can be use to extract the reversely partial sequence of the Topological Ordering of the graph.  
 
-## Data Structure
+## Data Structures Exploited
 * [[Stack]]

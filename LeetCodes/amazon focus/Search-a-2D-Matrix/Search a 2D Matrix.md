@@ -9,19 +9,21 @@
   * Then, iterating throug the matrix, diagonally, from the top left corner to the bottom right corner, while going
   down will produce a sequence of intergers that are in ascending order.
 
+* This problem has a diverse range of solution, very good for testing on candidates.
+
 # Idea 1 Use a Hammer
 
 * Brute Force:
   * O(MN), just seach each entry for the element and see if it's there or not.
 
-# Idea 2 Coordinate Descend to reduce the search space
+# Idea 2 Coordinate Descend to Reduce the Search Space
 
 * Row/Col moves the pointer on the matrix to look for the number. 
   * This idea is directly borrowed from the idea of coordinate descend. 
   
 * Complexity O(M + N)
 
-# Idea 3 Bijective Mapping of Matrix Entry
+# Idea 3 Bijective Mapping of Matrix Entries
 
 * Design a one to one function that convert the `1 <= I <= M*N`, and it must be the case that, as I increases, the
 entry get from the matrix is also increasing

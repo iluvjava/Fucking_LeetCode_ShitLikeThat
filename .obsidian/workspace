@@ -4,30 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "8d9e2aa3edee6c33",
+        "id": "9c391da4299ec697",
         "type": "leaf",
-        "dimension": 58.10200129115558,
         "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "HackerRank/problems/Sherlock-and-Valid-String/Sherlock and Valid String.md",
-            "mode": "source"
+            "file": "Stackify of Recursive Functions.md",
+            "mode": "preview"
           }
-        },
-        "group": "7bba38afa35b2c73"
-      },
-      {
-        "id": "be1a1047e003006f",
-        "type": "leaf",
-        "dimension": 41.89799870884441,
-        "state": {
-          "type": "localgraph",
-          "state": {
-            "file": "HackerRank/problems/Sherlock-and-Valid-String/Sherlock and Valid String.md"
-          }
-        },
-        "group": "7bba38afa35b2c73"
+        }
       }
     ],
     "direction": "vertical"
@@ -62,7 +48,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 310.99999809265137
+    "width": 462
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -78,7 +64,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HackerRank/problems/Sherlock-and-Valid-String/Sherlock and Valid String.md"
+                "file": "Stackify of Recursive Functions.md"
               }
             }
           }
@@ -90,15 +76,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "HackerRank/problems/Sherlock-and-Valid-String/Sherlock and Valid String.md",
-    "HackerRank/problems/Sherlock-and-Valid-String/sherlock-and-valid-string-English.pdf",
-    "HackerRank/problems/Poinsonous-Plant/Poisonous Plant.md",
-    "HackerRank/problems/Poinsonous-Plant/poisonous-plants-English.pdf",
-    "HackerRank/problems/New-Year-Chaos/new-year-chaos-English.pdf",
-    "HackerRank/problems/Minimum-Swaps-2/Minimum Swaps 2.md",
-    "Obsidian Notes/Array.md",
-    "HackerRank/problems/Greedy-Flourist/Greedy Flourist.md",
-    "Obsidian Notes/Greedy Algorithm.md",
-    "Obsidian Notes/Linked List.md"
+    "Stackify of Recursive Functions.md",
+    "Obsidian Notes/Dynamic Programming.md",
+    "Obsidian Notes/Untitled.md",
+    "Obsidian Notes/Depth First Search.md",
+    "Obsidian Notes/Graph Algorithms.md",
+    "Obsidian Notes/Clever Use of Data structures.md",
+    "Obsidian Notes/START.md",
+    "Obsidian Notes/Stack.md",
+    "Obsidian Notes/Multi-set.md",
+    "Obsidian Notes/Infix and Postfix.md"
   ]
 }

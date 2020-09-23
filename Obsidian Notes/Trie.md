@@ -2,6 +2,8 @@
 
 * The Trie data structure is designed to handle a set of sequences such as sentences and words with a predefined alphebet. 
 * This data structure allows for search in real time for a growing prefix from the input. 
+* A Trie is a forest/tree, where each node is a symbol from the alphabet, if we take all possible paths from the root node to the leaf while accumulting the symbols, then we obtained all the possible sequences a set. 
+	* Or alternatively, we can route to a sub-tree using prefix, and then we will obtain all the sequences in a set such that, they all shared the same prefix.
 
 
 ## What it does: 

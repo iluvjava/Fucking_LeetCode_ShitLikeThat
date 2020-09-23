@@ -11,14 +11,16 @@
 * Adjlist is a map of list, starting startingVertices is a list of vertices to start the search with. 
 ```python
 def BFS(startingVertices, adjlist):
+	startingVertices = [startingVertices] if type(startingVertices) == int else startingVertices
 	Visited = set(startingVertices)
 	Depth = dict((V, 0) for V in startingVertices)
 	while startingVertices:
-		V = startingVertices.pop()
+		V = startingVertices.pop(0)
 		for Neighbour in adjlist[V]:
-			visited.add(Neighbour)
-			startingVertices.append(Neighbour)
-			Depth[Neighrbour] = Depth[V] + 1
+			if Neighbour not in Visited:
+				startingVertices.append(Neighbour)
+				Visited.add(Neighbour)
+				Depth[Neighbour] = Depth[V] + 1
 	return Depth
 ```
 * The above algorithm does a BFS and return a map: Vertices |---> Depth on the BFS tree. 
