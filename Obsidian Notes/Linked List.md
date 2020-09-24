@@ -5,5 +5,5 @@
 
 * Only use it when mutable concatennations is the key to solving the problem. 
 	* [[Poisonous Plant]]
-	* This problem requires a LinkedList<LinkedList<Integer>> to solve the problem.
+	* This problem requires a `LinkedList<LinkedList<Integer>>` to solve the problem.
 

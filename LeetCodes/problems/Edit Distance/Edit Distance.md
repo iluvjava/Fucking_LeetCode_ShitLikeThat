@@ -7,7 +7,7 @@
 
 * Delete + Insert ==> Replace
 
-* (Link)[https://leetcode.com/problems/edit-distance/]
+* [Link](https://leetcode.com/problems/edit-distance/)
 
 ## Review: The String Alignment Algorithm (Failed)
 

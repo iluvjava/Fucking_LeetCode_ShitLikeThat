@@ -8,7 +8,8 @@
 	* Edit Distance: [[Edit Distance]], Leetcode
 	* Prefix Sum of 2d/1d Array, ???
 	* Longest Common Substring Between 2 Strings: [[Common Child]]
-	* Maximal of a Continous Subarray: [[Sliding Window Maximum]]
+	* Maximal of all Continous Subarray: [[Sliding Window Maximum]]
+	* Find Maximal sum of Continuous sub array: [[Maximal Subarray]]
 
 ## Introduction
 
@@ -49,7 +50,7 @@
 	* This is Memoization
 	* Improve the recursion either with a bottom up approach, or with a iterative solution to the recursion to avoid stackoverflow. 
 * Most Commonly use data structure is: "Hash Map"
-* [[Stackify of Recursive Functions]]
+* [[Stackify Recursive Functions]]
 
 
 ## Noble Applications of Dynamic Programming
@@ -71,3 +72,24 @@
 	*  Convex Hull
 	*  Voronoi Diagram Generation
 
+## Some Involved Examples
+* Given a set of items with profits and weight, and a knapsack with a capacity, we want to maximize the profits without exceeding the weight constraint.
+* Knapsack but all items has the same value, by which I mean the weights and profits equal to each other.
+* Consider a set of items where we want to take as many items as possible within a weight constraint.
+* List of variables:
+	* Denotes: `T[I, W]:= "A binary value representing whether there exists a subset of arr[:I + 1] such that it sums up to W."`
+	* Denotes: `arr` to be the list of the weights for each items, assume weights are integers.
+	* Denotes: `Budget` to be the total amount of capacity allowed for the knapsack.
+* For the `I + 1` items, we have the choice of adding it in, or not adding it in.
+	* `T[I + 1, W]:= T[I, W - arr[I]]` if we add it in.
+	* `T[I + 1, W]:= T[I, W]` if we don't add it in.
+	* `T[I + 1, W]:= (W == arr[I + 1])` an edge case (Should be eliminated by handling the base cases)
+* Therefore the recurrences can be simply put as: 
+	* `T[I + 1, W]:= T[I, W] || T[I, W - arr[I]]`
+* Base cases: 
+	* When there are no items to choose from, it automatically sums up to a weight of zero. Otherwiese false.
+		* `T[-1, W]:= (W == 0)`
+	* In fact, the empty set will always has a weight of 0, it will eliminate case 3 of the recurrence.
+		* `T[I, 0]:= True for all I`
+* Further Optimizing the memory:
+	* Notice that only the `I - 1` is used, therefore, we can only keep the last row to produce the next row (assuming `T` is a table, where different I lays on the columns and different `W` sweeps across the rows)

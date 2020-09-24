@@ -9,7 +9,7 @@
 * This algorithm requires proof to show that it can produce optimal solution, unfer most cases, it doesn't. 
 * This algorithm is the key to Branch and Bound algorithm, which is for solving NP-Hard problems. 
 * Matroid, some Greedy Algorithm has this beautiful structure. 
-* Greedy algorithm is the special case of a [[Dynamic Programming]], by which case, we only keep ONE the optimal solution at hand and improve it in a greedy manner, the simpliest Dynamic Programming structure.
+* Greedy algorithm is the special case of a [[Dynamic Programming]], by which case, we only keep ONE optimal solution at hand and improve it in a greedy manner, the simpliest Dynamic Programming structure.
 
 
 ### How to Reason with Greedy Algorithm

@@ -15,6 +15,9 @@
 	* [[Roads and Libraries]]; This is using the porperty of MST, the actual algorithm is not used. 
 	* MST: It is the spanning subgraph with the minimum amount of edges, If any additional edges were to remove from the graph, then the graph becomes disconnected.
 * Top Sort: Topological Sorting
+	* Khan
+	* Periority Queue 
+	* DFS Reverse Backtracking
 * Path Finding
 	* Bellmand Ford: General Shortest Path
 	* Dijkstra: Greedy Path [[Greedy Algorithm]]
