@@ -102,6 +102,6 @@ def Ackerman(m, n):
 	* if the sub problems are solved, combine results from the sub problems and then solve the current problem. Pop current problem from the stack to indicate the problem is solved. Stored the results in a data structure for future references.
 
 
-## DFS a More Complicated Example
+## DFS, a More Complicated Example
 * [[Depth First Search]]
 * When reading the example, taking notice how the iterative scheme is also keeping track of the **states** of the recursive function while doing the recursion. Each time a function calls itself, the caller instance will be freezed.

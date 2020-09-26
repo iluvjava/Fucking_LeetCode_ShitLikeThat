@@ -11,7 +11,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Obsidian Notes/Mathematical Exploits.md",
+            "file": "Obsidian Notes/Dynamic Programming.md",
             "mode": "source"
           }
         },
@@ -25,11 +25,11 @@
           {
             "id": "50b8776978a9d9fa",
             "type": "leaf",
-            "dimension": 63.89396709323583,
+            "dimension": 68.5615848406546,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian Notes/Mathematical Exploits.md",
+                "file": "Obsidian Notes/Dynamic Programming.md",
                 "mode": "preview"
               }
             },
@@ -38,11 +38,11 @@
           {
             "id": "a21955a139c42570",
             "type": "leaf",
-            "dimension": 36.10603290676417,
+            "dimension": 31.43841515934539,
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Obsidian Notes/Mathematical Exploits.md"
+                "file": "Obsidian Notes/Dynamic Programming.md"
               }
             },
             "group": "4a4ca8ba20efbea5"
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian Notes/Mathematical Exploits.md"
+                "file": "Obsidian Notes/Dynamic Programming.md"
               }
             }
           }
@@ -111,15 +111,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Obsidian Notes/Mathematical Exploits.md",
-    "Obsidian Notes/Tree Set, Tree Map.md",
-    "Obsidian Notes/START.md",
-    "Obsidian Notes/Graph Algorithms.md",
-    "Obsidian Notes/Greedy Algorithm.md",
-    "Obsidian Notes/Hash Map.md",
-    "Obsidian Notes/Multi-set.md",
     "Obsidian Notes/Dynamic Programming.md",
     "Obsidian Notes/Depth First Search.md",
-    "Obsidian Notes/Heap, Priority Queue.md"
+    "Obsidian Notes/Mathematical Exploits.md",
+    "Obsidian Notes/Linked List.md",
+    "Obsidian Notes/Multi-set.md",
+    "Obsidian Notes/Queue.md",
+    "Obsidian Notes/Stack.md",
+    "Obsidian Notes/Stackify Recursive Functions.md",
+    "Obsidian Notes/START.md",
+    "Obsidian Notes/Graph Algorithms.md"
   ]
 }

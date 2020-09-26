@@ -3,13 +3,13 @@ import java.util.TreeMap;
 
 import java.lang.System;
 
-public class MedianKeeperToo {
+public class MedianKeeper2 {
 
     public static void main(String[] args)
     {
         {
             int[] arr = {1, 4, 3, 2, 5, 4, 3, 2, 1, 5};
-            MedianKeeperToo Keeper = new MedianKeeperToo();
+            MedianKeeper2 Keeper = new MedianKeeper2();
             for (int I = 0; I < arr.length; I++)
             {
                 Keeper.add(arr[I]);
@@ -22,11 +22,11 @@ public class MedianKeeperToo {
          // 
          {
             
-            int K = 1000;
+            int K = 100;
             while (K-- >= 10)
             {
-                List<Integer> RandomShuffled = TestingStuff.getShuffled((int)1e+5, 1000);
-                MedianKeeperToo Keeper = new MedianKeeperToo();
+                List<Integer> RandomShuffled = TestingStuff.getShuffled((int)1e+4, 500);
+                MedianKeeper2 Keeper = new MedianKeeper2();
                 for (int I = 0; I < K; I++)
                 {
                     Keeper.add(RandomShuffled.get(I));
