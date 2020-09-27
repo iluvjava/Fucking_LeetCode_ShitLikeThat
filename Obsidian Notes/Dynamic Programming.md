@@ -10,6 +10,7 @@
 	* Longest Common Substring Between 2 Strings: [[Common Child]]
 	* Maximal of all Continous Subarray: [[Sliding Window Maximum]]
 	* Find Maximal sum of Continuous sub array: [[Maximal Subarray]]
+	* Finding the shortest contiguous substring containing a given sequence: [[Minimum Window Subsequence]]
 
 ## Introduction
 

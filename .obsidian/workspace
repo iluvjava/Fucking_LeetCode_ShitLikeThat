@@ -6,7 +6,7 @@
       {
         "id": "6c20d8f3e7145f6b",
         "type": "leaf",
-        "dimension": 44.63243873978996,
+        "dimension": 46.70926517571885,
         "active": true,
         "state": {
           "type": "markdown",
@@ -20,12 +20,12 @@
       {
         "id": "ee38458a186bfcb1",
         "type": "split",
-        "dimension": 55.36756126021003,
+        "dimension": 53.29073482428115,
         "children": [
           {
             "id": "50b8776978a9d9fa",
             "type": "leaf",
-            "dimension": 68.5615848406546,
+            "dimension": 57.243460764587525,
             "state": {
               "type": "markdown",
               "state": {
@@ -38,7 +38,7 @@
           {
             "id": "a21955a139c42570",
             "type": "leaf",
-            "dimension": 31.43841515934539,
+            "dimension": 42.756539235412475,
             "state": {
               "type": "localgraph",
               "state": {
@@ -83,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 314.0121879577637
+    "width": 390
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -112,14 +112,14 @@
   },
   "lastOpenFiles": [
     "Obsidian Notes/Dynamic Programming.md",
-    "Obsidian Notes/Depth First Search.md",
+    "LeetCodes/problems/Minimum Window Subsequence (WIP)/Minimum Window Subsequence.md",
+    "Obsidian Notes/START.md",
     "Obsidian Notes/Mathematical Exploits.md",
     "Obsidian Notes/Linked List.md",
+    "Obsidian Notes/Depth First Search.md",
     "Obsidian Notes/Multi-set.md",
     "Obsidian Notes/Queue.md",
     "Obsidian Notes/Stack.md",
-    "Obsidian Notes/Stackify Recursive Functions.md",
-    "Obsidian Notes/START.md",
-    "Obsidian Notes/Graph Algorithms.md"
+    "Obsidian Notes/Stackify Recursive Functions.md"
   ]
 }

@@ -1,11 +1,12 @@
+package WellTestedDataStructre;
 import java.util.TreeMap;
 
 class MedianKeeper
 {
-    int Larger;
-    int LessThanOrEqual;
-    TreeMap<Integer, Integer> Min = new TreeMap<>();
-    TreeMap<Integer, Integer> Max = new TreeMap<>();
+    protected int Larger;
+    protected int LessThanOrEqual;
+    protected TreeMap<Integer, Integer> Min = new TreeMap<>();
+    protected TreeMap<Integer, Integer> Max = new TreeMap<>();
      
     public double getMedian()
     {
@@ -144,4 +145,5 @@ class MedianKeeper
         Sb.append(Max.toString());
         return Sb.toString();
     }
+
 }
