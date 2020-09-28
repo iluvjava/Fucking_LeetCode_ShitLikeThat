@@ -4,48 +4,48 @@
     "type": "split",
     "children": [
       {
-        "id": "6c20d8f3e7145f6b",
+        "id": "03abea270866abbf",
         "type": "leaf",
-        "dimension": 48.53041695146958,
+        "dimension": 47.300068352699924,
         "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "LeetCodes/problems/Validate Stack Sequences/Validate Stack Sequences.md",
+            "file": "LeetCodes/problems/String Transform into Another String/String Transform into Another String.md",
             "mode": "source"
           }
         },
-        "group": "4a4ca8ba20efbea5"
+        "group": "522bb6df96507f22"
       },
       {
-        "id": "c017000fb5681200",
+        "id": "0af042fecb6215c0",
         "type": "split",
-        "dimension": 51.469583048530424,
+        "dimension": 52.699931647300076,
         "children": [
           {
-            "id": "50b8776978a9d9fa",
+            "id": "71280f2cce4591cf",
             "type": "leaf",
-            "dimension": 53.48837209302325,
+            "dimension": 70.4225352112676,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LeetCodes/problems/Validate Stack Sequences/Validate Stack Sequences.md",
+                "file": "LeetCodes/problems/String Transform into Another String/String Transform into Another String.md",
                 "mode": "preview"
               }
             },
-            "group": "4a4ca8ba20efbea5"
+            "group": "522bb6df96507f22"
           },
           {
-            "id": "3cb579b0c7060be5",
+            "id": "dbb57ec8238a9561",
             "type": "leaf",
-            "dimension": 46.51162790697674,
+            "dimension": 29.577464788732392,
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "LeetCodes/problems/Validate Stack Sequences/Validate Stack Sequences.md"
+                "file": "LeetCodes/problems/String Transform into Another String/String Transform into Another String.md"
               }
             },
-            "group": "4a4ca8ba20efbea5"
+            "group": "522bb6df96507f22"
           }
         ],
         "direction": "horizontal"
@@ -83,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 397.5121879577637
+    "width": 368
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "LeetCodes/problems/Validate Stack Sequences/Validate Stack Sequences.md"
+                "file": "LeetCodes/problems/String Transform into Another String/String Transform into Another String.md"
               }
             }
           }
@@ -111,15 +111,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "LeetCodes/problems/Validate Stack Sequences/Untitled.md",
-    "Obsidian Notes/Transitivity.md",
-    "LeetCodes/problems/Median of Two Sorted Arrays/Untitled.md",
+    "LeetCodes/problems/String Transform into Another String/String Transform into Another String.md",
+    "Obsidian Notes/Graph Algorithms.md",
+    "Obsidian Notes/Data Structures/Array.md",
     "Obsidian Notes/Strings.md",
+    "LeetCodes/problems/String Transform into Another String/Untitled.md",
+    "Obsidian Notes/Transitivity.md",
+    "LeetCodes/problems/Median of Two Sorted Arrays/Median of Two Sorted Arrays.md",
     "Obsidian Notes/Mathematical Exploits.md",
-    "Obsidian Notes/Data Structures/Union Find.md",
-    "Obsidian Notes/Untitled.md",
     "Obsidian Notes/START.md",
-    "LeetCodes/problems/Largest-Number/Largest Number.md",
-    "Obsidian Notes/Graph Algorithms.md"
+    "Obsidian Notes/Data Structures/Multi-set.md"
   ]
 }

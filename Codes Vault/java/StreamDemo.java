@@ -3,7 +3,6 @@ import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.*;
 
-
 /**
  *   This is gonna be another demo for the method.
  */

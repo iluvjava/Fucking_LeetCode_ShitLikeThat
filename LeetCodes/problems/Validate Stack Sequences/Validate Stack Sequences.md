@@ -26,6 +26,7 @@ Output: false
 Explanation: 1 cannot be popped before 2.
 
 ```
+
 ### Brain Storming
 * I don't think there are better way than just making an algorithm that cleverly pop, push elements from the inputs, and assess the conditions, it's like doing an experiement. 
 
@@ -40,4 +41,6 @@ Explanation: 1 cannot be popped before 2.
 		return false
 	return true		
 ```
+
+
 

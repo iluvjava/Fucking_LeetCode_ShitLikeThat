@@ -2,7 +2,7 @@
 
 * Sometimes, the problem as as to manipuate or determin something about a sequences of symbols, and this is what we are interested in. 
 
-* Counting the number of special string in a sequence. 
+* Letters Frequencies Tuples
 	* This probelm is concered with counting string with even length such that, all the characters are the same OR string of odd length where, the middle character is different, while all other characters are the same. 
 	* [[Special String Again]]
 

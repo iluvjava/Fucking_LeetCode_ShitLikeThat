@@ -8,7 +8,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.lang.System;
 
 /**
  * A trie class better querying from a set of strings. * This is not token

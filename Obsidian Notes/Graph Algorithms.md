@@ -25,6 +25,13 @@
 		* Data Structure got used: [[Heap, Priority Queue]]
 	* A*: Spatial Greedy Path
 
+* Turtle and Hare Cycle Detection
+	* Given a function that is a mapping from its domain to the domain itself. 
+		* Determine whether there is a cycle
+		* Find the cycle length if there is
+		* Find the starting point of the cycle. 
+	* This algorithm has its first application of looking for the period, and the starting point of the cycle in a psuedo random number generator efficiently. 
+
 ### Kruskal Algorithm of Minimum Spanning Tree
 * Algorithm leverage the usage of a special type of data structure call: "Union find" or "Disjoint Set". 
 	* This is used for the algorithm to union set of vertices together to keep track of the connected tree in the graph while adding edges. 

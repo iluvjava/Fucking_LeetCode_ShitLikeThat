@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 class Solution
@@ -9,25 +7,29 @@ class Solution
     {
         int[] Pushed = new int[]{1, 2, 3, 4, 5};
         int[] Popped = new int[]{4, 5, 3, 2, 1}; 
-        validateStackOperations(Pushed, Popped);
-    }
+        System.out.println(validateStackOperations(Pushed, Popped));
+        Pushed = new int[]{1, 2, 3, 4, 5};
+        Popped = new int[]{3, 2, 1, 4, 5};
+        System.out.println(validateStackOperations(Pushed, Popped));
 
+    }
 
     public static boolean validateStackOperations(int[] pushed, int[] popped)
     {
-        Queue<Integer> Pushed = new LinkedList<>();
-        Queue<Integer> Popped = new LinkedList<>();
+        // Queue<Integer> Popped = new LinkedList<>();
+        int J = 0;
         Stack<Integer> TheStack = new Stack<>();
-        while (!Pushed.isEmpty())
+        for (int I : pushed)
         {
-            Pushed.add(Pushed.poll());
-            while (!TheStack.isEmpty() && TheStack.peek() == Popped.peek())
+            TheStack.push(I);
+            while (J < popped.length && !TheStack.isEmpty() && TheStack.peek() == popped[J])
             {
                 TheStack.pop();
-                Popped.poll();
+                J++;
             }
         }
-        return Pushed.size() + Popped.size() == 0;
+        
+        return J == popped.length;
     }
 
 }

@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.TreeMap;
-
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.lang.System;
 
 public class MedianKeeper2 {
@@ -19,7 +22,7 @@ public class MedianKeeper2 {
             System.out.println(Keeper);
         }
 
-         {
+        {
             
             int K = 100;
             while (K-- >= 10)
@@ -44,6 +47,18 @@ public class MedianKeeper2 {
                     Keeper.remove(RandomShuffled.get(I));
                     Keeper.add(RandomShuffled.get(I + K));
                 }
+            }
+        }
+
+
+        {
+
+            int[] arr = new int[]{-1, -2, -3};
+            MedianKeeper2 Keeper = new MedianKeeper2();
+            for (int I = 0; I < arr.length; I++)
+            {
+                Keeper.add(arr[I]);
+                System.out.println(Keeper.getMedian());
             }
         }
     }
@@ -90,16 +105,10 @@ public class MedianKeeper2 {
     public void add (int a)
     {
         int Total = Larger + LessThanOrEqual;
-        if (Total <= 1)
+    
+        if (Total == 0)
         {
-            if (Total == 0)
-            {
-                addToMin(a);
-            }
-            else
-            {
-                addToMax(a);
-            }
+            addToMin(a);
             return;
         }
         else
@@ -195,4 +204,33 @@ public class MedianKeeper2 {
         return Sb.toString();
     }
     
+}
+
+/**
+ * This class is for testing stuff. 
+ */
+class TestingStuff
+{
+
+    public static double medianFind(int i , int j, List<Integer> arr)
+    {
+        List<Integer> Section = IntStream.range(i, j)
+        .mapToObj
+        ((k) -> arr.get(k)).collect(Collectors.toList());
+        Collections.sort(Section);
+        int Size = Section.size();
+        double M1 = Section.get(Size/2 - 1), M2 = Section.get(Size/2);
+        return Size % 2 == 0? (M1 + M2 + 0.0)/2: M2;
+    }
+
+    public static List<Integer> getShuffled(int n, int maxElement)
+    {
+        List<Integer> Ans = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            Ans.add((int)(Math.random()*maxElement));
+        }
+        Collections.shuffle(Ans);
+        return Ans;
+    }
+
 }

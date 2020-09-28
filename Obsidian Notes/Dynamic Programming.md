@@ -22,6 +22,13 @@
   * Assume a new interval with finishing time that is beyond all elements in `A` is added, then the new solution is constructed based on all previous solution:
 	  * Name the new added interval `I_{n+1}`, find starting time, and look for the interval in `A` such that it doesn't have a direct conflict, say that one is `J` in `A`, then we have recursion that can construct new optimal solution that includes the new interval: 
 	  * `Opt[I + 1] = min(Opt[J] + W[I + 1], Opt[I])`, where `W[I]` is the weight of the new interval. 
+  * Another way to interpret the idea is to: 
+	  * When solving a full problem store the intermediate results, which might get used later in solving the problem. 
+	  * This is notable in the usage of prefix array: 
+		  * Prefix Array Max
+		  * Prefix Array Sum
+		  * Most recent occurance of the certain character to the left/right of the current letter in the string. 
+	  * Take the **Prefx Array Sum** for example, when we sum up the whole array, we will sum up the partial array, and hence, the partial sum of the and the sum of the whole array forms an optimal structure, which might be leverage to solve problem efficiently. 
 
 ## Notable Exploits
 

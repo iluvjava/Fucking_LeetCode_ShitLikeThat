@@ -15,23 +15,18 @@ class MedianKeeper
         {
             return Min.lastKey();
         }
-        int M1 = Min.lastKey(), M2 = Max.firstKey();
+        long M1 = Min.lastKey(), M2 = Max.firstKey();
         return Size % 2 == 0? (M1 + M2 + 0.0)/2 : M1;
     }
+
 
     public void add (int a)
     {
         int Total = Larger + LessThanOrEqual;
-        if (Total <= 1)
+    
+        if (Total == 0)
         {
-            if (Total == 0)
-            {
-                addToMin(a);
-            }
-            else
-            {
-                addToMax(a);
-            }
+            addToMin(a);
             return;
         }
         else
