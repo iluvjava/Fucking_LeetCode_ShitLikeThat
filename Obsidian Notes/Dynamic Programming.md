@@ -13,8 +13,7 @@
 	* Finding the shortest contiguous substring containing a given sequence: [[Minimum Window Subsequence]]
 
 ## Introduction
-
-* DP is developed during the WWII in the last century, and its central theme is the optimal structure exploitation. 
+* DP is developed during the WWII in the last century, and its central theme is the **optimal structure** exploitation. 
 * A problem is said to have optimal structure if, the the solution of the whole problem contain solutions sub-problems, where sub-problems are problems but with a smaller inputs. 
   * **For example**, consider the weighted interval scheduling problem. An interval scheduling problem gives a list of intervals on a time line, each with a specific weight associated to it, and the task is to look for the set of intervals such that, the weightis maximal and there are no conflicts to the set of intervals.
   * given the current optimal solution and soluitons to all the sub problems, and consider any additional time interval being added, such that: the new added interval's finishing time is beyond all the current interval. 
@@ -31,7 +30,7 @@
 	* define `T[I, J]:= The longest common substring between the substring a[:I + 1] and b[:J + 1]`, then we can have the following recurrcences:
 	* If the current characters for both points `I`, `J` points to the same character in both string, then: 
 		* `T[I + 1, J + 1]:= T[I, J] + 1`
-	* Else, if the character at those 2 pointers in the string are not pointing at the same character, then: 
+	* Else, if the character at those 2 pointers in the string are not pointing at the same character, then:
 		* `T[I + 1, J + 1] := max(T[I - 1, J], T[I, J - 1])`
 		* It can be extended to incorperate more operations about the string, this is exploited by the following practices problems: 
 			* [[Common Child]]
@@ -43,7 +42,6 @@
 		* Then, then stored the array can be used to speed up some of the computations, this is the exploit in the following practices problems: 
 			* [[Trapping-Rain-Water]]
 			* [[Sliding Window Maximum]]
-  
 
 ## The Approach
 * Recursion, but brute forces. 
@@ -53,7 +51,6 @@
 * Most Commonly use data structure is: "Hash Map"
 * [[Stackify Recursive Functions]]
 
-
 ## Noble Applications of Dynamic Programming
  1. Edit Distance of String
  2. Computing Hidden Markov Chain
@@ -61,7 +58,6 @@
  4. Largest Empty Square
  5. TSP: Kelp Harp Algorithm
  6. Bellman Ford Sortest Path: Edge Relaxation
-
 
 ## Divide and Conquer
 * Divided and Conquer is a special case of Dynamic programming where, we only need k, optimal soluitons, all with very similar sizes to reconstruct the solution to a larger problem. 

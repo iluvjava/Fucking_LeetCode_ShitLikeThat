@@ -19,7 +19,6 @@ public class MedianKeeper2 {
             System.out.println(Keeper);
         }
 
-         // 
          {
             
             int K = 100;

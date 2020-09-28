@@ -1,3 +1,4 @@
+package WellTestedDataStructre;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -19,32 +20,6 @@ import java.lang.System;
  */
 class Trie
 {
-
-    public static void main(String[] args)
-    {
-        {
-            Trie TheTrie = new Trie();
-            TheTrie.add("this");
-            TheTrie.add("the");
-            TheTrie.add("there");
-            System.out.println(TheTrie.traverseFromRoot());
-            TheTrie.addToQueryPrefix('t');
-            System.out.println(TheTrie.traverseFromPrefix());
-            TheTrie.addToQueryPrefix('h');
-            System.out.println(TheTrie.traverseFromPrefix());
-            TheTrie.addToQueryPrefix('e');
-            System.out.println(TheTrie.traverseFromPrefix());
-            TheTrie.deleteQueryPrefix();
-            TheTrie.deleteQueryPrefix();
-            System.out.println(TheTrie.traverseFromPrefix());
-            TheTrie.add("there is");
-            System.out.println(TheTrie.traverseFromRoot());
-        }
-
-        {
-
-        }
-    }
 
     protected Map<Character, Trie> ThisLayer = new TreeMap<>();
 
@@ -175,6 +150,7 @@ class Trie
     {
         return traverseFromPrefix(Integer.MAX_VALUE);
     }
+
    
     public Set<String> traverseFromRoot(int maxSize)
     {
@@ -211,6 +187,7 @@ class Trie
         if (InnerTree.peek() == null) return;
         InnerTree.peek().traverseFromRoot(stringPath, accumulator, maxSize);
     }
+
 
     protected void traverseFromPrefix
     (
@@ -265,5 +242,6 @@ class Trie
         Sb.append(traverseFromPrefix().toString() + "\n");
         return Sb.toString();
     }
+    
     
 }

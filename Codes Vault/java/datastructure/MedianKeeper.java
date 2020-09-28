@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 import java.lang.System;
+
 /**
  * 
  *    Keep the median of a stream of integers, in real time.
@@ -224,7 +224,6 @@ class MedianKeeper
     }
 
 }
-
 
 /**
  * This class is for testing stuff. 
