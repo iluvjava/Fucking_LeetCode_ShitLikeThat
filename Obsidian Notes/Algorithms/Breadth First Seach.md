@@ -26,4 +26,4 @@ def BFS(startingVertices, adjlist):
 * The above algorithm does a BFS and return a map: Vertices |---> Depth on the BFS tree. 
 
 ### Data Structrue
-* [[Queue]]
+* [[Queue 1]]

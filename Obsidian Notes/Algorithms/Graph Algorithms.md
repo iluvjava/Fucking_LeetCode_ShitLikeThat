@@ -14,17 +14,17 @@
 	* [[Matrix]]
 	* [[Roads and Libraries]]; This is using the porperty of MST, the actual algorithm is not used. 
 	* MST: It is the spanning subgraph with the minimum amount of edges, If any additional edges were to remove from the graph, then the graph becomes disconnected.
+	* Data Structure needed: [[Union Find]]
 * Top Sort: Topological Sorting
 	* Khan
 	* Periority Queue 
 	* DFS Reverse Backtracking
-* Path Finding
+* Shortest Path Finding
 	* Bellmand Ford: General Shortest Path
 	* Dijkstra: Greedy Path [[Greedy Algorithm]]
 		* This one is too famous, however, I didn't see it popping up in coding challenges.
 		* Data Structure got used: [[Heap, Priority Queue]]
 	* A*: Spatial Greedy Path
-
 * Turtle and Hare Cycle Detection
 	* Given a function that is a mapping from its domain to the domain itself. 
 		* Determine whether there is a cycle

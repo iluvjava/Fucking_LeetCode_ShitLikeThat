@@ -72,7 +72,6 @@ else: false
 ```
 
 
-
 * Why does the algorithm work
 	* If the mapping function is bijective, then a cycle is inevitable. 
 	* If one letter attempts to maps to multiple different letter, then the mapping is impossible.

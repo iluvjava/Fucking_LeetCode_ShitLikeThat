@@ -1,9 +1,5 @@
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.TreeMap;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.lang.System;
 
 public class MedianKeeper2 {
@@ -27,7 +23,7 @@ public class MedianKeeper2 {
             int K = 100;
             while (K-- >= 10)
             {
-                List<Integer> RandomShuffled = TestingStuff.getShuffled((int)1e+4, 500);
+                List<Integer> RandomShuffled = TestTools.getShuffled((int)1e+4, 500);
                 MedianKeeper2 Keeper = new MedianKeeper2();
                 for (int I = 0; I < K; I++)
                 {
@@ -36,7 +32,7 @@ public class MedianKeeper2 {
                 for (int I = 0; I < RandomShuffled.size() - K; I++)
                 {
                     double Median1 = Keeper.getMedian();
-                    double Median2 = TestingStuff.medianFind(I, I + K, RandomShuffled);
+                    double Median2 = TestTools.medianFind(I, I + K, RandomShuffled);
                     // System.out.println("Median1 is: " + Median1);
                     // System.out.println("Median2 is: " + Median2);
                     if (Median2 != Median1)
@@ -49,7 +45,6 @@ public class MedianKeeper2 {
                 }
             }
         }
-
 
         {
 
@@ -76,7 +71,7 @@ public class MedianKeeper2 {
         {
             return Min.lastKey();
         }
-        int M1 = Min.lastKey(), M2 = Max.firstKey();
+        long M1 = Min.lastKey(), M2 = Max.firstKey();
         return Size % 2 == 0? (M1 + M2 + 0.0)/2 : M1;
     }
 
@@ -204,33 +199,4 @@ public class MedianKeeper2 {
         return Sb.toString();
     }
     
-}
-
-/**
- * This class is for testing stuff. 
- */
-class TestingStuff
-{
-
-    public static double medianFind(int i , int j, List<Integer> arr)
-    {
-        List<Integer> Section = IntStream.range(i, j)
-        .mapToObj
-        ((k) -> arr.get(k)).collect(Collectors.toList());
-        Collections.sort(Section);
-        int Size = Section.size();
-        double M1 = Section.get(Size/2 - 1), M2 = Section.get(Size/2);
-        return Size % 2 == 0? (M1 + M2 + 0.0)/2: M2;
-    }
-
-    public static List<Integer> getShuffled(int n, int maxElement)
-    {
-        List<Integer> Ans = new ArrayList<>();
-        for (int i = 1; i <= n; i++) {
-            Ans.add((int)(Math.random()*maxElement));
-        }
-        Collections.shuffle(Ans);
-        return Ans;
-    }
-
 }
