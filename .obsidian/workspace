@@ -6,12 +6,12 @@
       {
         "id": "71280f2cce4591cf",
         "type": "leaf",
-        "dimension": 50.41605482134116,
+        "dimension": 50.41605482134117,
         "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Obsidian Notes/Data Structures/Multi-set.md",
+            "file": "Obsidian Notes/Graph and Relations.md",
             "mode": "source"
           }
         },
@@ -20,7 +20,7 @@
       {
         "id": "4777af1464dbc12f",
         "type": "split",
-        "dimension": 49.58394517865884,
+        "dimension": 49.58394517865883,
         "children": [
           {
             "id": "17f522f53fd6a079",
@@ -29,7 +29,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian Notes/Data Structures/Multi-set.md",
+                "file": "Obsidian Notes/Graph and Relations.md",
                 "mode": "preview"
               }
             },
@@ -42,7 +42,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Obsidian Notes/Data Structures/Multi-set.md",
+                "file": "Obsidian Notes/Graph and Relations.md",
                 "options": {
                   "search": "",
                   "localJumps": 1,
@@ -54,7 +54,7 @@
                   "hideUnresolved": false,
                   "showArrow": true,
                   "nodeSizeMultiplier": 0.474220921726408,
-                  "lineSizeMultiplier": 1,
+                  "lineSizeMultiplier": 2.15304234134567,
                   "centerStrength": 0.313199665831245,
                   "repelStrength": 9.68421052631579,
                   "linkStrength": 0.788002926115582,
@@ -101,7 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345.0121879577637
+    "width": 312.0121879577637
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -117,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian Notes/Data Structures/Multi-set.md"
+                "file": "Obsidian Notes/Graph and Relations.md"
               }
             }
           }
@@ -129,15 +129,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "Obsidian Notes/Graph and Relations.md",
+    "Untitled 1.md",
+    "Obsidian Notes/Graphs.md",
+    "Obsidian Notes/Greedy Algorithm.md",
+    "Obsidian Notes/Mathematical Exploits.md",
     "Obsidian Notes/Data Structures/Multi-set.md",
     "Obsidian Notes/Data Structures/Trie.md",
-    "Obsidian Notes/Graph and Relations.md",
-    "Obsidian Notes/Mathematical Exploits.md",
-    "Obsidian Notes/Greedy Algorithm.md",
-    "Obsidian Notes/Graphs.md",
     "Obsidian Notes/Transitivity.md",
     "Obsidian Notes/Regex.md",
-    "Obsidian Notes/Data Structures/Union Find.md",
-    "LinkedList.md"
+    "Obsidian Notes/Data Structures/Union Find.md"
   ]
 }

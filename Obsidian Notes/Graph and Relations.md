@@ -64,6 +64,8 @@
 	* $\cup, \cap, \oplus$ is just element wise boolean operations on matrices for $S, R$. 
 	* Exponetial and composition of relations are literally matrices multiplications on the relational matrix, but all the operations on the field are replaced with boolean operators, unless the results are explicitly not wanted as another boolean matrix. 
 
+---
+
 #### Theorem 1 (Transitivity and Exponential)
 * $R$ on $A\times A$ is transitive $\iff$ $R^n\subseteq R\quad \forall\; n\in \mathbb{N}$
 	* The proof is by induction and follows directly from the definition of transitivty, super easy. 
@@ -92,8 +94,25 @@
 		*  $R^*$ is transitive because if $(a, b)\in R^*$ then there eixsts a path from $a$ to $b$, and $(b, c)\in R$ then there eixsts a path from $b$ to $c$, hence there eixsts a path from $a$ to $c$.
 		*  Let $S$ be a transitive relation containing $R$, then $\forall n \in \mathbb{N}\;S^n \subseteq S$ and $S^*\subseteq S$; By hypothesis we know that $R\subseteq S$, which means that $R^*\subseteq S^*$, which means that $R^*\subseteq S^*\subseteq S$, hence, any transitive relations containing $R$  will contain $R^*$. 
 		*  Notice that, we discuss the case $R^*$ as an infinite union of $R^n$ under the context of relations, but under the context of graph, it's perfectly fine to reduce it to $R^* = R^{|V|}$, because if it's longer than that then there is gonna be cycles in the path, which makes it a walk instead of a path. 
-	* Given a matrix representation of the transitive relation of $R$, say $M$, we can use the boolean matrix to compute the transitive closure of the graph, simply by doing: $\bigvee_{k = 1}^n M^k$
+	* Given a matrix representation of a finite transitive relation of $R$, say $M$, we can use the boolean matrix to compute the transitive closure of the graph, simply by doing: $\bigvee_{k = 1}^n M^k$
+	* Using the naive matrix multiplication, we can get the complexity for the transitive closure algorithm as: $\mathcal{O}(n^4)$
 
+---
+#### Warshall's Algorithm
+* An efficient algorithm for computing transitive closure for finite relations
+* **Interior Vertices of Path:** All vertices that are not part of the starting and ending vertex on the graph.
+* Let's take a closer look, beginning by denoting the boolean relational matrix $W_p$ for the relation $R^p$ 
+	* Lemma: 
+		$$(W_p)_{i, j} =(W_{p - 1})_{i, j} \vee 
+		\left(
+			(W_{p - 1})_{i, k} 
+			\wedge
+			(W_{p - 1})_{k, j}
+		\right)$$
+	* There eixists a path with a length of at most $k$ between the vertices indexed by $i, j$ iff there already eists a path with length $k - 1$ or the case that: 
+		* There eixsts a vertex indexed by $k$ such that, there is a path with length at most $k-1$ that goes through $k$ from $i$ to $j$. 
+		* By transitive closure, the second case doesn't include paths longer than $k$; $R_{p - 1}\subseteq R_{p}$
+---
 ### N-ary Relations
 * $R$ on $A_1\times A_2\times A_3...\times A_n$, then $R$ is a set tuples with size $n$ where $n$ is going to be called the dimension of the relation. 
 	* This is getting close the the territory of Relation Databases.
