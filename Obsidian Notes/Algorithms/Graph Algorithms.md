@@ -21,7 +21,7 @@
 	* DFS Reverse Backtracking
 * Shortest Path Finding
 	* Bellmand Ford: General Shortest Path
-	* Floyd Warshall's Shortest Path: General Shortest Path
+	* [[Floyd Warshall Path]]: General Shortest Path
 	* Dijkstra: Greedy Path [[Greedy Algorithm]]: Positive Edge weight
 		* This one is too famous, however, I didn't see it popping up in coding challenges.
 		* Data Structure got used: [[Heap, Priority Queue]]
@@ -45,3 +45,12 @@
 * Path Finding: 
 	* Bellmand Ford + Dijkstra
 * Shortest Path on DAG
+
+
+## Misc
+
+* Foyd Cycel Detection
+* This algorithm is really smart and I want to talk about it. 
+	* Phase I: identify the cycle
+	* Phase II: Find the starting point of the cycle
+	* Phase III: Identify the length of the cycle

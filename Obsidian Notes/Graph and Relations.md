@@ -116,11 +116,15 @@
 		\right)$$
 	* There eixists a path with a length of at most $k$ between the vertices indexed by $i, j$ iff there already eists a path with length $k - 1$ or the case that: 
 		* There eixsts a vertex indexed by $k$ such that, there is a path with length at most $k-1$ that goes through $k$ from $i$ to $j$. 
-		* By transitive closure, the second case doesn't include paths longer than $k$; $R_{p - 1}\subseteq R_{p}$
+		* By transitive closure, the second case doesn't include paths longer than $k$; $R_{p - 1}\subseteq R_{p}$, or using vertex outside of the set of interior vertices.
 	* Using this lemma, we can compute $W_p$ with only $W_{p-1}$, reducing the complexity of $\bigvee$ for all the matrices. 
 * Psuodo Codes: ![[Warshall Algorithm.png]] *from: Discrete Mathematics and its Applications*
 * Outter loop executes n times, and the nested inner loops executes $n^2$, giving a complexity of $O(n^3)$ 
 * This is related to one of the graph algorithms for finding the shortest path called "Floyd Warshall's Shortest Path algorithm", [[Graph Algorithms]]
+
+
+#### Partial Ordering
+
 ---
 ### N-ary Relations
 * $R$ on $A_1\times A_2\times A_3...\times A_n$, then $R$ is a set tuples with size $n$ where $n$ is going to be called the dimension of the relation. 

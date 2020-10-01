@@ -25,7 +25,7 @@
           {
             "id": "17f522f53fd6a079",
             "type": "leaf",
-            "dimension": 62.52285191956124,
+            "dimension": 49.4967978042086,
             "state": {
               "type": "markdown",
               "state": {
@@ -38,7 +38,7 @@
           {
             "id": "bfc839689536fdaa",
             "type": "leaf",
-            "dimension": 37.47714808043875,
+            "dimension": 50.503202195791395,
             "state": {
               "type": "localgraph",
               "state": {
@@ -53,13 +53,13 @@
                   "showAttachments": false,
                   "hideUnresolved": false,
                   "showArrow": true,
-                  "nodeSizeMultiplier": 0.474220921726408,
-                  "lineSizeMultiplier": 2.15304234134567,
-                  "centerStrength": 0.313199665831245,
-                  "repelStrength": 9.68421052631579,
+                  "nodeSizeMultiplier": 0.760364075228804,
+                  "lineSizeMultiplier": 1.76963693050387,
+                  "centerStrength": 0.166951624258272,
+                  "repelStrength": 8.74585135271045,
                   "linkStrength": 0.788002926115582,
                   "linkDistance": 165,
-                  "scale": 1.0000000000000027
+                  "scale": 0.7384930490343251
                 }
               }
             },
@@ -101,8 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 312.0121879577637,
-    "collapsed": true
+    "width": 312.0121879577637
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -131,14 +130,14 @@
   },
   "lastOpenFiles": [
     "Obsidian Notes/Graph and Relations.md",
+    "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
     "Obsidian Notes/Algorithms/Graph Algorithms.md",
+    "Obsidian Notes/START.md",
+    "Obsidian Notes/Regex.md",
+    "Obsidian Notes/Greedy Algorithm.md",
+    "Obsidian Notes/Algorithms/Untitled.md",
     "Obsidian Notes/Graphs.md",
     "Obsidian Notes/Mathematical Exploits.md",
-    "Obsidian Notes/Greedy Algorithm.md",
-    "Pasted image 20200930180506.png",
-    "Pasted image 20200927224117.png",
-    "Obsidian Notes/START.md",
-    "Obsidian Notes/Algorithms/Depth First Search.md",
-    "Obsidian Notes/Regex.md"
+    "Pasted image 20200930180506.png"
   ]
 }
