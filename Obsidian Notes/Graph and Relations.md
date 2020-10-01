@@ -47,6 +47,7 @@
 
 #### Representation of Relations
 * Matrices, boolean matrices
+	* $(M_R)_{i, j} = bool((i, j)\in R)$
 * Digraph
 
 #### Algebra With Relations
@@ -96,6 +97,10 @@
 		*  Notice that, we discuss the case $R^*$ as an infinite union of $R^n$ under the context of relations, but under the context of graph, it's perfectly fine to reduce it to $R^* = R^{|V|}$, because if it's longer than that then there is gonna be cycles in the path, which makes it a walk instead of a path. 
 	* Given a matrix representation of a finite transitive relation of $R$, say $M$, we can use the boolean matrix to compute the transitive closure of the graph, simply by doing: $\bigvee_{k = 1}^n M^k$
 	* Using the naive matrix multiplication, we can get the complexity for the transitive closure algorithm as: $\mathcal{O}(n^4)$
+	* Psuedo Codes
+	![[Transitive Closure.png]] *Image from: Discrete Mathematics and it's Application 9.4 Transitive closure*
+	Note: The $\odot$ is the binary matrix multiplications
+
 
 ---
 #### Warshall's Algorithm
@@ -112,6 +117,10 @@
 	* There eixists a path with a length of at most $k$ between the vertices indexed by $i, j$ iff there already eists a path with length $k - 1$ or the case that: 
 		* There eixsts a vertex indexed by $k$ such that, there is a path with length at most $k-1$ that goes through $k$ from $i$ to $j$. 
 		* By transitive closure, the second case doesn't include paths longer than $k$; $R_{p - 1}\subseteq R_{p}$
+	* Using this lemma, we can compute $W_p$ with only $W_{p-1}$, reducing the complexity of $\bigvee$ for all the matrices. 
+* Psuodo Codes: ![[Warshall Algorithm.png]] *from: Discrete Mathematics and its Applications*
+* Outter loop executes n times, and the nested inner loops executes $n^2$, giving a complexity of $O(n^3)$ 
+* This is related to one of the graph algorithms for finding the shortest path called "Floyd Warshall's Shortest Path algorithm", [[Graph Algorithms]]
 ---
 ### N-ary Relations
 * $R$ on $A_1\times A_2\times A_3...\times A_n$, then $R$ is a set tuples with size $n$ where $n$ is going to be called the dimension of the relation. 
@@ -122,7 +131,6 @@
 		* Composite Key: Combinations of Domains that unique identify the n-tuples.
 	* **Extension**: The current collection of N tuples, (keys might got removed)
 	* **Degree**: The length of the tuples in the database.
-
 
 ### Relational Databases
 * Operations on relational data bases. 

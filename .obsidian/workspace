@@ -6,7 +6,7 @@
       {
         "id": "71280f2cce4591cf",
         "type": "leaf",
-        "dimension": 50.41605482134117,
+        "dimension": 44.971098265895954,
         "active": true,
         "state": {
           "type": "markdown",
@@ -20,12 +20,12 @@
       {
         "id": "4777af1464dbc12f",
         "type": "split",
-        "dimension": 49.58394517865883,
+        "dimension": 55.02890173410404,
         "children": [
           {
             "id": "17f522f53fd6a079",
             "type": "leaf",
-            "dimension": 58.57019810508183,
+            "dimension": 62.52285191956124,
             "state": {
               "type": "markdown",
               "state": {
@@ -38,7 +38,7 @@
           {
             "id": "bfc839689536fdaa",
             "type": "leaf",
-            "dimension": 41.42980189491817,
+            "dimension": 37.47714808043875,
             "state": {
               "type": "localgraph",
               "state": {
@@ -59,7 +59,7 @@
                   "repelStrength": 9.68421052631579,
                   "linkStrength": 0.788002926115582,
                   "linkDistance": 165,
-                  "scale": 0.7132754626224432
+                  "scale": 1.0000000000000027
                 }
               }
             },
@@ -101,7 +101,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 312.0121879577637
+    "width": 312.0121879577637,
+    "collapsed": true
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -130,14 +131,14 @@
   },
   "lastOpenFiles": [
     "Obsidian Notes/Graph and Relations.md",
-    "Untitled 1.md",
+    "Obsidian Notes/Algorithms/Graph Algorithms.md",
     "Obsidian Notes/Graphs.md",
-    "Obsidian Notes/Greedy Algorithm.md",
     "Obsidian Notes/Mathematical Exploits.md",
-    "Obsidian Notes/Data Structures/Multi-set.md",
-    "Obsidian Notes/Data Structures/Trie.md",
-    "Obsidian Notes/Transitivity.md",
-    "Obsidian Notes/Regex.md",
-    "Obsidian Notes/Data Structures/Union Find.md"
+    "Obsidian Notes/Greedy Algorithm.md",
+    "Pasted image 20200930180506.png",
+    "Pasted image 20200927224117.png",
+    "Obsidian Notes/START.md",
+    "Obsidian Notes/Algorithms/Depth First Search.md",
+    "Obsidian Notes/Regex.md"
   ]
 }

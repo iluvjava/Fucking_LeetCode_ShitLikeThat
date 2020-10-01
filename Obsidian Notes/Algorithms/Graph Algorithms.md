@@ -21,10 +21,11 @@
 	* DFS Reverse Backtracking
 * Shortest Path Finding
 	* Bellmand Ford: General Shortest Path
-	* Dijkstra: Greedy Path [[Greedy Algorithm]]
+	* Floyd Warshall's Shortest Path: General Shortest Path
+	* Dijkstra: Greedy Path [[Greedy Algorithm]]: Positive Edge weight
 		* This one is too famous, however, I didn't see it popping up in coding challenges.
 		* Data Structure got used: [[Heap, Priority Queue]]
-	* A*: Spatial Greedy Path
+	* A*: Spatial Greedy Path: Points in Space
 * Turtle and Hare Cycle Detection
 	* Given a function that is a mapping from its domain to the domain itself. 
 		* Determine whether there is a cycle
