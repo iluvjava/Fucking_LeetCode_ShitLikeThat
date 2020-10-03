@@ -148,8 +148,12 @@ Partial Ordering as a graph:
 	* Antisymmetric: Trivial
 	* Transitive: Trivial
 * $|$ with $\mathbb{Z}_+$
-	* 
+	* $\forall a \in \mathbb{Z}_+ \;a|a$ is True
+	* Assume $(a|b) \wedge (b|a)$ then $a = mb$ and $b = na$ where $m, n \in \mathbb{Z}_+$, which is $a = mnb$ giving us $mn = 1$ hence $a = b$ meaning that the relation is anti-symmetric. 
+	* $a|b \wedge b|c$, meaning that $a = bm \wedge b = nc$ where $m, n\in \mathbb{Z}_+$, this will mean that $a = mnc$, and $mn\in \mathbb{Z}_+$, resulting in $a|c$ and then the relation will be transitive. 
+	* The relation is not total ordered because there eixsts 2 elements that are not comparable, $4\not{|}\;7$ and $7\not{|}4$
 * $\subseteq$ with $\mathcal{P}(S)$ 
+	* For this case, we assume that the set $S$  is finite. 
 
 ---
 ### N-ary Relations

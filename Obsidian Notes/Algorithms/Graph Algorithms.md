@@ -20,8 +20,8 @@
 	* Periority Queue 
 	* DFS Reverse Backtracking
 * Shortest Path Finding
-	* Bellmand Ford: General Shortest Path
-	* [[Floyd Warshall Path]]: General Shortest Path
+	* Bellmand Ford: General Shortest Path from `s` to `t`
+	* [[Floyd Warshall Path]]: General Shortest Path for all pairs
 	* Dijkstra: Greedy Path [[Greedy Algorithm]]: Positive Edge weight
 		* This one is too famous, however, I didn't see it popping up in coding challenges.
 		* Data Structure got used: [[Heap, Priority Queue]]

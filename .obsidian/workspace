@@ -6,12 +6,11 @@
       {
         "id": "71280f2cce4591cf",
         "type": "leaf",
-        "dimension": 58.333333333333336,
-        "active": true,
+        "dimension": 49.35400516795866,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Obsidian Notes/Data Structures/Clever Use of Data structures.md",
+            "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
             "mode": "source"
           }
         },
@@ -20,17 +19,18 @@
       {
         "id": "4777af1464dbc12f",
         "type": "split",
-        "dimension": 41.66666666666667,
+        "dimension": 50.64599483204134,
         "children": [
           {
             "id": "17f522f53fd6a079",
             "type": "leaf",
-            "dimension": 64.48692152917505,
+            "dimension": 68.10865191146881,
+            "active": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian Notes/Data Structures/Clever Use of Data structures.md",
-                "mode": "source"
+                "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
+                "mode": "preview"
               }
             },
             "group": "e3b5c2c38e5ab15d"
@@ -38,11 +38,11 @@
           {
             "id": "fc4df486a1070d32",
             "type": "leaf",
-            "dimension": 35.51307847082495,
+            "dimension": 31.891348088531185,
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Obsidian Notes/Data Structures/Clever Use of Data structures.md",
+                "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
                 "options": {
                   "search": "",
                   "localJumps": 1,
@@ -59,7 +59,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 1.4019828977761069
+                  "scale": 0.7132754626224455
                 }
               }
             },
@@ -101,7 +101,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 312.0121879577637
+    "width": 312.0121879577637,
+    "collapsed": true
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -117,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian Notes/Data Structures/Clever Use of Data structures.md"
+                "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md"
               }
             }
           }
@@ -129,15 +130,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
+    "Obsidian Notes/Algorithms/Graph Algorithms.md",
+    "Obsidian Notes/Graph and Relations.md",
+    "Obsidian Notes/Algorithms/Depth First Search.md",
+    "LeetCodes/amazon focus/Critical-Connection-in-a-Network-(WIP)/Critical Connection in a Network.md",
+    "Obsidian Notes/START.md",
+    "Obsidian Notes/Data Structures/Hash Map.md",
     "Obsidian Notes/Data Structures/Clever Use of Data structures.md",
     "Obsidian Notes/Data Structures/Linked List.md",
-    "LinkedList.md",
-    "Untitled.md",
-    "Queue 1.md",
-    "Obsidian Notes/Graph and Relations.md",
-    "Obsidian Notes/Graphs.md",
-    "HackerRank/problems/Triple-Sum/Triple-Sum.md",
-    "Codes Vault/Code Vault.md",
-    "Obsidian Notes/Data Structures/Union Find.md"
+    "LinkedList.md"
   ]
 }
