@@ -1,4 +1,4 @@
-package datastructure.WellTestedDataStructre;
+package WellTestedDataStructure;
 import java.util.TreeMap;
 
 class MedianKeeper

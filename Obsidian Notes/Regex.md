@@ -1,4 +1,7 @@
 ## Regex
+
+Formal Languages and shit like that
+
 --------------------------------------------------------------------------------------
 ### Regular Expressions
 * If $A$, $B$ are regular expressions, then so are: 

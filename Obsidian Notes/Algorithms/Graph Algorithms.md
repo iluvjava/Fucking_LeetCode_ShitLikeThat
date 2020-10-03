@@ -16,7 +16,7 @@
 	* MST: It is the spanning subgraph with the minimum amount of edges, If any additional edges were to remove from the graph, then the graph becomes disconnected.
 	* Data Structure needed: [[Union Find]]
 * Top Sort: Topological Sorting
-	* Khan
+	* Khan Top Sort
 	* Periority Queue 
 	* DFS Reverse Backtracking
 * Shortest Path Finding
@@ -26,6 +26,7 @@
 		* This one is too famous, however, I didn't see it popping up in coding challenges.
 		* Data Structure got used: [[Heap, Priority Queue]]
 	* A*: Spatial Greedy Path: Points in Space
+	* Johnson's Shortest Path: Bellmand Ford + Dijkstra algorithm with pontential graph and path conversin
 * Turtle and Hare Cycle Detection
 	* Given a function that is a mapping from its domain to the domain itself. 
 		* Determine whether there is a cycle
@@ -43,13 +44,15 @@
 * Network Flow: Ford Fulkerson
 	* Max Bipartile Matching
 * Path Finding: 
-	* Bellmand Ford + Dijkstra
-* Shortest Path on DAG
+	* Augmentation of above algorithms and applications of those algorithms 
+* Perfect Matching
+* NP-Hard Graph Problems
+	* TSP
 
 
 ## Misc
 
-* Foyd Cycel Detection
+* Foyd Cycle Detection
 * This algorithm is really smart and I want to talk about it. 
 	* Phase I: identify the cycle
 	* Phase II: Find the starting point of the cycle

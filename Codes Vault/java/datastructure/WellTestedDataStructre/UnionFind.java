@@ -1,4 +1,4 @@
-package WellTestedDataStructre;
+package datastructure.WellTestedDataStructre;
 import java.util.HashMap;
 import java.util.Map;
 

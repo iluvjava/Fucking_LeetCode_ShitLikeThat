@@ -1,4 +1,4 @@
-package datastructure;
+package WellTestedDataStructure;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,20 +13,6 @@ public class UnionFind<T> {
 
     public static void main(String[] args)
     {
-        System.out.println("This shit is running");
-        UnionFind<Integer> Uf = new UnionFind<>();
-        for (int I = 0; I < 5; I++)
-        {
-            Uf.add(I + 1);
-        }
-        Uf.join(2, 5); Uf.join(3, 4);
-        TestTools.assertTrue(()-> {return Uf.get(2) == 5;});
-        TestTools.assertTrue(()-> {return Uf.get(5) == 5;}); 
-        TestTools.assertTrue(() -> {return Uf.get(3) == 4;}); 
-        TestTools.assertTrue(()-> Uf.get(4) == 4);
-        Uf.join(5, 1);
-        TestTools.assertTrue(()-> Uf.get(2) == 1 && Uf.get(5) == 1);
-        System.out.println("This shit finished running. ");
 
     }
 

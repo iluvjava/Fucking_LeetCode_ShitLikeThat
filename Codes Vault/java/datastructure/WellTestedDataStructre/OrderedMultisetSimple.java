@@ -1,4 +1,4 @@
-package WellTestedDataStructre;
+package datastructure.WellTestedDataStructre;
 
 import java.util.List;
 import java.util.TreeMap;

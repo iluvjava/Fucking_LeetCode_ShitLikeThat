@@ -4,8 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
-
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - OrderedMultisetSimple",
+            "request": "launch",
+            "mainClass": "datastructure.OrderedMultisetSimple",
+            "projectName": "java_383da173"
+        },
         {
             "name": ".NET Core Launch (console)",
             "type": "coreclr",
