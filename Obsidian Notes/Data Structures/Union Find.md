@@ -10,3 +10,5 @@
 
 * This data structure almost exclusively serves for the Kruskal's Minimum Spanning tree algorithm. 
 
+* This data structure has been implemented in both python and java, and it's under the directory of [[Code Vault]]
+

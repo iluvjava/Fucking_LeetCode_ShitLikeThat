@@ -21,7 +21,7 @@
 
 ### Practices Problems
 
-* Maximal Number of Intervals can be Scheduled
+* Maximal Number of Intervals can be Scheduled: Canonical
 * [[Greedy Flourist]]
 * [[Reverse Shuffle Merge]]
 * [[Luck Balance]]

@@ -1,11 +1,11 @@
 ## Exploiting Data Structures
-
+Or data structure specific problems
 ## Unordered
 * [[Array]]
 * [[Hash Map]]
 * [[Stack]]
 * [[Queue]]
-* [[LinkedList]]
+* [[Linked List]]
 * [[Multi-set]]
 * [[Union Find]]
 * [[Trie]]

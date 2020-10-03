@@ -124,7 +124,32 @@
 
 
 #### Partial Ordering
-* 
+Def: A Partial Ordering is a relation where it's: 
+* Reflexive: $(a, a)\in R \quad \forall a\in A$
+* Antisymmetric $(a, b)\in R \wedge (b, a)\in R \implies a = b$
+* Transitive $(a, b), (b, c)\in R \implies (a, c)\in R$
+#### Total Ordered
+* First it has to be a Partial Order
+* Every 2 elements in the set is comparable, then $(a, b)$ means $a\prec b$, 
+* Another equivalent definition is: 
+	* Every Non-empty subsets has a least element. If not, then there eists a subset of $T\subset S$, such that there are 2 elements in $T$ that are not comparable. 
+
+#### Poset
+* if, $\exists \; a,b \in R : (a, b)\not\in R \wedge (b,a)\not\in R$ and $R$ is a relation with all above properties of partial ordering, then, the set is called a: **poset**. Those 2 elements are called : *incomparable*
+
+Partial Ordering as a graph: 
+* Self edge for each vertex. 
+* There is only one directed edge between each pair of vertices in the graph. 
+* The graph is a DAG when all self edges are removed. 
+
+##### Examples of Partial Ordering
+* $\geq$ with $\mathbb{Z}$
+	* Reflexive: Trivial 
+	* Antisymmetric: Trivial
+	* Transitive: Trivial
+* $|$ with $\mathbb{Z}_+$
+	* 
+* $\subseteq$ with $\mathcal{P}(S)$ 
 
 ---
 ### N-ary Relations

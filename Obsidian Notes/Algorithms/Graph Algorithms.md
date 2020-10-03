@@ -34,7 +34,7 @@
 	* This algorithm has its first application of looking for the period, and the starting point of the cycle in a psuedo random number generator efficiently. 
 
 ### Kruskal Algorithm of Minimum Spanning Tree
-* Algorithm leverage the usage of a special type of data structure call: "Union find" or "Disjoint Set". 
+* Algorithm leverage the usage of a special type of data structure call: "Union find" or "Disjoint Set". see [[Union Find]]
 	* This is used for the algorithm to union set of vertices together to keep track of the connected tree in the graph while adding edges. 
 	* This is the pivotal problem that spawn the idea of a **Matroid**. 
 	* This is a [[Greedy Algorithm]], where, we sort all the edges in the graph and then we add them to the graph while keeping all the connected components on the graph to be a Tree.

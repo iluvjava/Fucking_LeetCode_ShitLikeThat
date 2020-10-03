@@ -6,12 +6,12 @@
       {
         "id": "71280f2cce4591cf",
         "type": "leaf",
-        "dimension": 44.971098265895954,
+        "dimension": 58.333333333333336,
         "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Obsidian Notes/Graph and Relations.md",
+            "file": "Obsidian Notes/Data Structures/Clever Use of Data structures.md",
             "mode": "source"
           }
         },
@@ -20,46 +20,46 @@
       {
         "id": "4777af1464dbc12f",
         "type": "split",
-        "dimension": 55.02890173410404,
+        "dimension": 41.66666666666667,
         "children": [
           {
             "id": "17f522f53fd6a079",
             "type": "leaf",
-            "dimension": 64.50137236962489,
+            "dimension": 64.48692152917505,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian Notes/Graph and Relations.md",
-                "mode": "preview"
+                "file": "Obsidian Notes/Data Structures/Clever Use of Data structures.md",
+                "mode": "source"
               }
             },
             "group": "e3b5c2c38e5ab15d"
           },
           {
-            "id": "bfc839689536fdaa",
+            "id": "fc4df486a1070d32",
             "type": "leaf",
-            "dimension": 35.49862763037511,
+            "dimension": 35.51307847082495,
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Obsidian Notes/Graph and Relations.md",
+                "file": "Obsidian Notes/Data Structures/Clever Use of Data structures.md",
                 "options": {
                   "search": "",
                   "localJumps": 1,
                   "localBacklinks": true,
                   "localForelinks": true,
-                  "localInterlinks": true,
+                  "localInterlinks": false,
                   "showTags": false,
                   "showAttachments": false,
                   "hideUnresolved": false,
                   "showArrow": true,
-                  "nodeSizeMultiplier": 0.760364075228804,
-                  "lineSizeMultiplier": 1.76963693050387,
-                  "centerStrength": 0.166951624258272,
-                  "repelStrength": 8.74585135271045,
-                  "linkStrength": 0.788002926115582,
-                  "linkDistance": 165,
-                  "scale": 0.7384930490343251
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 1.4019828977761069
                 }
               }
             },
@@ -117,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian Notes/Graph and Relations.md"
+                "file": "Obsidian Notes/Data Structures/Clever Use of Data structures.md"
               }
             }
           }
@@ -129,15 +129,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "Obsidian Notes/Data Structures/Clever Use of Data structures.md",
+    "Obsidian Notes/Data Structures/Linked List.md",
+    "LinkedList.md",
+    "Untitled.md",
+    "Queue 1.md",
     "Obsidian Notes/Graph and Relations.md",
-    "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
-    "Obsidian Notes/Algorithms/Graph Algorithms.md",
-    "Obsidian Notes/START.md",
-    "Obsidian Notes/Regex.md",
-    "Obsidian Notes/Greedy Algorithm.md",
-    "Obsidian Notes/Algorithms/Untitled.md",
     "Obsidian Notes/Graphs.md",
-    "Obsidian Notes/Mathematical Exploits.md",
-    "Pasted image 20200930180506.png"
+    "HackerRank/problems/Triple-Sum/Triple-Sum.md",
+    "Codes Vault/Code Vault.md",
+    "Obsidian Notes/Data Structures/Union Find.md"
   ]
 }
