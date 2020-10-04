@@ -6,12 +6,12 @@
       {
         "id": "71280f2cce4591cf",
         "type": "leaf",
-        "dimension": 48.26923076923077,
+        "dimension": 46.21794871794872,
         "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
+            "file": "Obsidian Notes/Data Structures/Array.md",
             "mode": "source"
           }
         },
@@ -20,16 +20,16 @@
       {
         "id": "4777af1464dbc12f",
         "type": "split",
-        "dimension": 51.73076923076923,
+        "dimension": 53.78205128205128,
         "children": [
           {
             "id": "17f522f53fd6a079",
             "type": "leaf",
-            "dimension": 39.33601609657948,
+            "dimension": 64.6881287726358,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
+                "file": "Obsidian Notes/Data Structures/Array.md",
                 "mode": "preview"
               }
             },
@@ -38,14 +38,14 @@
           {
             "id": "fc4df486a1070d32",
             "type": "leaf",
-            "dimension": 60.66398390342053,
+            "dimension": 35.311871227364186,
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
+                "file": "Obsidian Notes/Data Structures/Array.md",
                 "options": {
                   "search": "",
-                  "localJumps": 2,
+                  "localJumps": 5,
                   "localBacklinks": true,
                   "localForelinks": true,
                   "localInterlinks": false,
@@ -59,7 +59,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.508761885579263
+                  "scale": 0.16926361075903665
                 }
               }
             },
@@ -101,8 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -118,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md"
+                "file": "Obsidian Notes/Data Structures/Array.md"
               }
             }
           }
@@ -130,15 +129,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
-    "Obsidian Notes/Algorithms/Graph Algorithms.md",
-    "Obsidian Notes/Algorithms/Bellmand Ford.md",
-    "Obsidian Notes/Algorithms/Dynamic Programming.md",
-    "Obsidian Notes/Algorithms/Untitled.md",
-    "Obsidian Notes/Graphs/Closure.md",
+    "Obsidian Notes/Data Structures/Array.md",
+    "Obsidian Notes/Data Structures/Hash Map.md",
+    "HackerRank/problems/Minimum-Swaps-2/Minimum Swaps 2.md",
+    "Obsidian Notes/Algorithms/Breadth First Seach.md",
+    "Obsidian Notes/START.md",
+    "Obsidian Notes/Data Structures/Queue.md",
+    "Obsidian Notes/Data Structures/Stack.md",
+    "Queue 1.md",
     "Obsidian Notes/Graphs/Graph and Relations.md",
-    "Obsidian Notes/Graphs/Ordering.md",
-    "Obsidian Notes/Graphs/Graphs.md",
-    "Obsidian Notes/Graphs/Untitled.md"
+    "Obsidian Notes/Graphs/Graphs.md"
   ]
 }

@@ -1,6 +1,4 @@
 package graph;
-
-
 import java.util.*;
 
 /**
@@ -21,14 +19,30 @@ public class WeightedDigraph extends Digraph {
 
     public WeightedDigraph()
     {
+        this(0);
+    }
+
+    public WeightedDigraph(int size)
+    {
+        super(size);
         EdgeToWeight = new HashMap<>();
         OutGoingEdges = new TreeMap<>();
         IncomingEdges = new TreeMap<>();
     }
 
 
+    /**
+     * If no weights specified then the weights are set to 0 by default
+     * @param v
+     * @param u
+     * @return
+     * Nothing
+     */
+    @Override
+    public void addEdge(int v, int u) {
+        super.addEdge(v, u);
 
-
+    }
 
 
 }
