@@ -13,12 +13,16 @@ public class WeightedEdge extends Edge implements Comparable<WeightedEdge>{
         return (int) Math.signum(this.Weight - o.Weight);
     }
 
+    /**
+     * edges that goes from u to v with different weights are equal, hence, no multiple edges supported
+     * for graph using this type of weighted edge.
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o)
     {
-        if (!super.equals(o))return false;
-        WeightedEdge OtherEdge = (WeightedEdge) o;
-        return OtherEdge.Weight == Weight;
+        return super.equals(o);
     }
 
 }
