@@ -6,12 +6,12 @@
       {
         "id": "71280f2cce4591cf",
         "type": "leaf",
-        "dimension": 54.35483870967742,
+        "dimension": 48.84615384615385,
         "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Obsidian Notes/Algorithms/Graph Algorithms.md",
+            "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
             "mode": "source"
           }
         },
@@ -20,16 +20,16 @@
       {
         "id": "4777af1464dbc12f",
         "type": "split",
-        "dimension": 45.645161290322584,
+        "dimension": 51.153846153846146,
         "children": [
           {
             "id": "17f522f53fd6a079",
             "type": "leaf",
-            "dimension": 43.7625754527163,
+            "dimension": 52.51509054325956,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian Notes/Algorithms/Graph Algorithms.md",
+                "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
                 "mode": "preview"
               }
             },
@@ -38,11 +38,11 @@
           {
             "id": "fc4df486a1070d32",
             "type": "leaf",
-            "dimension": 56.2374245472837,
+            "dimension": 47.48490945674044,
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Obsidian Notes/Algorithms/Graph Algorithms.md",
+                "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
                 "options": {
                   "search": "",
                   "localJumps": 1,
@@ -101,8 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 312.0121879577637,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
@@ -118,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian Notes/Algorithms/Graph Algorithms.md"
+                "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md"
               }
             }
           }
@@ -130,15 +129,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
     "Obsidian Notes/Algorithms/Graph Algorithms.md",
+    "Obsidian Notes/Algorithms/Bellmand Ford.md",
+    "Obsidian Notes/Algorithms/Dynamic Programming.md",
+    "Obsidian Notes/Algorithms/Untitled.md",
     "Obsidian Notes/Graphs/Closure.md",
     "Obsidian Notes/Graphs/Graph and Relations.md",
-    "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
     "Obsidian Notes/Graphs/Ordering.md",
     "Obsidian Notes/Graphs/Graphs.md",
-    "Obsidian Notes/Graphs/Untitled.md",
-    "Obsidian Notes/Mathematical Exploits.md",
-    "Obsidian Notes/Transitivity.md",
-    "Obsidian Notes/Regex.md"
+    "Obsidian Notes/Graphs/Untitled.md"
   ]
 }

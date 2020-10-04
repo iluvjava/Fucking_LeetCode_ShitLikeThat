@@ -1,6 +1,7 @@
 ## Intro
 * This algorithm looks for the shortest path on a weighted digraph for all pairs of number, and it has a complexity of $O(N^3)$
 * This algorithm is inspired by the idea of Transitive Closure in [[Graph and Relations]]. 
+* This algorithm also uses the design paradigm for algorithm: [[Dynamic Programming]]
 * [Wiki link](https://www.wikiwand.com/en/Floyd%E2%80%93Warshall_algorithm)
 ### Agorithm
 * Denote w(i, j) to be the weight of the edge (i, j)
