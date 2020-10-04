@@ -6,7 +6,7 @@
       {
         "id": "71280f2cce4591cf",
         "type": "leaf",
-        "dimension": 48.84615384615385,
+        "dimension": 48.26923076923077,
         "active": true,
         "state": {
           "type": "markdown",
@@ -20,12 +20,12 @@
       {
         "id": "4777af1464dbc12f",
         "type": "split",
-        "dimension": 51.153846153846146,
+        "dimension": 51.73076923076923,
         "children": [
           {
             "id": "17f522f53fd6a079",
             "type": "leaf",
-            "dimension": 52.51509054325956,
+            "dimension": 39.33601609657948,
             "state": {
               "type": "markdown",
               "state": {
@@ -38,14 +38,14 @@
           {
             "id": "fc4df486a1070d32",
             "type": "leaf",
-            "dimension": 47.48490945674044,
+            "dimension": 60.66398390342053,
             "state": {
               "type": "localgraph",
               "state": {
                 "file": "Obsidian Notes/Algorithms/Floyd Warshall Path.md",
                 "options": {
                   "search": "",
-                  "localJumps": 1,
+                  "localJumps": 2,
                   "localBacklinks": true,
                   "localForelinks": true,
                   "localInterlinks": false,
@@ -59,7 +59,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.7132754626224475
+                  "scale": 0.508761885579263
                 }
               }
             },
@@ -101,7 +101,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "fe5e6ae59cbfaa68",
