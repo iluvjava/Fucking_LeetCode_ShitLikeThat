@@ -96,6 +96,24 @@ public class Digraph
         return IncomingEdges.get(u).size();
     }
 
+    /**
+     *
+     * @return
+     */
+    public String toString()
+    {
+        // TODO: IMPLEMENT THIS SHIT
+        StringBuilder Sb = new StringBuilder();
+        switch (GraphSettingsManager.Setting)
+        {
+            case GRAPHVIZ:
+                return "";
+            case JSON:
+                return "";
+        }
+        return "";
+    }
+
 }
 
 
